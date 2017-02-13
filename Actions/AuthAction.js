@@ -2,6 +2,11 @@ import { AsyncStorage } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { EMAIL_CHANGED, PASSWORD_CHANGED, LOGIN_USER_SUCCESS, LOGIN_USER_FAIL } from './Types';
 
+import { EMAIL_CHANGED,
+       PASSWORD_CHANGED,
+       LOGIN_USER_SUCCESS,
+        LOGIN_USER_FAIL } from './Types';
+//my change
 export const emailChanged = (text) => {
     return {
         type: EMAIL_CHANGED,
