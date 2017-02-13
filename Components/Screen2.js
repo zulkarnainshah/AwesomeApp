@@ -6,36 +6,36 @@ import { Card, CardSection, Button } from './Common';
 
 class Screen2 extends Component {
 
-  onSignInButtonPress() {
+    onSignInButtonPress() {
         Actions.signIn();
-     }
-  onSignUpButtonPress() {
-    Actions.signUp();
-  }
+    }
+    onSignUpButtonPress() {
+        Actions.signUp();
+    }
 
-  render() {
-     return (
-             <Card>
-            <CardSection>
-                        <Text>please sign in </Text>
-            </CardSection>
-            <CardSection>
-                          <Button onPress={this.onSignUpButtonPress.bind(this)}>
-                               signup
-                        </Button>
-           </CardSection>
-            <CardSection>
-                        <Button onPress={this.onSignInButtonPress.bind(this)}>
-                               signin
-                         </Button>
-             </CardSection >
-
-
-             </Card>
+    render() {
+        return (
+            <Card>
+                <CardSection>
+                    <Text>please sign in </Text>
+                </CardSection>
+                <CardSection>
+                    <Button onPress={this.onSignUpButtonPress.bind(this)}>
+                        signup
+                    </Button>
+                </CardSection>
+                <CardSection>
+                    <Button onPress={this.onSignInButtonPress.bind(this)}>
+                        signin
+                    </Button>
+                </CardSection >
 
 
-       );
-  }
+            </Card>
+
+
+        );
+    }
 
 }
- export default Screen2;
+export default Screen2;

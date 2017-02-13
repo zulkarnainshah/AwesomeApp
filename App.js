@@ -5,16 +5,16 @@ import ReduxThunk from 'redux-thunk';
 import Router from './Router';
 import reducers from './Reducers';
 
- class App extends Component {
+class App extends Component {
 
-  render() {
-    return (
-<Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
-        <Router />
-  </Provider>
-       );
-  }
+    render() {
+        return (
+            <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
+                <Router />
+            </Provider>
+        );
+    }
 
 
-  }
+}
 export default App;
