@@ -5,7 +5,7 @@ import { Actions } from 'react-native-router-flux';
 import { Card, CardSection, Input, Button, Tabs } from './Common';
 import { createUser, saveUserDetails } from '../Actions/CreateUser';
 
-class Screen4 extends Component {
+class SignUpScreen extends Component {
 
  onButtonPress() {
   const { firstname, username, password, middlename, lastname } = this.props;
@@ -18,6 +18,7 @@ class Screen4 extends Component {
  onSignUpButtonPress() {
    Actions.signUp({ type: 'reset' });
  }
+ 
 
  render() {
           return (
@@ -112,4 +113,4 @@ const mapStateToProps = state => {
  };
 
 
-export default connect(mapStateToProps, { createUser, saveUserDetails })(Screen4);
+export default connect(mapStateToProps, { createUser, saveUserDetails })(SignUpScreen);

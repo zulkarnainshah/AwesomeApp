@@ -5,7 +5,7 @@ import { Text } from 'react-native';
 import { Card, CardSection, Input, Button, Tabs } from './Common';
 import { emailChanged, passwordChanged, loginUser } from '../Actions';
 
-class Screen3 extends Component {
+class SignInScreen extends Component {
 
   onEmaiChange(text) {
    this.props.emailChanged(text);
@@ -17,6 +17,7 @@ class Screen3 extends Component {
       const { email, password } = this.props;
       this.props.loginUser({ email, password });
     }
+    
     onSignInButtonPress() {
           Actions.signIn({ type: 'reset' });
        }
@@ -84,4 +85,4 @@ const mapStateToProps = state => {
   };
 
 
-export default connect(mapStateToProps, { emailChanged, passwordChanged, loginUser })(Screen3);
+export default connect(mapStateToProps, { emailChanged, passwordChanged, loginUser })(SignInScreen);

@@ -4,7 +4,7 @@ import { Text } from 'react-native';
 import { Card, CardSection, Button } from './Common';
 
 
-class Screen2 extends Component {
+class LandingScreen extends Component {
 
   onSignInButtonPress() {
         Actions.signIn({ type: 'reset' });
@@ -12,6 +12,7 @@ class Screen2 extends Component {
   onSignUpButtonPress() {
     Actions.signUp({ type: 'reset' });
   }
+  
 
   render() {
      return (
@@ -38,4 +39,4 @@ class Screen2 extends Component {
   }
 
 }
- export default Screen2;
+export default LandingScreen;
