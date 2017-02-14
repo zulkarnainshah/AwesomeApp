@@ -1,24 +1,62 @@
-import { AsyncStorage } from 'react-native';
-import { Actions } from 'react-native-router-flux';
-import { CREATE_USER } from './Types';
+import {
+    Actions
+} from 'react-native-router-flux';
+import {
+    CREATE_USER,
+    USER_SIGNUP_FAILED
+} from './Types';
 
-export const createUser = ({ prop, value }) => {
+var API_ENDPOINT = 'https://server-dev1.mywardrobe.space/api/v1/signup';
+export const createUser = ({
+    prop,
+    value
+}) => {
     return {
         type: CREATE_USER,
-        payload: { prop, value }
+        payload: {
+            prop,
+            value
+        }
     };
 };
 
-export const saveUserDetails = ({ firstname, username, password, middlename, lastname }) => {
-    return () => {
-        AsyncStorage.setItem('firstname', firstname);
+export const saveUserDetails = ({
+    firstname,
+    username,
+    password,
+    lastname
+}) => {
+    return (dispatch) => {
+        fetch(API_ENDPOINT, {
+                method: "POST",
+                headers: {
 
-        AsyncStorage.setItem('username', username);
-        AsyncStorage.setItem('password', password);
-        console.log('are we here');
-        AsyncStorage.setItem('middlename', middlename);
-        AsyncStorage.setItem('lastname', lastname);
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
 
-        Actions.signIn();
+                body: JSON.stringify({
+                    "email": username,
+                    "password": password,
+                    "firstname": firstname,
+                    "lastname": lastname
+                })
+
+
+            })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                console.log(responseJson);
+                const createdUserId = responseJson.id_token;
+                if (createdUserId == null) {
+                   createUserFailed(dispatch);
+                 }
+                  else {
+                Actions.signIn();
+               }
+            })
     };
+};
+const createUserFailed = (dispatch) => {
+    dispatch({ type: USER_SIGNUP_FAILED });
 };
