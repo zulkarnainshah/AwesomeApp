@@ -70698,18 +70698,18 @@ exports['default']=thunk;
 }, 441, null, "redux-thunk/lib/index.js");
 __d(/* WardrobeUI/Router.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
 var _reactNativeRouterFlux=require(443                       ); // 443 = react-native-router-flux
-var _Screen=require(490                   );var _Screen2=babelHelpers.interopRequireDefault(_Screen); // 490 = ./Components/Screen2
-var _Screen3=require(499                   );var _Screen4=babelHelpers.interopRequireDefault(_Screen3); // 499 = ./Components/Screen3
-var _Screen5=require(504                   );var _Screen6=babelHelpers.interopRequireDefault(_Screen5); // 504 = ./Components/Screen4
+var _LandingScreen=require(490                         );var _LandingScreen2=babelHelpers.interopRequireDefault(_LandingScreen); // 490 = ./Components/LandingScreen
+var _SignInScreen=require(499                        );var _SignInScreen2=babelHelpers.interopRequireDefault(_SignInScreen); // 499 = ./Components/SignInScreen
+var _SignUpScreen=require(504                        );var _SignUpScreen2=babelHelpers.interopRequireDefault(_SignUpScreen); // 504 = ./Components/SignUpScreen
 var _HomeScreen=require(505                      );var _HomeScreen2=babelHelpers.interopRequireDefault(_HomeScreen); // 505 = ./Components/HomeScreen
 
 var RouterComponent=function RouterComponent(){
 
 return(
 _react2.default.createElement(_reactNativeRouterFlux.Router,{sceneStyle:{paddingTop:150}},
-_react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'startpage',component:_Screen2.default,title:'welcome'}),
-_react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'signUp',component:_Screen6.default,title:'Signup'}),
-_react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'signIn',component:_Screen4.default,title:'signin'}),
+_react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'startpage',component:_LandingScreen2.default,title:'welcome'}),
+_react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'signUp',component:_SignUpScreen2.default,title:'Signup'}),
+_react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'signIn',component:_SignInScreen2.default,title:'signin'}),
 _react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'homeScreen',component:_HomeScreen2.default,title:'My Wardrobe'})));
 
 
@@ -76295,13 +76295,13 @@ selector:_react.PropTypes.func,
 statem:_react.PropTypes.any,
 unmountScenes:_react.PropTypes.bool};
 }, 489, null, "react-native-router-flux/src/Switch.js");
-__d(/* WardrobeUI/Components/Screen2.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
+__d(/* WardrobeUI/Components/LandingScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
 var _reactNativeRouterFlux=require(443                       ); // 443 = react-native-router-flux
 var _reactNative=require(42            ); // 42 = react-native
 var _Common=require(491       );var // 491 = ./Common
 
 
-Screen2=function(_Component){babelHelpers.inherits(Screen2,_Component);function Screen2(){babelHelpers.classCallCheck(this,Screen2);return babelHelpers.possibleConstructorReturn(this,(Screen2.__proto__||Object.getPrototypeOf(Screen2)).apply(this,arguments));}babelHelpers.createClass(Screen2,[{key:'onSignInButtonPress',value:function onSignInButtonPress()
+LandingScreen=function(_Component){babelHelpers.inherits(LandingScreen,_Component);function LandingScreen(){babelHelpers.classCallCheck(this,LandingScreen);return babelHelpers.possibleConstructorReturn(this,(LandingScreen.__proto__||Object.getPrototypeOf(LandingScreen)).apply(this,arguments));}babelHelpers.createClass(LandingScreen,[{key:'onSignInButtonPress',value:function onSignInButtonPress()
 
 {
 _reactNativeRouterFlux.Actions.signIn({type:'reset'});
@@ -76309,6 +76309,7 @@ _reactNativeRouterFlux.Actions.signIn({type:'reset'});
 {
 _reactNativeRouterFlux.Actions.signUp({type:'reset'});
 }},{key:'render',value:function render()
+
 
 {
 return(
@@ -76332,11 +76333,11 @@ _react2.default.createElement(_Common.Button,{onPress:this.onSignInButtonPress.b
 
 
 
-}}]);return Screen2;}(_react.Component);exports.default=
+}}]);return LandingScreen;}(_react.Component);exports.default=
 
 
-Screen2;
-}, 490, null, "WardrobeUI/Components/Screen2.js");
+LandingScreen;
+}, 490, null, "WardrobeUI/Components/LandingScreen.js");
 __d(/* WardrobeUI/Components/Common/index.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _Button=require(492       );Object.keys(_Button).forEach(function(key){if(key==="default"||key==="__esModule")return;Object.defineProperty(exports,key,{enumerable:true,get:function get(){return _Button[key];}});});var _Card=require(493     ); // 493 = ./Card // 492 = ./Button
 Object.keys(_Card).forEach(function(key){if(key==="default"||key==="__esModule")return;Object.defineProperty(exports,key,{enumerable:true,get:function get(){return _Card[key];}});});var _CardSection=require(494            ); // 494 = ./CardSection
 Object.keys(_CardSection).forEach(function(key){if(key==="default"||key==="__esModule")return;Object.defineProperty(exports,key,{enumerable:true,get:function get(){return _CardSection[key];}});});var _Header=require(495       ); // 495 = ./Header
@@ -76578,14 +76579,14 @@ marginRight:5}};exports.
 
 Tabs=Tabs;
 }, 498, null, "WardrobeUI/Components/Common/Tabs.js");
-__d(/* WardrobeUI/Components/Screen3.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
+__d(/* WardrobeUI/Components/SignInScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
 var _reactRedux=require(404          ); // 404 = react-redux
 var _reactNativeRouterFlux=require(443                       ); // 443 = react-native-router-flux
 var _reactNative=require(42            ); // 42 = react-native
 var _Common=require(491       ); // 491 = ./Common
 var _Actions=require(500         );var // 500 = ../Actions
 
-Screen3=function(_Component){babelHelpers.inherits(Screen3,_Component);function Screen3(){babelHelpers.classCallCheck(this,Screen3);return babelHelpers.possibleConstructorReturn(this,(Screen3.__proto__||Object.getPrototypeOf(Screen3)).apply(this,arguments));}babelHelpers.createClass(Screen3,[{key:'onEmaiChange',value:function onEmaiChange(
+SignInScreen=function(_Component){babelHelpers.inherits(SignInScreen,_Component);function SignInScreen(){babelHelpers.classCallCheck(this,SignInScreen);return babelHelpers.possibleConstructorReturn(this,(SignInScreen.__proto__||Object.getPrototypeOf(SignInScreen)).apply(this,arguments));}babelHelpers.createClass(SignInScreen,[{key:'onEmaiChange',value:function onEmaiChange(
 
 text){
 this.props.emailChanged(text);
@@ -76597,6 +76598,7 @@ this.props.passwordChanged(text);
 this.props,email=_props.email,password=_props.password;
 this.props.loginUser({email:email,password:password});
 }},{key:'onSignInButtonPress',value:function onSignInButtonPress()
+
 {
 _reactNativeRouterFlux.Actions.signIn({type:'reset'});
 }},{key:'onSignUpButtonPress',value:function onSignUpButtonPress()
@@ -76645,7 +76647,7 @@ _react2.default.createElement(_Common.Button,{onPress:this.onButtonPress.bind(th
 
 
 
-}}]);return Screen3;}(_react.Component);
+}}]);return SignInScreen;}(_react.Component);
 
 var styles={
 errorTextStyle:{
@@ -76664,8 +76666,8 @@ error:state.auth.error};
 };exports.default=
 
 
-(0,_reactRedux.connect)(mapStateToProps,{emailChanged:_Actions.emailChanged,passwordChanged:_Actions.passwordChanged,loginUser:_Actions.loginUser})(Screen3);
-}, 499, null, "WardrobeUI/Components/Screen3.js");
+(0,_reactRedux.connect)(mapStateToProps,{emailChanged:_Actions.emailChanged,passwordChanged:_Actions.passwordChanged,loginUser:_Actions.loginUser})(SignInScreen);
+}, 499, null, "WardrobeUI/Components/SignInScreen.js");
 __d(/* WardrobeUI/Actions/index.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _CreateUser=require(501           );Object.keys(_CreateUser).forEach(function(key){if(key==="default"||key==="__esModule")return;Object.defineProperty(exports,key,{enumerable:true,get:function get(){return _CreateUser[key];}});});var _AuthAction=require(503           ); // 503 = ./AuthAction // 501 = ./CreateUser
 Object.keys(_AuthAction).forEach(function(key){if(key==="default"||key==="__esModule")return;Object.defineProperty(exports,key,{enumerable:true,get:function get(){return _AuthAction[key];}});});
 }, 500, null, "WardrobeUI/Actions/index.js");
@@ -76786,6 +76788,7 @@ loginUserFail(dispatch);
 }else
 {
 loginUserSuccess(dispatch,id);
+saveIdOnLocalStorage(id);
 _reactNativeRouterFlux.Actions.homeScreen({type:'reset'});
 }
 });
@@ -76804,15 +76807,20 @@ _reactNativeRouterFlux.Actions.startpage({type:'reset'});
 var loginUserFail=function loginUserFail(dispatch){
 dispatch({type:_Types.LOGIN_USER_FAIL});
 };
+
+var saveIdOnLocalStorage=function saveIdOnLocalStorage(idToken){
+
+_reactNative.AsyncStorage.setItem('userId',idToken);
+};
 }, 503, null, "WardrobeUI/Actions/AuthAction.js");
-__d(/* WardrobeUI/Components/Screen4.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
+__d(/* WardrobeUI/Components/SignUpScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
 var _reactRedux=require(404          ); // 404 = react-redux
 var _reactNative=require(42            ); // 42 = react-native
 var _reactNativeRouterFlux=require(443                       ); // 443 = react-native-router-flux
 var _Common=require(491       ); // 491 = ./Common
 var _CreateUser=require(501                    );var // 501 = ../Actions/CreateUser
 
-Screen4=function(_Component){babelHelpers.inherits(Screen4,_Component);function Screen4(){babelHelpers.classCallCheck(this,Screen4);return babelHelpers.possibleConstructorReturn(this,(Screen4.__proto__||Object.getPrototypeOf(Screen4)).apply(this,arguments));}babelHelpers.createClass(Screen4,[{key:'onButtonPress',value:function onButtonPress()
+SignUpScreen=function(_Component){babelHelpers.inherits(SignUpScreen,_Component);function SignUpScreen(){babelHelpers.classCallCheck(this,SignUpScreen);return babelHelpers.possibleConstructorReturn(this,(SignUpScreen.__proto__||Object.getPrototypeOf(SignUpScreen)).apply(this,arguments));}babelHelpers.createClass(SignUpScreen,[{key:'onButtonPress',value:function onButtonPress()
 
 {var _props=
 this.props,firstname=_props.firstname,username=_props.username,password=_props.password,middlename=_props.middlename,lastname=_props.lastname;
@@ -76825,6 +76833,7 @@ _reactNativeRouterFlux.Actions.signIn({type:'reset'});
 {
 _reactNativeRouterFlux.Actions.signUp({type:'reset'});
 }},{key:'render',value:function render()
+
 
 {var _this2=this;
 return(
@@ -76895,7 +76904,7 @@ _react2.default.createElement(_Common.Button,{onPress:this.onButtonPress.bind(th
 
 
 
-}}]);return Screen4;}(_react.Component);
+}}]);return SignUpScreen;}(_react.Component);
 
 
 
@@ -76919,8 +76928,8 @@ middlename:state.create.middlename};
 };exports.default=
 
 
-(0,_reactRedux.connect)(mapStateToProps,{createUser:_CreateUser.createUser,saveUserDetails:_CreateUser.saveUserDetails})(Screen4);
-}, 504, null, "WardrobeUI/Components/Screen4.js");
+(0,_reactRedux.connect)(mapStateToProps,{createUser:_CreateUser.createUser,saveUserDetails:_CreateUser.saveUserDetails})(SignUpScreen);
+}, 504, null, "WardrobeUI/Components/SignUpScreen.js");
 __d(/* WardrobeUI/Components/HomeScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
 var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
 var _reactNative=require(42            ); // 42 = react-native
