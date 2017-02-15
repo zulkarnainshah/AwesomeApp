@@ -45,6 +45,7 @@ const id = responseJson.id_token;
     }
      else {
               loginUserSuccess(dispatch, id);
+               saveIdOnLocalStorage(id);
               Actions.homeScreen({ type: 'reset' });
          }
   });
@@ -63,3 +64,8 @@ const id = responseJson.id_token;
 const loginUserFail = (dispatch) => {
   dispatch({ type: LOGIN_USER_FAIL });
 };
+
+const saveIdOnLocalStorage = (idToken) => {
+
+    AsyncStorage.setItem('userId', idToken);
+ };
