@@ -70701,7 +70701,7 @@ var _reactNativeRouterFlux=require(443                       ); // 443 = react-n
 var _LandingScreen=require(490                         );var _LandingScreen2=babelHelpers.interopRequireDefault(_LandingScreen); // 490 = ./Components/LandingScreen
 var _SignInScreen=require(499                        );var _SignInScreen2=babelHelpers.interopRequireDefault(_SignInScreen); // 499 = ./Components/SignInScreen
 var _SignUpScreen=require(504                        );var _SignUpScreen2=babelHelpers.interopRequireDefault(_SignUpScreen); // 504 = ./Components/SignUpScreen
-var _HomeScreen=require(505                      );var _HomeScreen2=babelHelpers.interopRequireDefault(_HomeScreen); // 505 = ./Components/HomeScreen
+var _UserHomeScreen=require(505                          );var _UserHomeScreen2=babelHelpers.interopRequireDefault(_UserHomeScreen); // 505 = ./Components/UserHomeScreen
 
 var RouterComponent=function RouterComponent(){
 
@@ -70710,7 +70710,7 @@ _react2.default.createElement(_reactNativeRouterFlux.Router,{sceneStyle:{padding
 _react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'startpage',component:_LandingScreen2.default,title:'welcome'}),
 _react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'signUp',component:_SignUpScreen2.default,title:'Signup'}),
 _react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'signIn',component:_SignInScreen2.default,title:'signin'}),
-_react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'homeScreen',component:_HomeScreen2.default,title:'My Wardrobe'})));
+_react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'homeScreen',component:_UserHomeScreen2.default,title:'My Wardrobe'})));
 
 
 };exports.default=
@@ -76930,60 +76930,57 @@ middlename:state.create.middlename};
 
 (0,_reactRedux.connect)(mapStateToProps,{createUser:_CreateUser.createUser,saveUserDetails:_CreateUser.saveUserDetails})(SignUpScreen);
 }, 504, null, "WardrobeUI/Components/SignUpScreen.js");
-__d(/* WardrobeUI/Components/HomeScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
-var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
-var _reactNative=require(42            ); // 42 = react-native
-var _Common=require(491       );var // 491 = ./Common
-
-
-HomeScreen=function(_Component){babelHelpers.inherits(HomeScreen,_Component);
+__d(/* WardrobeUI/Components/UserHomeScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
+var _reactNative=require(42            );var // 42 = react-native
 
 
 
 
+UserHomeScreen=function(_Component){babelHelpers.inherits(UserHomeScreen,_Component);function UserHomeScreen(){var _ref;var _temp,_this,_ret;babelHelpers.classCallCheck(this,UserHomeScreen);for(var _len=arguments.length,args=Array(_len),_key=0;_key<_len;_key++){args[_key]=arguments[_key];}return _ret=(_temp=(_this=babelHelpers.possibleConstructorReturn(this,(_ref=UserHomeScreen.__proto__||Object.getPrototypeOf(UserHomeScreen)).call.apply(_ref,[this].concat(args))),_this),_this.
+state={userID:''},_temp),babelHelpers.possibleConstructorReturn(_this,_ret);}babelHelpers.createClass(UserHomeScreen,[{key:'componentWillMount',value:function componentWillMount()
 
-function HomeScreen(props){babelHelpers.classCallCheck(this,HomeScreen);var _this=babelHelpers.possibleConstructorReturn(this,(HomeScreen.__proto__||Object.getPrototypeOf(HomeScreen)).call(this,
-props));
-_this.state={image:null};return _this;
-}babelHelpers.createClass(HomeScreen,[{key:'pickImage',value:function pickImage()
+
+
+
 
 {var _this2=this;
-_reactNative.ImagePickerIOS.openSelectDialog({},function(imageUri){
-_this2.setState({image:imageUri});
-console.log('image');
-},function(error){return console.log('Error picking image or pressed Cancel');});
+
+_reactNative.AsyncStorage.getItem('userId').then(function(value){
+_this2.setState({userID:value});
+var API_ENDPOINT='https://server-dev1.mywardrobe.space/api/auth/userinfo';
+var userinfo=value;
+console.log(userinfo);
+fetch(API_ENDPOINT,{method:"GET",
+headers:{
+
+'Authorization':'Bearer '+userinfo}}).
+
+
+then(function(response){return response.json();}).
+then(function(responseJson){
+console.log(userinfo);
+console.log(responseJson);
+
+});
+
+});
+
+
 
 }},{key:'render',value:function render()
 
 {
+
 return(
-_react2.default.createElement(_reactNative.View,{style:{flex:1}},
-_react2.default.createElement(_reactNative.Text,{
-style:{
-color:'black',
-fontSize:16,
-fontWeight:"bold",
-fontFamily:'Helvetica Neue'}},'Welcome User. Pick an image by clicking the button'),
+_react2.default.createElement(_reactNative.Text,null,'hello ',this.state.userID));
+
+
+}}]);return UserHomeScreen;}(_react.Component);exports.default=
 
 
 
-_react2.default.createElement(_Common.Button,{onPress:this.pickImage.bind(this)},'Pick Image'),
-
-
-
-
-this.state.image?
-_react2.default.createElement(_reactNative.Image,{style:{flex:1},source:{uri:this.state.image}}):
-_react2.default.createElement(_reactNative.Text,null,'The image you pick will be shown here')));
-
-
-
-
-}}]);return HomeScreen;}(_react.Component);HomeScreen.propTypes={};HomeScreen.defaultProps={};exports.default=
-
-
-HomeScreen;
-}, 505, null, "WardrobeUI/Components/HomeScreen.js");
+UserHomeScreen;
+}, 505, null, "WardrobeUI/Components/UserHomeScreen.js");
 __d(/* WardrobeUI/Reducers/index.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _redux=require(415    ); // 415 = redux
 var _CreateUserReducer=require(507                  );var _CreateUserReducer2=babelHelpers.interopRequireDefault(_CreateUserReducer); // 507 = ./CreateUserReducer
 var _AuthenticationReducer=require(508                      );var _AuthenticationReducer2=babelHelpers.interopRequireDefault(_AuthenticationReducer);exports.default= // 508 = ./AuthenticationReducer

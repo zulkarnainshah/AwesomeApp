@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { AsyncStorage } from 'react-native';
 import { Text } from 'react-native';
-import { USERTOKEN } from './LocalStorage';
+
 
 
 class UserHomeScreen extends Component {
