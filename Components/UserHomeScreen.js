@@ -33,7 +33,7 @@ class UserHomeScreen extends Component {
     render(){
 
         return(
-            <Text>hello { this.state.userID }
+            <Text>Welcome User
             </Text>
         )
     }
