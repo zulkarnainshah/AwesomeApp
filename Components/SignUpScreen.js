@@ -7,110 +7,110 @@ import { createUser, saveUserDetails } from '../Actions/CreateUser';
 
 class SignUpScreen extends Component {
 
- onButtonPress() {
-  const { firstname, username, password, middlename, lastname } = this.props;
-  this.props.saveUserDetails({ firstname, username, password, middlename, lastname });
- }
-
- onSignInButtonPress() {
-       Actions.signIn({ type: 'reset' });
+    onButtonPress() {
+        const { firstname, username, password, middlename, lastname } = this.props;
+        this.props.saveUserDetails({ firstname, username, password, middlename, lastname });
     }
- onSignUpButtonPress() {
-   Actions.signUp({ type: 'reset' });
- }
- 
 
- render() {
-          return (
-                <Card>
-          <CardSection>
-                  <Tabs onPress={this.onSignInButtonPress.bind(this)}>
-                          signin
-                  </Tabs>
-                <Tabs onPress={this.onSignUpButtonPress.bind(this)}>
-                   signup
-                </Tabs>
-         </CardSection>
-          <CardSection>
+    onSignInButtonPress() {
+        Actions.signIn({ type: 'reset' });
+    }
+    onSignUpButtonPress() {
+        Actions.signUp({ type: 'reset' });
+    }
+
+
+    render() {
+        return (
+            <Card>
+                <CardSection>
+                    <Tabs onPress={this.onSignInButtonPress.bind(this)}>
+                        signin
+                    </Tabs>
+                    <Tabs onPress={this.onSignUpButtonPress.bind(this)}>
+                        signup
+                    </Tabs>
+                </CardSection>
+                <CardSection>
                     <Input
-                     label="email"
-                     placeholder="email@gmail.com"
-                     value={this.props.username}
-                     onChangeText={text => this.props.createUser({ prop: 'username', value: text })}
+                        label="email"
+                        placeholder="email@gmail.com"
+                        value={this.props.username}
+                        onChangeText={text => this.props.createUser({ prop: 'username', value: text })}
                     />
-          </CardSection>
-          <CardSection>
-                  <Input
-                    secureTextEntry
-                    label="password"
-                    placeholder="password"
-                    value={this.props.password}
-                    onChangeText={text => this.props.createUser({ prop: 'password', value: text })}
-                  />
+                </CardSection>
+                <CardSection>
+                    <Input
+                        secureTextEntry
+                        label="password"
+                        placeholder="password"
+                        value={this.props.password}
+                        onChangeText={text => this.props.createUser({ prop: 'password', value: text })}
+                    />
 
-          </CardSection>
+                </CardSection>
 
-          <CardSection>
-                   <Input
-                     label="Name"
-                      placeholder="firstname"
-                      value={this.props.firstname}
-                    onChangeText={text => this.props.createUser({ prop: 'firstname', value: text })}
-                   />
-        </CardSection>
+                <CardSection>
+                    <Input
+                        label="Name"
+                        placeholder="firstname"
+                        value={this.props.firstname}
+                        onChangeText={text => this.props.createUser({ prop: 'firstname', value: text })}
+                    />
+                </CardSection>
 
- <CardSection>
-   <Input
-     label="middlename"
-     placeholder="middlename"
-     value={this.props.middlename}
-     onChangeText={text => this.props.createUser({ prop: 'middlename', value: text })}
-   />
- </CardSection>
-
-
-  <CardSection>
-   <Input
-     label="lastname"
-     placeholder="lastname"
-     value={this.props.lastname}
-     onChangeText={text => this.props.createUser({ prop: 'lastname', value: text })}
-   />
- </CardSection>
-             <Text style={styles.errorTextStyle}>
-             {this.props.error}
-             </Text>
- <CardSection>
-      <Button onPress={this.onButtonPress.bind(this)} >
-        Create
-      </Button>
-    </CardSection>
+                <CardSection>
+                    <Input
+                        label="middlename"
+                        placeholder="middlename"
+                        value={this.props.middlename}
+                        onChangeText={text => this.props.createUser({ prop: 'middlename', value: text })}
+                    />
+                </CardSection>
 
 
-                </Card>
-           );
-        }
+                <CardSection>
+                    <Input
+                        label="lastname"
+                        placeholder="lastname"
+                        value={this.props.lastname}
+                        onChangeText={text => this.props.createUser({ prop: 'lastname', value: text })}
+                    />
+                </CardSection>
+                <Text style={styles.errorTextStyle}>
+                    {this.props.error}
+                </Text>
+                <CardSection>
+                    <Button onPress={this.onButtonPress.bind(this)} >
+                        Create
+                    </Button>
+                </CardSection>
+
+
+            </Card>
+        );
+    }
 
 
 }
 const styles = {
-  errorTextStyle: {
-    fontSize: 20,
-    alignSelf: 'center',
-    color: 'red'
-  }
+    errorTextStyle: {
+        fontSize: 20,
+        alignSelf: 'center',
+        color: 'red'
+    }
 };
 
 const mapStateToProps = state => {
-   return {
-     username: state.create.username,
-     password: state.create.password,
-     firstname: state.create.firstname,
-     lastname: state.create.lastname,
-     error: state.create.error,
-      middlename: state.create.middlename
-   };
- };
+    return {
+        username: state.create.username,
+        password: state.create.password,
+        firstname: state.create.firstname,
+        lastname: state.create.lastname,
+        error: state.create.error,
+        middlename: state.create.middlename
+    };
+};
 
 
 export default connect(mapStateToProps, { createUser, saveUserDetails })(SignUpScreen);
