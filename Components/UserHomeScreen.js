@@ -21,7 +21,6 @@ class UserHomeScreen extends Component {
                     userInfo = new UserInfo();
                     userInfo.updateValues(responseJson);
                     AsyncStorage.setItem("userInfo",JSON.stringify(userInfo),null);
-                    // console.log("SUCCESSy");
                     backInfo = AsyncStorage.getItem("userInfo").then(value);
                 })
 
