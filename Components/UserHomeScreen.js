@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { AsyncStorage } from 'react-native';
 import { Text } from 'react-native';
-<<<<<<< HEAD
 
 
-=======
+
 import UserInfo from './Models/UserInfo';
->>>>>>> master
 
 class UserHomeScreen extends Component {
     state = { userID: '' };

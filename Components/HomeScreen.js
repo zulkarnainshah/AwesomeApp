@@ -1,5 +1,5 @@
 
-import React, { Component,  NativeModules } from 'react'
+import React, { Component, } from 'react'
 import {View,Text,ImagePickerIOS,Image,} from 'react-native'
 import {Card,CardSection,Button} from './Common';
 import { AsyncStorage } from 'react-native';
@@ -18,18 +18,10 @@ class HomeScreen extends Component {
     pickImage() {
         ImagePickerIOS.openSelectDialog({}, imageUri => {
             this.setState({ image: imageUri });
-     NativeModules.ReadImageData.readImage(image.node.image.uri, (image)) => {
-
-         console.log(image);
-       });
-
-     }
             console.log('image');
         }, error => console.log('Error picking image or pressed Cancel'));
 
     }
-
-
 
     render()   {
         return   (
@@ -51,9 +43,7 @@ class HomeScreen extends Component {
                     this.state.image?
                         <Image style={{ flex: 1 }} source={{ uri: this.state.image }} /> :
                         <Text>The image you pick will be shown here</Text>
-
                 }
-
 
             </View>
         )
