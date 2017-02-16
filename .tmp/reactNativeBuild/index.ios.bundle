@@ -70701,7 +70701,7 @@ var _reactNativeRouterFlux=require(443                       ); // 443 = react-n
 var _LandingScreen=require(490                         );var _LandingScreen2=babelHelpers.interopRequireDefault(_LandingScreen); // 490 = ./Components/LandingScreen
 var _SignInScreen=require(499                        );var _SignInScreen2=babelHelpers.interopRequireDefault(_SignInScreen); // 499 = ./Components/SignInScreen
 var _SignUpScreen=require(504                        );var _SignUpScreen2=babelHelpers.interopRequireDefault(_SignUpScreen); // 504 = ./Components/SignUpScreen
-var _HomeScreen=require(505                      );var _HomeScreen2=babelHelpers.interopRequireDefault(_HomeScreen); // 505 = ./Components/HomeScreen
+var _UserHomeScreen=require(505                          );var _UserHomeScreen2=babelHelpers.interopRequireDefault(_UserHomeScreen); // 505 = ./Components/UserHomeScreen
 
 var RouterComponent=function RouterComponent(){
 
@@ -70710,16 +70710,15 @@ _react2.default.createElement(_reactNativeRouterFlux.Router,{sceneStyle:{padding
 _react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'startpage',component:_LandingScreen2.default,title:'welcome'}),
 _react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'signUp',component:_SignUpScreen2.default,title:'Signup'}),
 _react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'signIn',component:_SignInScreen2.default,title:'signin'}),
-_react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'homeScreen',component:_HomeScreen2.default,title:'My Wardrobe'})));
+_react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'homeScreen',component:_UserHomeScreen2.default,title:'My Wardrobe'})));
 
 
 };exports.default=
 RouterComponent;
 }, 442, null, "WardrobeUI/Router.js");
-__d(/* react-native-router-flux/index.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.Util=exports.getInitialState=exports.TabbedView=exports.TabBar=exports.Switch=exports.Scene=exports.Router=exports.Reducer=exports.NavBar=exports.Modal=exports.DefaultRenderer=exports.ActionConst=exports.Actions=undefined;var _Actions=require(444            );var _Actions2=babelHelpers.interopRequireDefault(_Actions); // 444 = ./src/Actions
+__d(/* react-native-router-flux/index.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.Util=exports.getInitialState=exports.TabBar=exports.Switch=exports.Scene=exports.Router=exports.Reducer=exports.NavBar=exports.Modal=exports.DefaultRenderer=exports.ActionConst=exports.Actions=undefined;var _Actions=require(444            );var _Actions2=babelHelpers.interopRequireDefault(_Actions); // 444 = ./src/Actions
 var _ActionConst=require(447                );var ActionConst=babelHelpers.interopRequireWildcard(_ActionConst); // 447 = ./src/ActionConst
 var _DefaultRenderer=require(448                    );var _DefaultRenderer2=babelHelpers.interopRequireDefault(_DefaultRenderer); // 448 = ./src/DefaultRenderer
-var _TabbedView=require(451               );var _TabbedView2=babelHelpers.interopRequireDefault(_TabbedView); // 451 = ./src/TabbedView
 var _Modal=require(485          );var _Modal2=babelHelpers.interopRequireDefault(_Modal); // 485 = ./src/Modal
 var _NavBar=require(454           );var _NavBar2=babelHelpers.interopRequireDefault(_NavBar); // 454 = ./src/NavBar
 var _Reducer=require(486            );var _Reducer2=babelHelpers.interopRequireDefault(_Reducer); // 486 = ./src/Reducer
@@ -70741,11 +70740,10 @@ Router=_Router2.default;exports.
 Scene=_Scene2.default;exports.
 Switch=_Switch2.default;exports.
 TabBar=_TabBar2.default;exports.
-TabbedView=_TabbedView2.default;exports.
 getInitialState=_State2.default;exports.
 Util=_Util2.default;
 }, 443, null, "react-native-router-flux/index.js");
-__d(/* react-native-router-flux/src/Actions.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.ActionsTest=exports.ActionMap=undefined;var _ActionMap;
+__d(/* react-native-router-flux/src/Actions.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.ActionMap=undefined;var _ActionMap;
 
 
 
@@ -70763,7 +70761,6 @@ push:ActionConst.PUSH,
 replace:ActionConst.REPLACE,
 back:ActionConst.BACK,
 BackAction:ActionConst.BACK_ACTION,
-popAndReplace:ActionConst.POP_AND_REPLACE,
 popTo:ActionConst.POP_TO,
 refresh:ActionConst.REFRESH,
 reset:ActionConst.RESET,
@@ -70774,7 +70771,6 @@ ActionConst.PUSH,ActionConst.PUSH),babelHelpers.defineProperty(_ActionMap,
 ActionConst.REPLACE,ActionConst.REPLACE),babelHelpers.defineProperty(_ActionMap,
 ActionConst.BACK,ActionConst.BACK),babelHelpers.defineProperty(_ActionMap,
 ActionConst.BACK_ACTION,ActionConst.BACK_ACTION),babelHelpers.defineProperty(_ActionMap,
-ActionConst.POP_AND_REPLACE,ActionConst.POP_AND_REPLACE),babelHelpers.defineProperty(_ActionMap,
 ActionConst.POP_TO,ActionConst.POP_TO),babelHelpers.defineProperty(_ActionMap,
 ActionConst.REFRESH,ActionConst.REFRESH),babelHelpers.defineProperty(_ActionMap,
 ActionConst.RESET,ActionConst.RESET),babelHelpers.defineProperty(_ActionMap,
@@ -70949,10 +70945,9 @@ scene){var wrapBy=arguments.length>1&&arguments[1]!==undefined?arguments[1]:func
 var refs={};
 this.iterate(scene,{},refs,wrapBy);
 return refs;
-}}]);return Actions;}();exports.
+}}]);return Actions;}();exports.default=
 
 
-ActionsTest=Actions;exports.default=
 new Actions();
 }, 444, null, "react-native-router-flux/src/Actions.js");
 __d(/* react-native-router-flux/src/Util.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.
@@ -71033,7 +71028,6 @@ var PUSH_OR_POP=exports.PUSH_OR_POP='REACT_NATIVE_ROUTER_FLUX_PUSH_OR_POP';
 var REPLACE=exports.REPLACE='REACT_NATIVE_ROUTER_FLUX_REPLACE';
 var BACK=exports.BACK='REACT_NATIVE_ROUTER_FLUX_BACK';
 var BACK_ACTION=exports.BACK_ACTION='REACT_NATIVE_ROUTER_FLUX_BACK_ACTION';
-var POP_AND_REPLACE=exports.POP_AND_REPLACE='REACT_NATIVE_ROUTER_FLUX_POP_AND_REPLACE';
 var POP_TO=exports.POP_TO='REACT_NATIVE_ROUTER_FLUX_POP_TO';
 var REFRESH=exports.REFRESH='REACT_NATIVE_ROUTER_FLUX_REFRESH';
 var RESET=exports.RESET='REACT_NATIVE_ROUTER_FLUX_RESET';
@@ -71239,9 +71233,7 @@ animationStyle=animationStyle(props);
 }
 
 if(typeof panHandlers==='undefined'){
-panHandlers=getPanHandlers?
-getPanHandlers(props,direction):
-this.getPanHandlers(direction,props);
+panHandlers=getPanHandlers?getPanHandlers(props):this.getPanHandlers(direction,props);
 }
 return(
 _react2.default.createElement(NavigationCard,babelHelpers.extends({},
@@ -71383,9 +71375,6 @@ optionals)));
 }, 448, null, "react-native-router-flux/src/DefaultRenderer.js");
 __d(/* react-native-router-flux/src/TabBar.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
 var _reactNative=require(42            ); // 42 = react-native
-
-
-
 var _reactNativeTabs=require(450                );var _reactNativeTabs2=babelHelpers.interopRequireDefault(_reactNativeTabs); // 450 = react-native-tabs
 var _DefaultRenderer=require(448                );var _DefaultRenderer2=babelHelpers.interopRequireDefault(_DefaultRenderer); // 448 = ./DefaultRenderer
 var _Actions=require(444        );var _Actions2=babelHelpers.interopRequireDefault(_Actions); // 444 = ./Actions
@@ -71393,7 +71382,6 @@ var _TabbedView=require(451           );var _TabbedView2=babelHelpers.interopReq
 var _Util=require(445     );var // 445 = ./Util
 
 TabBar=function(_Component){babelHelpers.inherits(TabBar,_Component);
-
 
 
 
@@ -71433,26 +71421,10 @@ navigationState:navigationState}));
 
 {var _this2=this;
 var state=this.props.navigationState;
-var selected=state.children[state.index];
 
-var hideTabBar=this.props.unmountScenes||
-(0,_Util.deepestExplicitValueForKey)(state,'hideTabBar')||
-this.props.hideOnChildTabs&&(0,_Util.deepestExplicitValueForKey)(selected,'tabs');
-
-var contents=
-_react2.default.createElement(_reactNativeTabs2.default,babelHelpers.extends({
-style:state.tabBarStyle,
-selectedIconStyle:state.tabBarSelectedItemStyle,
-iconStyle:state.tabBarIconContainerStyle,
-onSelect:this.onSelect},state,{
-selected:selected.sceneKey,
-pressOpacity:this.props.pressOpacity}),
-
-state.children.filter(function(el){return el.icon||_this2.props.tabIcon;}).map(function(el){
-var Icon=el.icon||_this2.props.tabIcon;
-return _react2.default.createElement(Icon,babelHelpers.extends({},_this2.props,el));
-}));
-
+var hideTabBar=this.props.unmountScenes?
+true:
+(0,_Util.deepestExplicitValueForKey)(state,'hideTabBar');
 
 return(
 _react2.default.createElement(_reactNative.View,{
@@ -71463,16 +71435,24 @@ navigationState:this.props.navigationState,
 style:{flex:1},
 renderScene:this.renderScene}),
 
-!hideTabBar&&state.children.filter(function(el){return el.icon;}).length>0&&(
-state.tabBarBackgroundImage?
-_react2.default.createElement(_reactNative.Image,{source:state.tabBarBackgroundImage},
-contents):
+!hideTabBar&&state.children.filter(function(el){return el.icon;}).length>0&&
+_react2.default.createElement(_reactNativeTabs2.default,babelHelpers.extends({
+style:state.tabBarStyle,
+selectedIconStyle:state.tabBarSelectedItemStyle,
+iconStyle:state.tabBarIconContainerStyle,
+onSelect:this.onSelect},state,{
+selected:state.children[state.index].sceneKey,
+pressOpacity:this.props.pressOpacity}),
 
-contents)));
+state.children.filter(function(el){return el.icon||_this2.props.tabIcon;}).map(function(el){
+var Icon=el.icon||_this2.props.tabIcon;
+return _react2.default.createElement(Icon,babelHelpers.extends({},_this2.props,el));
+}))));
 
 
 
-}}]);return TabBar;}(_react.Component);TabBar.propTypes={navigationState:_react.PropTypes.object,tabIcon:_react.PropTypes.any,onNavigate:_react.PropTypes.func,unmountScenes:_react.PropTypes.bool,pressOpacity:_react.PropTypes.number,hideOnChildTabs:_react.PropTypes.bool};exports.default=
+
+}}]);return TabBar;}(_react.Component);TabBar.propTypes={navigationState:_react.PropTypes.object,tabIcon:_react.PropTypes.any,onNavigate:_react.PropTypes.func,unmountScenes:_react.PropTypes.bool,pressOpacity:_react.PropTypes.number};exports.default=
 
 
 
@@ -71741,15 +71721,11 @@ var _menu_burger=require(455                );var _menu_burger2=babelHelpers.int
 var _back_chevron=require(456                 );var _back_chevron2=babelHelpers.interopRequireDefault(_back_chevron); // 456 = ./back_chevron.png
 
 var styles=_reactNative.StyleSheet.create({
-title:{
+title:babelHelpers.extends({
 textAlign:'center',
-color:'#0A0A0A',
-fontSize:18,
-width:180,
-alignSelf:'center'},
-
-titleWrapper:babelHelpers.extends({
 marginTop:10,
+fontSize:18,
+color:'#0A0A0A',
 position:'absolute'},
 _reactNative.Platform.select({
 ios:{
@@ -71781,7 +71757,7 @@ borderBottomColor:'#828287',
 position:'absolute'}),
 
 backButton:babelHelpers.extends({
-width:100,
+width:130,
 height:37,
 position:'absolute'},
 _reactNative.Platform.select({
@@ -71864,13 +71840,11 @@ backButtonTextStyle:_reactNative.Text.propTypes.style,
 leftButtonStyle:_reactNative.View.propTypes.style,
 leftButtonIconStyle:_reactNative.Image.propTypes.style,
 getTitle:_react.PropTypes.func,
-titleWrapperStyle:_reactNative.Text.propTypes.style,
 titleStyle:_reactNative.Text.propTypes.style,
 titleOpacity:_react.PropTypes.number,
 titleProps:_react.PropTypes.any,
 position:_react.PropTypes.object,
 navigationBarStyle:_reactNative.View.propTypes.style,
-navigationBarBackgroundImage:_reactNative.Image.propTypes.source,
 renderTitle:_react.PropTypes.any};
 
 
@@ -71913,7 +71887,7 @@ state.leftButtonStyle,
 childState.leftButtonStyle];
 
 
-if(state.index===0&&(!state.parentIndex||state.parentIndex===0)){
+if(state.index===0){
 return null;
 }
 
@@ -72120,17 +72094,9 @@ if(typeof title==='function'){
 title=title(childState);
 }
 return(
-_react2.default.createElement(_reactNative.Animated.View,{
-key:childState.key,
-style:[
-styles.titleWrapper,
-this.props.titleWrapperStyle]},
-
-
-_react2.default.createElement(_reactNative.Animated.Text,babelHelpers.extends({
-lineBreakMode:'tail',
-numberOfLines:1},
+_react2.default.createElement(_reactNative.Animated.Text,babelHelpers.extends({},
 this.props.titleProps,{
+key:childState.key,
 style:[
 styles.title,
 this.props.titleStyle,
@@ -72152,8 +72118,7 @@ outputRange:[-200,200]})}]}),
 
 
 
-title)));
-
+title));
 
 
 }},{key:'render',value:function render()
@@ -72187,15 +72152,6 @@ this.renderBackButton;
 var renderTitle=selected.renderTitle||
 selected.component.renderTitle||
 this.props.renderTitle;
-var navigationBarBackgroundImage=this.props.navigationBarBackgroundImage||
-state.navigationBarBackgroundImage;
-var contents=
-_react2.default.createElement(_reactNative.View,null,
-renderTitle?renderTitle(navProps):state.children.map(this.renderTitle,this),
-renderBackButton(navProps)||renderLeftButton(navProps),
-renderRightButton(navProps));
-
-
 return(
 _react2.default.createElement(_reactNative.Animated.View,{
 style:[
@@ -72205,11 +72161,9 @@ state.navigationBarStyle,
 selected.navigationBarStyle]},
 
 
-navigationBarBackgroundImage?
-_react2.default.createElement(_reactNative.Image,{source:navigationBarBackgroundImage},
-contents):
-
-contents));
+renderTitle?renderTitle(navProps):state.children.map(this.renderTitle,this),
+renderBackButton(navProps)||renderLeftButton(navProps),
+renderRightButton(navProps)));
 
 
 }}]);return NavBar;}(_react2.default.Component);
@@ -75763,69 +75717,20 @@ __d(/* react-native-router-flux/src/Reducer.js */function(global, require, modul
 
 
 
+findElement=findElement;var _ActionConst=require(447            );var ActionConst=babelHelpers.interopRequireWildcard(_ActionConst);var _Actions=require(444        );var _Util=require(445     );var _State=require(487      );var _reactNative=require(42            );function checkPropertiesEqual(action,lastAction){var isEqual=true;for(var _iterator=Object.keys(action),_isArray=Array.isArray(_iterator),_i=0,_iterator=_isArray?_iterator:_iterator[typeof Symbol==='function'?Symbol.iterator:'@@iterator']();;){var _ref;if(_isArray){if(_i>=_iterator.length)break;_ref=_iterator[_i++];}else{_i=_iterator.next();if(_i.done)break;_ref=_i.value;}var key=_ref;if(['key','type','parent'].indexOf(key)===-1){if(action[key]!==lastAction[key]){isEqual=false;}}}return isEqual;}function resetHistoryStack(child){var newChild=child;newChild.index=0;child.children.map(function(el,i){if(el.initial){newChild.index=i;if(!newChild.tabs){newChild.children=[el];}}if(el.children){resetHistoryStack(el);}return newChild;});}function refreshTopChild(children,refresh){if(refresh){var topChild=children[children.length-1];return[].concat(babelHelpers.toConsumableArray(children.slice(0,-1)),[babelHelpers.extends({},topChild,refresh)]);}return children;}function inject(state,action,props,scenes){var condition=_Actions.ActionMap[action.type]===ActionConst.REFRESH?state.key===props.key||state.sceneKey===action.key:state.sceneKey===props.parent;if(!condition){if(state.children){var res=state.children.map(function(el){return inject(el,action,props,scenes);});var changed=false;var changedIndex=-1;for(var i=0;i<res.length;i++){if(res[i]!==state.children[i]){changed=true;changedIndex=i;break;}}return changed?babelHelpers.extends({},state,{children:res,index:changedIndex}):state;}return state;}var ind=void 0;switch(_Actions.ActionMap[action.type]){case ActionConst.POP_TO:{var targetIndex=action.targetIndex;return babelHelpers.extends({},state,{index:targetIndex,children:refreshTopChild(state.children.slice(0,targetIndex+1),action.refresh)});}case ActionConst.BACK:case ActionConst.BACK_ACTION:{(0,_Util.assert)(!state.tabs,'pop() operation cannot be run on tab bar (tabs=true)');if(_reactNative.Platform.OS==='android'){(0,_Util.assert)(state.index>0,'You are already in the root scene.');}if(state.index===0){return state;}var popNum=1;if(action.popNum){(0,_Util.assert)(typeof action.popNum==='number','The data is the number of scenes you want to pop, it must be Number');popNum=action.popNum;(0,_Util.assert)(popNum%1===0,'The data is the number of scenes you want to pop, it must be integer.');(0,_Util.assert)(popNum>1,'The data is the number of scenes you want to pop, it must be bigger than 1.');(0,_Util.assert)(popNum<=state.index,'The data is the number of scenes you want to pop, '+"it must be smaller than scenes stack's length.");}return babelHelpers.extends({},state,{index:state.index-popNum,from:state.children[state.children.length-popNum],children:refreshTopChild(state.children.slice(0,-1*popNum),action.refresh)});}case ActionConst.REFRESH:return props.base?babelHelpers.extends({navBar:state.navBar},scenes.rootProps,props,{key:state.key,from:null}):babelHelpers.extends({},state,props,{key:state.key,from:null});case ActionConst.PUSH_OR_POP:ind=state.children.findIndex(function(el){return el.sceneKey===action.key;});if(ind!==-1){return babelHelpers.extends({},state,{index:ind,from:state.children[state.index],children:refreshTopChild(state.children.slice(0,ind+1),action.refresh)});}return babelHelpers.extends({},state,{index:state.index+1,from:null,children:[].concat(babelHelpers.toConsumableArray(state.children),[(0,_State.getInitialState)(props,scenes,state.index+1,action)])});case ActionConst.PUSH:if(state.children[state.index].sceneKey===action.key&&!props.clone&&checkPropertiesEqual(action,state.children[state.index])){return state;}return babelHelpers.extends({},state,{index:state.index+1,from:null,children:[].concat(babelHelpers.toConsumableArray(state.children),[(0,_State.getInitialState)(props,scenes,state.index+1,action)])});case ActionConst.JUMP:(0,_Util.assert)(state.tabs,'Parent='+state.key+' is not tab bar, jump action is not valid');ind=-1;state.children.forEach(function(c,i){if(c.sceneKey===action.key){ind=i;}});(0,_Util.assert)(ind!==-1,'Cannot find route with key='+action.key+' for parent='+state.key);if(action.unmountScenes){resetHistoryStack(state.children[ind]);}return babelHelpers.extends({},state,{index:ind});case ActionConst.REPLACE:if(state.children[state.index].sceneKey===action.key){return state;}state.children[state.children.length-1]=(0,_State.getInitialState)(props,scenes,state.index,action);return babelHelpers.extends({},state,{children:state.children});case ActionConst.RESET:if(state.children[state.index].sceneKey===action.key){return state;}state.children=state.children.splice(0,1);state.children[0]=(0,_State.getInitialState)(props,scenes,state.index,action);return babelHelpers.extends({},state,{index:0,from:null,children:state.children});default:return state;}}function findElement(state,key,type){ // 42 = react-native // 487 = ./State // 445 = ./Util // 444 = ./Actions // 447 = ./ActionConst
+if(_Actions.ActionMap[type]===ActionConst.REFRESH&&state.key===key||state.sceneKey===key){
+return state;
+}
+if(state.children){
+for(var _iterator2=state.children,_isArray2=Array.isArray(_iterator2),_i2=0,_iterator2=_isArray2?_iterator2:_iterator2[typeof Symbol==='function'?Symbol.iterator:'@@iterator']();;){var _ref2;if(_isArray2){if(_i2>=_iterator2.length)break;_ref2=_iterator2[_i2++];}else{_i2=_iterator2.next();if(_i2.done)break;_ref2=_i2.value;}var child=_ref2;
+var current=findElement(child,key,type);
+if(current)return current;
+}
+}
+return null;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-findElement=findElement;exports.
-
-
-
-
-
-
-
-
-
-
-
-
-getCurrent=getCurrent;var _ActionConst=require(447            );var ActionConst=babelHelpers.interopRequireWildcard(_ActionConst);var _Actions=require(444        );var _Util=require(445     );var _State=require(487      );var _reactNative=require(42            );function checkPropertiesEqual(action,lastAction){var isEqual=true;for(var _iterator=Object.keys(action),_isArray=Array.isArray(_iterator),_i=0,_iterator=_isArray?_iterator:_iterator[typeof Symbol==='function'?Symbol.iterator:'@@iterator']();;){var _ref;if(_isArray){if(_i>=_iterator.length)break;_ref=_iterator[_i++];}else{_i=_iterator.next();if(_i.done)break;_ref=_i.value;}var key=_ref;if(['key','type','parent'].indexOf(key)===-1){if(action[key]!==lastAction[key]){isEqual=false;}}}return isEqual;}function resetHistoryStack(child){var newChild=child;newChild.index=0;child.children.map(function(el,i){if(el.initial){newChild.index=i;if(!newChild.tabs){newChild.children=[el];}}if(el.children){resetHistoryStack(el);}return newChild;});}function refreshTopChild(children,refresh){if(refresh){var topChild=children[children.length-1];return[].concat(babelHelpers.toConsumableArray(children.slice(0,-1)),[babelHelpers.extends({},topChild,refresh)]);}return children;}function inject(state,action,props,scenes){var condition=_Actions.ActionMap[action.type]===ActionConst.REFRESH?state.key===props.key||state.sceneKey===action.key:state.sceneKey===props.parent;if(!condition){if(state.children){var res=state.children.map(function(el){return inject(el,action,props,scenes);});var changed=false;var changedIndex=-1;for(var i=0;i<res.length;i++){if(res[i]!==state.children[i]){changed=true;changedIndex=i;break;}}return changed?babelHelpers.extends({},state,{children:res,index:changedIndex}):state;}return state;}var ind=void 0;switch(_Actions.ActionMap[action.type]){case ActionConst.POP_TO:{var targetIndex=action.targetIndex;return babelHelpers.extends({},state,{index:targetIndex,children:refreshTopChild(state.children.slice(0,targetIndex+1),action.refresh)});}case ActionConst.BACK:case ActionConst.BACK_ACTION:{(0,_Util.assert)(!state.tabs,'pop() operation cannot be run on tab bar (tabs=true)');if(_reactNative.Platform.OS==='android'){(0,_Util.assert)(state.index>0,'You are already in the root scene.');}if(state.index===0){return state;}var popNum=1;if(action.popNum){(0,_Util.assert)(typeof action.popNum==='number','The data is the number of scenes you want to pop, it must be Number');popNum=action.popNum;(0,_Util.assert)(popNum%1===0,'The data is the number of scenes you want to pop, it must be integer.');(0,_Util.assert)(popNum>1,'The data is the number of scenes you want to pop, it must be bigger than 1.');(0,_Util.assert)(popNum<=state.index,'The data is the number of scenes you want to pop, '+"it must be smaller than scenes stack's length.");}return babelHelpers.extends({},state,{index:state.index-popNum,from:state.children[state.children.length-popNum],children:refreshTopChild(state.children.slice(0,-1*popNum),action.refresh)});}case ActionConst.POP_AND_REPLACE:{(0,_Util.assert)(!state.tabs,'pop() operation cannot be run on tab bar (tabs=true)');(0,_Util.assert)(state.index>0,'You are already in the root scene.');var _popNum=1;if(action.popNum){(0,_Util.assert)(typeof action.popNum==='number','The data is the number of scenes you want to pop, it must be Number');_popNum=action.popNum;(0,_Util.assert)(_popNum%1===0,'The data is the number of scenes you want to pop, it must be integer.');(0,_Util.assert)(_popNum>1,'The data is the number of scenes you want to pop, it must be bigger than 1.');(0,_Util.assert)(_popNum<=state.index,'The data is the number of scenes you want to pop, '+"it must be smaller than scenes stack's length.");}state=babelHelpers.extends({},state,{index:state.index-_popNum,from:state.children[state.children.length-_popNum],children:state.children.slice(0,-1*_popNum)});if(state.children[state.index].sceneKey===action.key){return state;}var newAction=babelHelpers.extends({duration:0},action);delete newAction.popNum;var newProps=babelHelpers.extends({},props);delete newProps.popNum;state.children[state.children.length-1]=(0,_State.getInitialState)(newProps,scenes,state.index,newAction);return babelHelpers.extends({},state,{children:state.children});}case ActionConst.REFRESH:return props.base?babelHelpers.extends({navBar:state.navBar},scenes.rootProps,props,{key:state.key,from:null}):babelHelpers.extends({},state,props,{key:state.key,from:null});case ActionConst.PUSH_OR_POP:ind=state.children.findIndex(function(el){return el.sceneKey===action.key;});if(ind!==-1){return babelHelpers.extends({},state,{index:ind,from:state.children[state.index],children:refreshTopChild(state.children.slice(0,ind+1),action.refresh)});}return babelHelpers.extends({},state,{index:state.index+1,from:null,children:[].concat(babelHelpers.toConsumableArray(state.children),[(0,_State.getInitialState)(props,scenes,state.index+1,action)])});case ActionConst.PUSH:if(state.children[state.index].sceneKey===action.key&&!props.clone&&checkPropertiesEqual(action,state.children[state.index])){return state;}return babelHelpers.extends({},state,{index:state.index+1,from:null,children:[].concat(babelHelpers.toConsumableArray(state.children),[(0,_State.getInitialState)(props,scenes,state.index+1,action)])});case ActionConst.JUMP:{(0,_Util.assert)(state.tabs,'Parent='+state.key+' is not tab bar, jump action is not valid');ind=-1;state.children.forEach(function(c,i){if(c.sceneKey===action.key){ind=i;}});(0,_Util.assert)(ind!==-1,'Cannot find route with key='+action.key+' for parent='+state.key);if(action.unmountScenes){resetHistoryStack(state.children[ind]);}return babelHelpers.extends({},state,{index:ind});}case ActionConst.REPLACE:if(state.children[state.index].sceneKey===action.key){return state;}state.children[state.children.length-1]=(0,_State.getInitialState)(props,scenes,state.index,action);return babelHelpers.extends({},state,{children:state.children});case ActionConst.RESET:if(state.children[state.index].sceneKey===action.key){return state;}state.children=state.children.splice(0,1);state.children[0]=(0,_State.getInitialState)(props,scenes,state.index,action);return babelHelpers.extends({},state,{index:0,from:null,children:state.children});default:return state;}}function findElement(state,key,type){if(_Actions.ActionMap[type]===ActionConst.REFRESH&&state.key===key||state.sceneKey===key){return state;}if(state.children){for(var _iterator2=state.children,_isArray2=Array.isArray(_iterator2),_i2=0,_iterator2=_isArray2?_iterator2:_iterator2[typeof Symbol==='function'?Symbol.iterator:'@@iterator']();;){var _ref2;if(_isArray2){if(_i2>=_iterator2.length)break;_ref2=_iterator2[_i2++];}else{_i2=_iterator2.next();if(_i2.done)break;_ref2=_i2.value;}var child=_ref2;var current=findElement(child,key,type);if(current)return current;}}return null;}function getCurrent(state){ // 42 = react-native // 487 = ./State // 445 = ./Util // 444 = ./Actions // 447 = ./ActionConst
+function getCurrent(state){
 if(!state.children){
 return state;
 }
@@ -75886,7 +75791,6 @@ action.parent=getCurrent(state).parent;
 
 if(_Actions.ActionMap[action.type]===ActionConst.BACK_ACTION||
 _Actions.ActionMap[action.type]===ActionConst.BACK||
-_Actions.ActionMap[action.type]===ActionConst.POP_AND_REPLACE||
 _Actions.ActionMap[action.type]===ActionConst.REFRESH||
 _Actions.ActionMap[action.type]===ActionConst.POP_TO){
 if(!action.key&&!action.parent){
@@ -75896,15 +75800,8 @@ action=babelHelpers.extends({},getCurrent(state),action);
 
 
 if(_Actions.ActionMap[action.type]===ActionConst.POP_TO){
-
-
-
-
-
-var target=action.data||action.scene;
-(0,_Util.assert)(target,'PopTo() must be called with a single argument: '+
-'either the scene name (string) or an object with within the scene property '+
-'carrying the target scene to pop to');
+var target=action.data;
+(0,_Util.assert)(target,'PopTo() must be called with scene name');
 
 var targetEl=findElement(state,target,action.type);
 (0,_Util.assert)(targetEl,'Cannot find element name named '+target+' within current state');
@@ -75929,8 +75826,7 @@ action.targetIndex=targetIndex;
 
 
 if(_Actions.ActionMap[action.type]===ActionConst.BACK_ACTION||
-_Actions.ActionMap[action.type]===ActionConst.BACK||
-_Actions.ActionMap[action.type]===ActionConst.POP_AND_REPLACE){
+_Actions.ActionMap[action.type]===ActionConst.BACK){
 var _parent=action.parent||state.scenes[action.key].parent;
 var el=findElement(state,_parent,action.type);
 while(el.parent&&(el.children.length<=1||el.tabs)){
@@ -75944,7 +75840,6 @@ action.parent=el.sceneKey;
 switch(_Actions.ActionMap[action.type]){
 case ActionConst.BACK:
 case ActionConst.BACK_ACTION:
-case ActionConst.POP_AND_REPLACE:
 case ActionConst.POP_TO:
 case ActionConst.REFRESH:
 case ActionConst.PUSH:
@@ -75964,7 +75859,6 @@ return state;}
 reducer;
 }, 486, null, "react-native-router-flux/src/Reducer.js");
 __d(/* react-native-router-flux/src/State.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.
-
 
 
 
@@ -76039,20 +75933,13 @@ getInitialState=getInitialState;exports.default=
 
 
 
-
-
-
-
-
-
-
 function(scenes){
 
 var rootRoute=Object.keys(scenes).find(function(route){return(
 scenes.hasOwnProperty(route)&&!scenes[route].parent);});
 
 return getInitialState(scenes[rootRoute],scenes);
-};var _Util=require(445     );var _ActionConst=require(447            );var ActionConst=babelHelpers.interopRequireWildcard(_ActionConst);function getStateFromScenes(route,scenes,props){var getters=[];var result={};var scene=route;while(scene){if(scene.getInitialState){getters.push(scene.getInitialState);}scene=scenes[scene.parent];}if(scenes.rootProps&&scenes.rootProps.getInitialState){getters.push(scenes.rootProps.getInitialState);}getters.reverse().forEach(function(fn){result=babelHelpers.extends({},result,fn(props));});return result;}function getSceneKey(parent,key,position,sceneKey){return[parent,key,position,sceneKey].filter(function(v){return typeof v!=='undefined'&&v!==null;}).join('_');}function getInitialState(route,scenes){var position=arguments.length>2&&arguments[2]!==undefined?arguments[2]:0;var props=arguments.length>3&&arguments[3]!==undefined?arguments[3]:{};var parent=props.parent,key=props.key,style=props.style,type=props.type,parentProps=babelHelpers.objectWithoutProperties(props,['parent','key','style','type']);if(!route.children){return babelHelpers.extends({},scenes.rootProps,route,{key:getSceneKey(parent,key,position,route.sceneKey)},parentProps,getStateFromScenes(route,scenes,props));}var res=babelHelpers.extends({},route,scenes.rootProps,parentProps);var index=0;route.children.forEach(function(r,i){(0,_Util.assert)(scenes[r],'Empty scene for key='+route.key);if(scenes[r].initial){index=i;}});if(route.tabs){res.children=route.children.map(function(r,i){return getInitialState(scenes[r],scenes,i,babelHelpers.extends({},props,{parentIndex:position}));});res.index=index;}else{res.children=[getInitialState(scenes[route.children[index]],scenes,0,props)];res.index=0;}if(route.type===ActionConst.JUMP){res.children=res.children.map(function(child){return babelHelpers.extends({},props,child);});}res.key=position+'_'+res.key;return res;} // 447 = ./ActionConst // 445 = ./Util
+};var _Util=require(445     );function getStateFromScenes(route,scenes,props){var getters=[];var result={};var scene=route;while(scene){if(scene.getInitialState){getters.push(scene.getInitialState);}scene=scenes[scene.parent];}if(scenes.rootProps&&scenes.rootProps.getInitialState){getters.push(scenes.rootProps.getInitialState);}getters.reverse().forEach(function(fn){result=babelHelpers.extends({},result,fn(props));});return result;}function getSceneKey(parent,key,position,sceneKey){return[parent,key,position,sceneKey].filter(function(v){return typeof v!=='undefined'&&v!==null;}).join('_');}function getInitialState(route,scenes){var position=arguments.length>2&&arguments[2]!==undefined?arguments[2]:0;var props=arguments.length>3&&arguments[3]!==undefined?arguments[3]:{};var parent=props.parent,key=props.key,style=props.style,type=props.type,parentProps=babelHelpers.objectWithoutProperties(props,['parent','key','style','type']);if(!route.children){return babelHelpers.extends({},scenes.rootProps,route,{key:getSceneKey(parent,key,position,route.sceneKey)},parentProps,getStateFromScenes(route,scenes,props));}var res=babelHelpers.extends({},route,scenes.rootProps,parentProps);var index=0;route.children.forEach(function(r,i){(0,_Util.assert)(scenes[r],'Empty scene for key='+route.key);if(scenes[r].initial){index=i;}});if(route.tabs){res.children=route.children.map(function(r,i){return getInitialState(scenes[r],scenes,i,props);});res.index=index;}else{res.children=[getInitialState(scenes[route.children[index]],scenes,0,props)];res.index=0;}res.key=position+'_'+res.key;return res;} // 445 = ./Util
 }, 487, null, "react-native-router-flux/src/State.js");
 __d(/* react-native-router-flux/src/Router.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
 
@@ -76089,31 +75976,22 @@ onExitApp:_react.PropTypes.func};var
 
 Router=function(_Component){babelHelpers.inherits(Router,_Component);
 
-
-
-
 function Router(props){babelHelpers.classCallCheck(this,Router);var _this=babelHelpers.possibleConstructorReturn(this,(Router.__proto__||Object.getPrototypeOf(Router)).call(this,
 props));
+_this.state={};
 _this.renderNavigation=_this.renderNavigation.bind(_this);
 _this.handleProps=_this.handleProps.bind(_this);
-_this.handleBackAndroid=_this.handleBackAndroid.bind(_this);
-var reducer=_this.handleProps(props);
-_this.state={reducer:reducer};return _this;
-}babelHelpers.createClass(Router,[{key:'getChildContext',value:function getChildContext()
+_this.handleBackAndroid=_this.handleBackAndroid.bind(_this);return _this;
+}babelHelpers.createClass(Router,[{key:'componentDidMount',value:function componentDidMount()
 
 {
-return{
-routes:_Actions2.default};
+this.handleProps(this.props);
 
-}},{key:'componentDidMount',value:function componentDidMount()
-
-{
 _reactNative.BackAndroid.addEventListener('hardwareBackPress',this.handleBackAndroid);
 }},{key:'componentWillReceiveProps',value:function componentWillReceiveProps(
 
 props){
-var reducer=this.handleProps(props);
-this.setState({reducer:reducer});
+this.handleProps(props);
 }},{key:'componentWillUnmount',value:function componentWillUnmount()
 
 {
@@ -76182,7 +76060,7 @@ initialState:initialState,
 scenes:scenesMap});
 
 
-return routerReducer;
+this.setState({reducer:routerReducer});
 }},{key:'renderNavigation',value:function renderNavigation(
 
 navigationState,onNavigate){var _this2=this;
@@ -76214,7 +76092,7 @@ reducer:this.state.reducer,
 renderNavigation:this.renderNavigation}));
 
 
-}}]);return Router;}(_react.Component);Router.childContextTypes={routes:_react.PropTypes.object};
+}}]);return Router;}(_react.Component);
 
 
 Router.propTypes=propTypes;exports.default=
@@ -76930,60 +76808,76 @@ middlename:state.create.middlename};
 
 (0,_reactRedux.connect)(mapStateToProps,{createUser:_CreateUser.createUser,saveUserDetails:_CreateUser.saveUserDetails})(SignUpScreen);
 }, 504, null, "WardrobeUI/Components/SignUpScreen.js");
-__d(/* WardrobeUI/Components/HomeScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
-var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
+__d(/* WardrobeUI/Components/UserHomeScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
 var _reactNative=require(42            ); // 42 = react-native
-var _Common=require(491       );var // 491 = ./Common
 
+var _UserInfo=require(509                );var _UserInfo2=babelHelpers.interopRequireDefault(_UserInfo);var // 509 = ./Models/UserInfo
 
-HomeScreen=function(_Component){babelHelpers.inherits(HomeScreen,_Component);
-
-
-
-
-
-function HomeScreen(props){babelHelpers.classCallCheck(this,HomeScreen);var _this=babelHelpers.possibleConstructorReturn(this,(HomeScreen.__proto__||Object.getPrototypeOf(HomeScreen)).call(this,
-props));
-_this.state={image:null};return _this;
-}babelHelpers.createClass(HomeScreen,[{key:'pickImage',value:function pickImage()
-
+UserHomeScreen=function(_Component){babelHelpers.inherits(UserHomeScreen,_Component);function UserHomeScreen(){var _ref;var _temp,_this,_ret;babelHelpers.classCallCheck(this,UserHomeScreen);for(var _len=arguments.length,args=Array(_len),_key=0;_key<_len;_key++){args[_key]=arguments[_key];}return _ret=(_temp=(_this=babelHelpers.possibleConstructorReturn(this,(_ref=UserHomeScreen.__proto__||Object.getPrototypeOf(UserHomeScreen)).call.apply(_ref,[this].concat(args))),_this),_this.
+state={userID:''},_temp),babelHelpers.possibleConstructorReturn(_this,_ret);}babelHelpers.createClass(UserHomeScreen,[{key:'componentWillMount',value:function componentWillMount()
 {var _this2=this;
-_reactNative.ImagePickerIOS.openSelectDialog({},function(imageUri){
-_this2.setState({image:imageUri});
-console.log('image');
-},function(error){return console.log('Error picking image or pressed Cancel');});
+_reactNative.AsyncStorage.getItem('userId').then(function(value){
+_this2.setState({userID:value});
+var API_ENDPOINT='https://server-dev1.mywardrobe.space/api/v1/userinfo';
+var userID=value;
+fetch(API_ENDPOINT,{method:"GET",
+headers:{
+'Authorization':'Bearer '+userID}}).
+
+
+then(function(response){return response.json();}).
+then(function(responseJson){
+console.log(responseJson);
+userInfo=new _UserInfo2.default();
+userInfo.updateValues(responseJson);
+_reactNative.AsyncStorage.setItem("userInfo",JSON.stringify(userInfo),null);
+
+backInfo=_reactNative.AsyncStorage.getItem("userInfo").then(value);
+console.log(JSON.parse(backInfo));
+});
+
+});
+
+
 
 }},{key:'render',value:function render()
 
 {
+
 return(
-_react2.default.createElement(_reactNative.View,{style:{flex:1}},
-_react2.default.createElement(_reactNative.Text,{
-style:{
-color:'black',
-fontSize:16,
-fontWeight:"bold",
-fontFamily:'Helvetica Neue'}},'Welcome User. Pick an image by clicking the button'),
+_react2.default.createElement(_reactNative.Text,null,'hello ',this.state.userID));
+
+
+}}]);return UserHomeScreen;}(_react.Component);exports.default=
 
 
 
-_react2.default.createElement(_Common.Button,{onPress:this.pickImage.bind(this)},'Pick Image'),
+UserHomeScreen;
+}, 505, null, "WardrobeUI/Components/UserHomeScreen.js");
+__d(/* WardrobeUI/Components/Models/UserInfo.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
+
+
+
+var _Local=require(510         );var _Local2=babelHelpers.interopRequireDefault(_Local);var // 510 = ./Local.js
+
+UserInfo=function(_Object){babelHelpers.inherits(UserInfo,_Object);function UserInfo(){var _ref;var _temp,_this,_ret;babelHelpers.classCallCheck(this,UserInfo);for(var _len=arguments.length,args=Array(_len),_key=0;_key<_len;_key++){args[_key]=arguments[_key];}return _ret=(_temp=(_this=babelHelpers.possibleConstructorReturn(this,(_ref=UserInfo.__proto__||Object.getPrototypeOf(UserInfo)).call.apply(_ref,[this].concat(args))),_this),_this.
+
+
+local=new _Local2.default(),_this.
+
+updateValues=function(object){
+_this.username=object.username;
+_this.id=object.id;
+_this.local=object.local;
+},_temp),babelHelpers.possibleConstructorReturn(_this,_ret);}return UserInfo;}(Object);exports.default=UserInfo;
+}, 509, null, "WardrobeUI/Components/Models/UserInfo.js");
+__d(/* WardrobeUI/Components/Models/Local.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var
 
 
 
 
-this.state.image?
-_react2.default.createElement(_reactNative.Image,{style:{flex:1},source:{uri:this.state.image}}):
-_react2.default.createElement(_reactNative.Text,null,'The image you pick will be shown here')));
-
-
-
-
-}}]);return HomeScreen;}(_react.Component);HomeScreen.propTypes={};HomeScreen.defaultProps={};exports.default=
-
-
-HomeScreen;
-}, 505, null, "WardrobeUI/Components/HomeScreen.js");
+Local=function(_Object){babelHelpers.inherits(Local,_Object);function Local(){babelHelpers.classCallCheck(this,Local);return babelHelpers.possibleConstructorReturn(this,(Local.__proto__||Object.getPrototypeOf(Local)).apply(this,arguments));}return Local;}(Object);exports.default=Local;
+}, 510, null, "WardrobeUI/Components/Models/Local.js");
 __d(/* WardrobeUI/Reducers/index.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _redux=require(415    ); // 415 = redux
 var _CreateUserReducer=require(507                  );var _CreateUserReducer2=babelHelpers.interopRequireDefault(_CreateUserReducer); // 507 = ./CreateUserReducer
 var _AuthenticationReducer=require(508                      );var _AuthenticationReducer2=babelHelpers.interopRequireDefault(_AuthenticationReducer);exports.default= // 508 = ./AuthenticationReducer
