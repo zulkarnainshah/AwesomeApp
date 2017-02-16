@@ -7,82 +7,82 @@ import { emailChanged, passwordChanged, loginUser } from '../Actions';
 
 class SignInScreen extends Component {
 
-  onEmaiChange(text) {
-   this.props.emailChanged(text);
+    onEmaiChange(text) {
+        this.props.emailChanged(text);
     }
-     onPasswordChange(text) {
-    this.props.passwordChanged(text);
-     }
+    onPasswordChange(text) {
+        this.props.passwordChanged(text);
+    }
     onButtonPress() {
-      const { email, password } = this.props;
-      this.props.loginUser({ email, password });
+        const { email, password } = this.props;
+        this.props.loginUser({ email, password });
     }
-    
+
     onSignInButtonPress() {
-          Actions.signIn({ type: 'reset' });
-       }
+        Actions.signIn({ type: 'reset' });
+    }
     onSignUpButtonPress() {
-      Actions.signUp({ type: 'reset' });
+        Actions.signUp({ type: 'reset' });
     }
 
- render() {
-    return (
+    render() {
+        return (
 
-    <Card>
-    <CardSection>
-    <Tabs onPress={this.onSignInButtonPress.bind(this)}>
-    signin
-    </Tabs>
-    <Tabs onPress={this.onSignUpButtonPress.bind(this)}>
-    signup
-    </Tabs>
-    </CardSection>
-    <CardSection>
-     <Input
-      label="email"
-      placeholder="username@gmail.com"
-      onChangeText={this.onEmaiChange.bind(this)}
-      value={this.props.email}
-     />
-     </CardSection>
-      <CardSection>
-      <Input
-        secureTextEntry
-       label="password"
-       placeholder="password"
-       onChangeText={this.onPasswordChange.bind(this)}
-       value={this.props.password}
-      />
-      </CardSection>
-      <Text style={styles.errorTextStyle}>
-       {this.props.error}
-       </Text>
-      <CardSection>
-        <Button onPress={this.onButtonPress.bind(this)}>
-      Login
-      </Button>
+            <Card>
+                <CardSection>
+                    <Tabs onPress={this.onSignInButtonPress.bind(this)}>
+                        signin
+                    </Tabs>
+                    <Tabs onPress={this.onSignUpButtonPress.bind(this)}>
+                        signup
+                    </Tabs>
+                </CardSection>
+                <CardSection>
+                    <Input
+                        label="email"
+                        placeholder="username@gmail.com"
+                        onChangeText={this.onEmaiChange.bind(this)}
+                        value={this.props.email}
+                    />
+                </CardSection>
+                <CardSection>
+                    <Input
+                        secureTextEntry
+                        label="password"
+                        placeholder="password"
+                        onChangeText={this.onPasswordChange.bind(this)}
+                        value={this.props.password}
+                    />
+                </CardSection>
+                <Text style={styles.errorTextStyle}>
+                    {this.props.error}
+                </Text>
+                <CardSection>
+                    <Button onPress={this.onButtonPress.bind(this)}>
+                        Login
+                    </Button>
 
-      </CardSection>
-    </Card>
+                </CardSection>
+            </Card>
 
-          );
-   }
+        );
+    }
 }
 const styles = {
-  errorTextStyle: {
-    fontSize: 20,
-    alignSelf: 'center',
-    color: 'red'
-  }
+    errorTextStyle: {
+        fontSize: 20,
+        alignSelf: 'center',
+        color: 'red'
+    }
 };
 const mapStateToProps = state => {
-  console.log(state.auth.password);
-   return {
-     email: state.auth.email,
-     password: state.auth.password,
-     error: state.auth.error
-   };
-  };
+    console.log(state.auth.password);
+    return {
+        email: state.auth.email,
+        password: state.auth.password,
+        error: state.auth.error
+    };
+};
 
 
 export default connect(mapStateToProps, { emailChanged, passwordChanged, loginUser })(SignInScreen);

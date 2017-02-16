@@ -4,7 +4,7 @@ import { Text } from 'react-native';
 import { Card, CardSection, Button } from './Common';
 
 
-class LandingScreen extends Component {
+export default class LandingScreen extends Component {
 
   onSignInButtonPress() {
         Actions.signIn({ type: 'reset' });
@@ -39,4 +39,3 @@ class LandingScreen extends Component {
   }
 
 }
-export default LandingScreen;

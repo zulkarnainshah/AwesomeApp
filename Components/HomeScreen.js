@@ -4,7 +4,7 @@ import {View,Text,ImagePickerIOS,Image,} from 'react-native'
 import {Card,CardSection,Button} from './Common';
 import { AsyncStorage } from 'react-native';
 
-class HomeScreen extends Component {
+export default class HomeScreen extends Component {
 
     static propTypes = {}
 
@@ -49,5 +49,3 @@ class HomeScreen extends Component {
         )
     }
 }
-
-export default HomeScreen
