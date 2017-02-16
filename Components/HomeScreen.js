@@ -18,7 +18,7 @@ class HomeScreen extends Component {
     pickImage() {
         ImagePickerIOS.openSelectDialog({}, imageUri => {
             this.setState({ image: imageUri });
-     NativeModules.ReadImageData.readImage(this.state.image.node.image.uri, (image)) => {
+     NativeModules.ReadImageData.readImage(image.node.image.uri, (image)) => {
 
          console.log(image);
        });
