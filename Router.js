@@ -4,6 +4,7 @@ import LandingScreen from './Components/LandingScreen';
 import SignInScreen from './Components/SignInScreen';
 import SignUpScreen from './Components/SignUpScreen';
 import UserHomeScreen from './Components/UserHomeScreen';
+import AddPiecesScreen from './Components/AddPiecesScreen';
 
 const RouterComponent = () => {
 
@@ -13,6 +14,7 @@ const RouterComponent = () => {
          <Scene key='signUp' component={SignUpScreen} title='Signup' />
          <Scene key='signIn' component={SignInScreen} title='signin' />
          <Scene key='homeScreen' component={UserHomeScreen} title='My Wardrobe' />
+            <Scene key='addPiecesScreen' component={AddPiecesScreen} title='Add Pieces' />
 </Router>
     );
 };

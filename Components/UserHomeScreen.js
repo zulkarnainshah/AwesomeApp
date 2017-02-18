@@ -1,51 +1,60 @@
 import React, { Component } from 'react';
-import { AsyncStorage } from 'react-native';
-import { Text } from 'react-native';
+import { ScrollView, View } from 'react-native';
+import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
+import { retrivePieces } from '../Actions';
+import Pieces from './Pieces';
+import { Card, CardSection, Button} from './Common';
 
 
+ class UserHomeScreen extends Component {
 
-import UserInfo from './Models/UserInfo';
+   static propTypes = {}
 
-export default class UserHomeScreen extends Component {
-    state = { userID: '' };
-    myThis = this;
-    constructor(props) {
-        super(props)
-        this.state = { userName: null };
-        myThis = this; // to keep reference of this to be used in fetch callback
-    }
-    componentWillMount(){
-        AsyncStorage.getItem('userId').then((value)=> {
-            this.setState({ userID: value });
-            const API_ENDPOINT= 'https://server-dev1.mywardrobe.space/api/v1/userinfo';
-            const userID = value;
-            fetch(API_ENDPOINT,{ method: "GET",
-                headers:{
-                    'Authorization': 'Bearer '+ userID
-                }
-            })
-                .then((response) => response.json())
-                .then((responseJson) => {
-                    console.log(responseJson);
-                    userInfo = new UserInfo();
-                    userInfo.updateValues(responseJson);
-                    AsyncStorage.setItem("userInfo",JSON.stringify(userInfo),null);
+   static defaultProps = {}
 
-                    AsyncStorage.getItem('userInfo').then(function (value) {
-                        jsonString = JSON.parse(value);
-                        myThis.setState({ userName: jsonString.local.username });
-                    });
-                })
+   constructor(props) {
+       super(props);
+       this.state = { imagePieces: [] };
+   }
+    componentWillMount() {
+        this.props.retrivePieces();
+}
+    onAddpiecesButtonPress() {
+      Actions.addPiecesScreen({ type: 'reset' });
+   }
 
-        });
-    }
+    fillData() {
+     return this.props.imagePieces.map(object =>
+       <Pieces key={object.id} pieces={object} piecedetails={object} />
+     );
 
-    render(){
-        return(
+     }
 
-            <Text>Welcome {this.state.userName}
 
-            </Text>
-        )
+    render() {
+
+     return (
+    <View style={{ flex: 1 }}>
+          <ScrollView>
+   {this.fillData()}
+
+   </ScrollView>
+   <CardSection>
+   <Button onPress={this.onAddpiecesButtonPress.bind(this)}>
+       add pieces
+   </Button>
+   </CardSection>
+   </View>
+        );
     }
 }
+const mapStateToProps = state => {
+    console.log(state.pieces.piecesImages);
+    return {
+        imagePieces: state.pieces.piecesImages,
+
+    };
+};
+
+export default connect(mapStateToProps, { retrivePieces })(UserHomeScreen);
