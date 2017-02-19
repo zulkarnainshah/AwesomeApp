@@ -76809,10 +76809,21 @@ middlename:state.create.middlename};
 (0,_reactRedux.connect)(mapStateToProps,{createUser:_CreateUser.createUser,saveUserDetails:_CreateUser.saveUserDetails})(SignUpScreen);
 }, 504, null, "WardrobeUI/Components/SignUpScreen.js");
 __d(/* WardrobeUI/Components/UserHomeScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
+<<<<<<< HEAD
+var _reactNative=require(42            );var // 42 = react-native
+=======
 var _reactNative=require(42            ); // 42 = react-native
+>>>>>>> master
 
 var _UserInfo=require(509                );var _UserInfo2=babelHelpers.interopRequireDefault(_UserInfo);var // 509 = ./Models/UserInfo
 
+<<<<<<< HEAD
+
+
+UserHomeScreen=function(_Component){babelHelpers.inherits(UserHomeScreen,_Component);function UserHomeScreen(){var _ref;var _temp,_this,_ret;babelHelpers.classCallCheck(this,UserHomeScreen);for(var _len=arguments.length,args=Array(_len),_key=0;_key<_len;_key++){args[_key]=arguments[_key];}return _ret=(_temp=(_this=babelHelpers.possibleConstructorReturn(this,(_ref=UserHomeScreen.__proto__||Object.getPrototypeOf(UserHomeScreen)).call.apply(_ref,[this].concat(args))),_this),_this.
+state={userID:''},_temp),babelHelpers.possibleConstructorReturn(_this,_ret);}babelHelpers.createClass(UserHomeScreen,[{key:'componentWillMount',value:function componentWillMount()
+
+=======
 UserHomeScreen=function(_Component){babelHelpers.inherits(UserHomeScreen,_Component);function UserHomeScreen(){var _ref;var _temp,_this,_ret;babelHelpers.classCallCheck(this,UserHomeScreen);for(var _len=arguments.length,args=Array(_len),_key=0;_key<_len;_key++){args[_key]=arguments[_key];}return _ret=(_temp=(_this=babelHelpers.possibleConstructorReturn(this,(_ref=UserHomeScreen.__proto__||Object.getPrototypeOf(UserHomeScreen)).call.apply(_ref,[this].concat(args))),_this),_this.
 state={userID:''},_temp),babelHelpers.possibleConstructorReturn(_this,_ret);}babelHelpers.createClass(UserHomeScreen,[{key:'componentWillMount',value:function componentWillMount()
 {var _this2=this;
@@ -76831,6 +76842,7 @@ console.log(responseJson);
 userInfo=new _UserInfo2.default();
 userInfo.updateValues(responseJson);
 _reactNative.AsyncStorage.setItem("userInfo",JSON.stringify(userInfo),null);
+>>>>>>> master
 
 backInfo=_reactNative.AsyncStorage.getItem("userInfo").then(value);
 console.log(JSON.parse(backInfo));
@@ -76839,9 +76851,30 @@ console.log(JSON.parse(backInfo));
 });
 
 
+<<<<<<< HEAD
+{var _this2=this;
+=======
+>>>>>>> master
 
-}},{key:'render',value:function render()
+_reactNative.AsyncStorage.getItem('userId').then(function(value){
+_this2.setState({userID:value});
+var API_ENDPOINT='https://server-dev1.mywardrobe.space/api/auth/userinfo';
+var userinfo=value;
+console.log(userinfo);
+fetch(API_ENDPOINT,{method:"GET",
+headers:{
 
+<<<<<<< HEAD
+'Authorization':'Bearer '+userinfo}}).
+
+
+then(function(response){return response.json();}).
+then(function(responseJson){
+console.log(userinfo);
+console.log(responseJson);
+
+});
+=======
 {
 
 return(
@@ -76856,14 +76889,25 @@ UserHomeScreen;
 }, 505, null, "WardrobeUI/Components/UserHomeScreen.js");
 __d(/* WardrobeUI/Components/Models/UserInfo.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
 
+>>>>>>> master
 
+});
 
 var _Local=require(510         );var _Local2=babelHelpers.interopRequireDefault(_Local);var // 510 = ./Local.js
 
 UserInfo=function(_Object){babelHelpers.inherits(UserInfo,_Object);function UserInfo(){var _ref;var _temp,_this,_ret;babelHelpers.classCallCheck(this,UserInfo);for(var _len=arguments.length,args=Array(_len),_key=0;_key<_len;_key++){args[_key]=arguments[_key];}return _ret=(_temp=(_this=babelHelpers.possibleConstructorReturn(this,(_ref=UserInfo.__proto__||Object.getPrototypeOf(UserInfo)).call.apply(_ref,[this].concat(args))),_this),_this.
 
+<<<<<<< HEAD
+}},{key:'render',value:function render()
+
+{
+
+return(
+_react2.default.createElement(_reactNative.Text,null,'hello ',this.state.userID));
+=======
 
 local=new _Local2.default(),_this.
+>>>>>>> master
 
 updateValues=function(object){
 _this.username=object.username;
@@ -76873,11 +76917,17 @@ _this.local=object.local;
 }, 509, null, "WardrobeUI/Components/Models/UserInfo.js");
 __d(/* WardrobeUI/Components/Models/Local.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var
 
+}}]);return UserHomeScreen;}(_react.Component);exports.default=
 
 
 
+<<<<<<< HEAD
+UserHomeScreen;
+}, 505, null, "WardrobeUI/Components/UserHomeScreen.js");
+=======
 Local=function(_Object){babelHelpers.inherits(Local,_Object);function Local(){babelHelpers.classCallCheck(this,Local);return babelHelpers.possibleConstructorReturn(this,(Local.__proto__||Object.getPrototypeOf(Local)).apply(this,arguments));}return Local;}(Object);exports.default=Local;
 }, 510, null, "WardrobeUI/Components/Models/Local.js");
+>>>>>>> master
 __d(/* WardrobeUI/Reducers/index.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _redux=require(415    ); // 415 = redux
 var _CreateUserReducer=require(507                  );var _CreateUserReducer2=babelHelpers.interopRequireDefault(_CreateUserReducer); // 507 = ./CreateUserReducer
 var _AuthenticationReducer=require(508                      );var _AuthenticationReducer2=babelHelpers.interopRequireDefault(_AuthenticationReducer);exports.default= // 508 = ./AuthenticationReducer

@@ -5,6 +5,7 @@ import { EMAIL_CHANGED,
        LOGIN_USER_SUCCESS,
         LOGIN_USER_FAIL,
        } from './Types';
+import UserInfo from '../Components/Models/UserInfo';
 
 const API_ENDPOINT = 'https://server-dev1.mywardrobe.space/api/v1/signin';
 export const emailChanged = (text) => {
@@ -46,6 +47,9 @@ const id = responseJson.id_token;
      else {
               loginUserSuccess(dispatch, id);
                saveIdOnLocalStorage(id);
+
+
+               console.log(id);
               Actions.homeScreen({ type: 'reset' });
          }
   });
@@ -53,7 +57,7 @@ const id = responseJson.id_token;
   };
 
   const loginUserSuccess = (dispatch, id) => {
-    console.log(id);
+
   dispatch({
     type: LOGIN_USER_SUCCESS,
     payload: id
@@ -64,6 +68,10 @@ const id = responseJson.id_token;
 const loginUserFail = (dispatch) => {
   dispatch({ type: LOGIN_USER_FAIL });
 };
+
+
+
+
 
 const saveIdOnLocalStorage = (idToken) => {
 

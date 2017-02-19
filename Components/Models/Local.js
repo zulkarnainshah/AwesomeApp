@@ -1,6 +1,4 @@
-/**
- * Created by zulkarnainshah on 15/02/17.
- */
+
 
 
 export default class Local extends Object{
