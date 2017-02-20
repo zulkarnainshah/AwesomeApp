@@ -1,5 +1,5 @@
 import { AsyncStorage } from 'react-native';
-import { SHOW_USER_PIECES } from './Types';
+import { SHOW_USER_PIECES, GET_USER_IDS } from './Types';
 
     export const retrivePieces = () => {
          return (dispatch) => {
@@ -32,8 +32,9 @@ import { SHOW_USER_PIECES } from './Types';
        .then((responseJson) => {
             const piecesData = responseJson;
 
-          console.log(piecesData);
+
           showPieces(dispatch, piecesData)
+          getUserInformation(dispatch, idToken, UserID);
           });
         }
  export const showPieces = (dispatch, piecesData) => {
@@ -43,5 +44,14 @@ import { SHOW_USER_PIECES } from './Types';
 
    });
 
+}
 
- }
+export const getUserInformation = (dispatch, idToken, userId) => {
+    const userinfo = [idToken, userId];
+    console.log(userinfo);
+    dispatch({
+      type: GET_USER_IDS,
+      payload: userinfo
+    });
+
+}

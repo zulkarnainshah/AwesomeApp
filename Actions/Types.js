@@ -5,3 +5,5 @@ export const LOGIN_USER_SUCCESS = 'login_user_success';
 export const LOGIN_USER_FAIL = 'login_user_fail';
 export const USER_SIGNUP_FAILED = 'USER_SIGNUP_FAILED';
 export const SHOW_USER_PIECES = 'show_user_pieces';
+export const GET_USER_IDS = 'get_user_ids';
+export const SHOW_SINGLE_PIECE = 'show_single_piece';

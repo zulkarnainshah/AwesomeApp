@@ -1,6 +1,6 @@
 
-import React, { Component} from 'react'
-import {View,Text,ImagePickerIOS,Image,ImagePickerManager} from 'react-native'
+import React, { Component} from 'react';
+import {View, Text, ImagePickerIOS, Image, ImagePickerManager } from 'react-native';
 import {Card,CardSection,Button} from './Common';
 import { AsyncStorage } from 'react-native';
 
@@ -15,7 +15,8 @@ export default class AddPiecesScreen extends Component {
         this.state = { image: null };
     }
 
-    pickImage() {
+    pickImage(props) {
+       console.log(this.props.userinfo);
         AsyncStorage.getItem('userId').then((value)=> {
             console.log(value);
             authToken = value;
@@ -30,7 +31,8 @@ export default class AddPiecesScreen extends Component {
                     let body = new FormData();
                     body.append({'data_uri': source.uri,'filename' :'imageName.png'});
                     body.append('Content-Type', 'image/png');
-
+                    console.log(authToken);
+                    console.log(userID);
                     fetch('https://server-dev1.mywardrobe.space/api/v1/users/'+ userID +'/pieces',{
                         method: 'post',
                         headers:{
@@ -43,13 +45,14 @@ export default class AddPiecesScreen extends Component {
                     }).catch(console.log);
 
                 }, error => console.log('Error picking image or pressed Cancel'));
-                
+
             });
 
         });
     }
 
     render()   {
+      console.log(this.props.userinfo);
         return   (
             <View style={{ flex: 1 }}>
                 <Text
@@ -60,6 +63,7 @@ export default class AddPiecesScreen extends Component {
              fontFamily: 'Helvetica Neue',
            }}>
                     Welcome User. Pick an image by clicking the button
+
                 </Text>
                 <Button onPress={this.pickImage.bind(this)}>
                     Pick Image

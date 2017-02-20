@@ -7,34 +7,37 @@ import Pieces from './Pieces';
 import { Card, CardSection, Button} from './Common';
 
 
- class UserHomeScreen extends Component {
+class UserHomeScreen extends Component {
 
-   static propTypes = {}
+  static propTypes = {}
 
-   static defaultProps = {}
+  static defaultProps = {}
 
-   constructor(props) {
-       super(props);
-       this.state = { imagePieces: [] };
-   }
-    componentWillMount() {
-        this.props.retrivePieces();
-}
-    onAddpiecesButtonPress() {
-      Actions.addPiecesScreen({ type: 'reset' });
-   }
+  constructor(props) {
+    super(props);
+    this.state = { imagePieces: [] };
+  }
+  componentWillMount() {
+    this.props.retrivePieces();
+  }
+  onAddpiecesButtonPress() {
+    console.log(this.props.userInfo);
 
-    fillData() {
-     return this.props.imagePieces.map(object =>
-       <Pieces key={object.id} pieces={object} piecedetails={object} />
+      Actions.addPiecesScreen({ userinfo: this.props.userInfo });
+  }
+
+  fillData() {
+      const userInfo = this.props.userInfo;
+    return this.props.imagePieces.map(object =>
+       <Pieces key={object.id} pieces={object} piecedetails={object} userInfo={userInfo} />
      );
 
-     }
+  }
 
 
-    render() {
+  render() {
 
-     return (
+    return (
     <View style={{ flex: 1 }}>
           <ScrollView>
    {this.fillData()}
@@ -46,15 +49,15 @@ import { Card, CardSection, Button} from './Common';
    </Button>
    </CardSection>
    </View>
-        );
-    }
+    );
+  }
 }
 const mapStateToProps = state => {
-    console.log(state.pieces.piecesImages);
-    return {
-        imagePieces: state.pieces.piecesImages,
-
-    };
+  console.log(state.pieces.piecesImages);
+  return {
+    imagePieces: state.pieces.piecesImages,
+     userInfo: state.pieces.basicUserInfo
+  };
 };
 
 export default connect(mapStateToProps, { retrivePieces })(UserHomeScreen);
