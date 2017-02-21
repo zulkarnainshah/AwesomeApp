@@ -1,8 +1,10 @@
 import { AsyncStorage } from 'react-native';
-import { SHOW_USER_PIECES, GET_USER_IDS } from './Types';
+import { SHOW_USER_PIECES, GET_USER_IDS, GET_PIECES_LOADING } from './Types';
+
 
     export const retrivePieces = () => {
          return (dispatch) => {
+           dispatch({ type: GET_PIECES_LOADING });
           AsyncStorage.getItem('userId').then((value) => {
           const API_ENDPOINT = 'https://server-dev1.mywardrobe.space/api/v1/userinfo';
               const idToken = value;

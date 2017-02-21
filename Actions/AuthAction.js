@@ -4,6 +4,7 @@ import { EMAIL_CHANGED,
        PASSWORD_CHANGED,
        LOGIN_USER_SUCCESS,
         LOGIN_USER_FAIL,
+        LOGIN_USER_LOADING
        } from './Types';
 import UserInfo from '../Components/Models/UserInfo';
 
@@ -22,6 +23,8 @@ export const emailChanged = (text) => {
    };
 export const loginUser = ({ email, password }) => {
    return (dispatch) => {
+      dispatch({ type: LOGIN_USER_LOADING });
+
        fetch(API_ENDPOINT, {method: "POST",
       headers: {
 
