@@ -29,15 +29,12 @@ export default class AddPiecesScreen extends Component {
 
                     source = {uri: 'data:image/png;base64,' + imageUri, isStatic: true};
                     let body = new FormData();
-                    body.append({'data_uri': source.uri,'filename' :'imageName.png'});
-                    body.append('Content-Type', 'image/png');
-                    console.log(authToken);
-                    console.log(userID);
+                    body.append({'data_uri': source.uri,'processing' :false,'fileName':'image.png','filetype':'image','description':'test'});
                     fetch('https://server-dev1.mywardrobe.space/api/v1/users/'+ userID +'/pieces',{
                         method: 'post',
                         headers:{
                             'Authorization': 'Bearer '+ authToken,
-                            'Content-Type': 'application/json'
+                            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
                         },
                         body:body
                     }).then(response => {
