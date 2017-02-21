@@ -7,62 +7,67 @@ import { CardSection } from './Common/CardSection';
 
 class Pieces extends Component {
 
-  onShowPieceButtonPress(id) {
-    console.log(id);
+    onShowPieceButtonPress(id) {
+        console.log(id);
 
-    const idToken = this.props.userInfo[0];
-    const userId = this.props.userInfo[1];
-    console.log(idToken);
-    console.log(userId);
+        const idToken = this.props.userInfo[0];
+        const userId = this.props.userInfo[1];
+        console.log(idToken);
+        console.log(userId);
 
-    Actions.ShowPiecesScreen({ idToken, userId, id });
-  }
-  render() {
-  return (
-<View>
- <CardSection>
-   <Image
-    style={styles.imageStyle}
-   source={{ uri: this.props.piecedetails.image }} />
-   </CardSection>
-   <CardSection>
-   <View style={styles.headerContentStyle}>
-     <Text style={styles.headerTextStyle}>{this.props.piecedetails.description}</Text>
+        Actions.ShowPiecesScreen({ idToken, userId, id });
+    }
+    render() {
+        if(this.props.piecedetails.image != null) {
+            return (
+                <View>
+                    <CardSection>
+                        <Image
+                            style={styles.imageStyle}
+                            source={{ uri: this.props.piecedetails.image }}/>
+                    </CardSection>
+                    <CardSection>
+                        <View style={styles.headerContentStyle}>
+                            <Text style={styles.headerTextStyle}>{this.props.piecedetails.description}</Text>
 
-   </View>
-   </CardSection>
-   <NewButton onPress={() => this.onShowPieceButtonPress(this.props.piecedetails.id)}>
-     Show piece
-   </NewButton>
+                        </View>
+                    </CardSection>
+                    <NewButton onPress={() => this.onShowPieceButtonPress(this.props.piecedetails.id)}>
+                        Show piece
+                    </NewButton>
 
-</View>
-);
-}
+                </View>
+            );
+        }
+        else{
+            return null
+        }
+    }
 };
 
 const styles = {
-  headerContentStyle: {
-    flexDirection: 'column',
-    justifyContent: 'space-around'
-  },
-  headerTextStyle: {
-    fontSize: 18
-  },
-  thumbnailStyle: {
-    height: 50,
-    width: 50
-  },
-  thumbnailContainerStyle: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: 10,
-    marginRight: 10
-  },
-  imageStyle: {
-    height: 300,
-    flex: 1,
-    width: null
-  }
+    headerContentStyle: {
+        flexDirection: 'column',
+        justifyContent: 'space-around'
+    },
+    headerTextStyle: {
+        fontSize: 18
+    },
+    thumbnailStyle: {
+        height: 50,
+        width: 50
+    },
+    thumbnailContainerStyle: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: 10,
+        marginRight: 10
+    },
+    imageStyle: {
+        height: 300,
+        flex: 1,
+        width: null
+    }
 };
 
 export default Pieces;
