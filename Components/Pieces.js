@@ -1,38 +1,45 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Text, View, Image } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import { NewButton } from './Common/NewButton';
 import { CardSection } from './Common/CardSection';
 
-const Pieces = (props) => {
-  const {
 
-    headerContentStyle,
+class Pieces extends Component {
 
-    headerTextStyle,
-    imageStyle
-  } = styles;
+  onShowPieceButtonPress(id) {
+    console.log(id);
+
+    const idToken = this.props.userInfo[0];
+    const userId = this.props.userInfo[1];
+    console.log(idToken);
+    console.log(userId);
+
+    Actions.ShowPiecesScreen({ idToken, userId, id });
+  }
+  render() {
   return (
 <View>
-<CardSection>
-  <Image
+ <CardSection>
+   <Image
     style={styles.imageStyle}
-   source={{ uri: props.piecedetails.image }} />
+   source={{ uri: this.props.piecedetails.image }} />
    </CardSection>
    <CardSection>
-   <View style={headerContentStyle}>
-     <Text style={headerTextStyle}>{props.piecedetails.description}</Text>
+   <View style={styles.headerContentStyle}>
+     <Text style={styles.headerTextStyle}>{this.props.piecedetails.description}</Text>
 
    </View>
    </CardSection>
-   <NewButton>
+   <NewButton onPress={() => this.onShowPieceButtonPress(this.props.piecedetails.id)}>
      Show piece
    </NewButton>
 
 </View>
-
 );
-
+}
 };
+
 const styles = {
   headerContentStyle: {
     flexDirection: 'column',
@@ -57,8 +64,5 @@ const styles = {
     width: null
   }
 };
-
-
-
 
 export default Pieces;

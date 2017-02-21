@@ -5,6 +5,7 @@ import SignInScreen from './Components/SignInScreen';
 import SignUpScreen from './Components/SignUpScreen';
 import UserHomeScreen from './Components/UserHomeScreen';
 import AddPiecesScreen from './Components/AddPiecesScreen';
+import ShowSinglePieceScreen from './Components/ShowSinglePieceScreen';
 
 const RouterComponent = () => {
 
@@ -15,6 +16,7 @@ const RouterComponent = () => {
          <Scene key='signIn' component={SignInScreen} title='signin' />
          <Scene key='homeScreen' component={UserHomeScreen} title='My Wardrobe' />
             <Scene key='addPiecesScreen' component={AddPiecesScreen} title='Add Pieces' />
+            <Scene key='ShowPiecesScreen' component={ShowSinglePieceScreen} title='View Pieces' />
 </Router>
     );
 };
