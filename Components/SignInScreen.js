@@ -4,6 +4,7 @@ import { Actions } from 'react-native-router-flux';
 import { Text } from 'react-native';
 import { Card, CardSection, Input, Button, Tabs } from './Common';
 import { emailChanged, passwordChanged, loginUser } from '../Actions';
+import { Spinner } from './Common/Spinner';
 
 class SignInScreen extends Component {
 
@@ -24,6 +25,17 @@ class SignInScreen extends Component {
     onSignUpButtonPress() {
         Actions.signUp({ type: 'reset' });
     }
+    renderButton() {
+  if (this.props.loading) {
+    return <Spinner size="large" />;
+  }
+
+  return (
+    <Button onPress={this.onButtonPress.bind(this)}>
+      Login
+    </Button>
+  );
+}
 
     render() {
         return (
@@ -58,9 +70,7 @@ class SignInScreen extends Component {
                     {this.props.error}
                 </Text>
                 <CardSection>
-                    <Button onPress={this.onButtonPress.bind(this)}>
-                        Login
-                    </Button>
+                {this.renderButton()}
 
                 </CardSection>
             </Card>
@@ -80,7 +90,8 @@ const mapStateToProps = state => {
     return {
         email: state.auth.email,
         password: state.auth.password,
-        error: state.auth.error
+        error: state.auth.error,
+        loading: state.auth.loading,
     };
 };
 
