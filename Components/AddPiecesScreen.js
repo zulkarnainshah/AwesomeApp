@@ -16,7 +16,7 @@ export default class AddPiecesScreen extends Component {
     }
 
     pickImage(props) {
-       console.log(this.props.userinfo);
+        console.log(this.props.userinfo);
         AsyncStorage.getItem('userId').then((value)=> {
             console.log(value);
             authToken = value;
@@ -24,34 +24,9 @@ export default class AddPiecesScreen extends Component {
                 jsonString = JSON.parse(value);
                 userID = jsonString.id;
 
-                // ImagePickerIOS.openSelectDialog({}, imageUri => {
-                //     // this.setState({ image: imageUri });
-                //
-                //     source = {uri: 'data:image/png;base64,' + imageUri, isStatic: true};
-                //     let body = new FormData();
-                //     body.append({'data_uri': source.uri,'processing' :false,'fileName':'image.png','filetype':'image','description':'test'});
-                //     fetch('https://server-dev1.mywardrobe.space/api/v1/users/'+ userID +'/pieces',{
-                //         method: 'post',
-                //         headers:{
-                //             'Authorization': 'Bearer '+ authToken,
-                //             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-                //         },
-                //         body:body
-                //     }).then(response => {
-                //         console.log(response)
-                //     }).catch(console.log);
-                //
-                // }, error => console.log('Error picking image or pressed Cancel'));
-
-                var ImagePicker = require('react-native-image-picker');
-                console.log('imageZZPicker')
-                console.log(ImagePicker);
-// More info on all the options is below in the README...just some common use cases shown here
-                var options = {
-                    title: 'Select Avatar',
-                    customButtons: [
-                        {name: 'fb', title: 'Choose Photo from Facebook'},
-                    ],
+                let imagePicker = require('react-native-image-picker');
+                let options = {
+                    title: 'Add Piece',
                     storageOptions: {
                         skipBackup: true,
                         path: 'images'
@@ -60,9 +35,9 @@ export default class AddPiecesScreen extends Component {
 
                 /**
                  * The first arg is the options object for customization (it can also be null or omitted for default options),
-                 * The second arg is the callback which sends object: response (more info below in README)
+                 * The second arg is the callback which sends object: response
                  */
-                ImagePicker.showImagePicker(options, (response) => {
+                imagePicker.showImagePicker(options, (response) => {
                     console.log('Response = ', response);
 
                     if (response.didCancel) {
@@ -75,24 +50,35 @@ export default class AddPiecesScreen extends Component {
                         console.log('User tapped custom button: ', response.customButton);
                     }
                     else {
-                        let source = { uri: response.uri };
+                        // let source = { uri: response.uri };
+                        let details = {
+                        'data_uri': 'data:image/png;base64,' + response.data,
+                            'processing': 'false!',
+                            'filename': 'response.fileName',
+                            'filetype':  'image/png',
+                            'description':'test'
+                        };
 
-                        let body = new FormData();
-                            body.append({'data_uri': response.data,'processing' :false,'fileName':response.fileName,'filetype':response.filetype,'description':'test'});
-                            fetch('https://server-dev1.mywardrobe.space/api/v1/users/'+ userID +'/pieces',{
-                                method: 'post',
-                                headers:{
-                                    'Authorization': 'Bearer '+ authToken,
-                                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-                                },
-                                body:body
-                            }).then(response => {
-                                console.log(response)
-                            }).catch(console.log);
+                         let formBody = [];
+                         for (let property in details) {
+                           let encodedKey = encodeURIComponent(property);
+                           let encodedValue = encodeURIComponent(details[property]);
+                           formBody.push(encodedKey + "=" + encodedValue);
+                         }
+                         formBody = formBody.join("&");
+
+                        fetch('https://server-dev1.mywardrobe.space/api/v1/users/'+ userID +'/pieces',{
+                            method: 'post',
+                            headers:{
+                                'Authorization': 'Bearer '+ authToken,
+                                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                            },
+                            body:formBody
+                        }).then(response => {
+                            console.log(response)
+                        }).catch(console.log);
                         // You can also display the image using data:
                         // let source = { uri: 'data:image/jpeg;base64,' + response.data };
-
-          
                     }
                 });
 
@@ -102,7 +88,7 @@ export default class AddPiecesScreen extends Component {
     }
 
     render()   {
-      console.log(this.props.userinfo);
+        console.log(this.props.userinfo);
         return   (
             <View style={{ flex: 1 }}>
                 <Text
