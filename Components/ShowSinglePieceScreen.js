@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { NewButton } from './Common/NewButton';
 import { CardSection } from './Common/CardSection';
-import { viewSinglePiece } from '../Actions'
+import { viewSinglePiece, removeSinglePiece } from '../Actions'
 import { Button } from './Common/Button';
 import { Spinner } from './Common/Spinner';
 
@@ -24,6 +24,13 @@ class ShowSinglePieceScreen extends Component {
     const userId = this.props.userId;
     const idToken = this.props.idToken;
     this.props.viewSinglePiece(idToken, userId, id);
+
+  }
+  onConfirmDeleteButtonPress(){
+    const id = this.props.id;
+    const userId = this.props.userId;
+    const idToken = this.props.idToken;
+    this.props.removeSinglePiece(idToken, userId, id);
   }
 
   onDeleteButtonPress(){
@@ -41,19 +48,12 @@ class ShowSinglePieceScreen extends Component {
     )
 
   }
-  onConfirmDeleteButtonPress(){
-    const id = this.props.id;
-    const userId = this.props.userId;
-    const idToken = this.props.idToken;
-    console.log(id);
-    console.log(userId);
-    console.log(idToken);
-  }
-
 
   render() {
         // console.log(this.props.piece.piece);
-    if (this.props.piece != null){
+    if (this.props.piece != null) {
+
+      console.log(this.props.piece);
       this.props.piece.piece.image
       return (
               <View style={{ flex: 1 }}>
@@ -121,5 +121,4 @@ const mapStateToProps = state => {
 
   };
 };
-
-export default connect(mapStateToProps, { viewSinglePiece })(ShowSinglePieceScreen);
+export default connect(mapStateToProps, { viewSinglePiece, removeSinglePiece })(ShowSinglePieceScreen);
