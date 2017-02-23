@@ -6,7 +6,7 @@ export const retrivePieces = () => {
     return (dispatch) => {
         dispatch({ type: GET_PIECES_LOADING });
         AsyncStorage.getItem('userId').then((value) => {
-            const API_ENDPOINT = 'https://server-dev1.mywardrobe.space/api/v1/userinfo';
+            const API_ENDPOINT = 'https://server-dev1.mywardrobe.space/api/v1/auth/userinfo';
             const idToken = value;
             fetch(API_ENDPOINT,{ method: "GET",
                 headers:{
