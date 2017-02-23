@@ -68616,7 +68616,7 @@ var _reactRedux=require(404          ); // 404 = react-redux
 var _redux=require(415    ); // 415 = redux
 var _reduxThunk=require(441          );var _reduxThunk2=babelHelpers.interopRequireDefault(_reduxThunk); // 441 = redux-thunk
 var _Router=require(442       );var _Router2=babelHelpers.interopRequireDefault(_Router); // 442 = ./Router
-var _Reducers=require(506         );var _Reducers2=babelHelpers.interopRequireDefault(_Reducers);var // 506 = ./Reducers
+var _Reducers=require(515         );var _Reducers2=babelHelpers.interopRequireDefault(_Reducers);var // 515 = ./Reducers
 
 App=function(_Component){babelHelpers.inherits(App,_Component);function App(){babelHelpers.classCallCheck(this,App);return babelHelpers.possibleConstructorReturn(this,(App.__proto__||Object.getPrototypeOf(App)).apply(this,arguments));}babelHelpers.createClass(App,[{key:'render',value:function render()
 
@@ -70700,8 +70700,10 @@ __d(/* WardrobeUI/Router.js */function(global, require, module, exports) {Object
 var _reactNativeRouterFlux=require(443                       ); // 443 = react-native-router-flux
 var _LandingScreen=require(490                         );var _LandingScreen2=babelHelpers.interopRequireDefault(_LandingScreen); // 490 = ./Components/LandingScreen
 var _SignInScreen=require(499                        );var _SignInScreen2=babelHelpers.interopRequireDefault(_SignInScreen); // 499 = ./Components/SignInScreen
-var _SignUpScreen=require(504                        );var _SignUpScreen2=babelHelpers.interopRequireDefault(_SignUpScreen); // 504 = ./Components/SignUpScreen
-var _UserHomeScreen=require(505                          );var _UserHomeScreen2=babelHelpers.interopRequireDefault(_UserHomeScreen); // 505 = ./Components/UserHomeScreen
+var _SignUpScreen=require(508                        );var _SignUpScreen2=babelHelpers.interopRequireDefault(_SignUpScreen); // 508 = ./Components/SignUpScreen
+var _UserHomeScreen=require(509                          );var _UserHomeScreen2=babelHelpers.interopRequireDefault(_UserHomeScreen); // 509 = ./Components/UserHomeScreen
+var _AddPiecesScreen=require(512                           );var _AddPiecesScreen2=babelHelpers.interopRequireDefault(_AddPiecesScreen); // 512 = ./Components/AddPiecesScreen
+var _ShowSinglePieceScreen=require(514                                 );var _ShowSinglePieceScreen2=babelHelpers.interopRequireDefault(_ShowSinglePieceScreen); // 514 = ./Components/ShowSinglePieceScreen
 
 var RouterComponent=function RouterComponent(){
 
@@ -70710,15 +70712,18 @@ _react2.default.createElement(_reactNativeRouterFlux.Router,{sceneStyle:{padding
 _react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'startpage',component:_LandingScreen2.default,title:'welcome'}),
 _react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'signUp',component:_SignUpScreen2.default,title:'Signup'}),
 _react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'signIn',component:_SignInScreen2.default,title:'signin'}),
-_react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'homeScreen',component:_UserHomeScreen2.default,title:'My Wardrobe'})));
+_react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'homeScreen',component:_UserHomeScreen2.default,title:'My Wardrobe'}),
+_react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'addPiecesScreen',component:_AddPiecesScreen2.default,title:'Add Pieces'}),
+_react2.default.createElement(_reactNativeRouterFlux.Scene,{key:'ShowPiecesScreen',component:_ShowSinglePieceScreen2.default,title:'View Pieces'})));
 
 
 };exports.default=
 RouterComponent;
 }, 442, null, "WardrobeUI/Router.js");
-__d(/* react-native-router-flux/index.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.Util=exports.getInitialState=exports.TabBar=exports.Switch=exports.Scene=exports.Router=exports.Reducer=exports.NavBar=exports.Modal=exports.DefaultRenderer=exports.ActionConst=exports.Actions=undefined;var _Actions=require(444            );var _Actions2=babelHelpers.interopRequireDefault(_Actions); // 444 = ./src/Actions
+__d(/* react-native-router-flux/index.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.Util=exports.getInitialState=exports.TabbedView=exports.TabBar=exports.Switch=exports.Scene=exports.Router=exports.Reducer=exports.NavBar=exports.Modal=exports.DefaultRenderer=exports.ActionConst=exports.Actions=undefined;var _Actions=require(444            );var _Actions2=babelHelpers.interopRequireDefault(_Actions); // 444 = ./src/Actions
 var _ActionConst=require(447                );var ActionConst=babelHelpers.interopRequireWildcard(_ActionConst); // 447 = ./src/ActionConst
 var _DefaultRenderer=require(448                    );var _DefaultRenderer2=babelHelpers.interopRequireDefault(_DefaultRenderer); // 448 = ./src/DefaultRenderer
+var _TabbedView=require(451               );var _TabbedView2=babelHelpers.interopRequireDefault(_TabbedView); // 451 = ./src/TabbedView
 var _Modal=require(485          );var _Modal2=babelHelpers.interopRequireDefault(_Modal); // 485 = ./src/Modal
 var _NavBar=require(454           );var _NavBar2=babelHelpers.interopRequireDefault(_NavBar); // 454 = ./src/NavBar
 var _Reducer=require(486            );var _Reducer2=babelHelpers.interopRequireDefault(_Reducer); // 486 = ./src/Reducer
@@ -70740,10 +70745,11 @@ Router=_Router2.default;exports.
 Scene=_Scene2.default;exports.
 Switch=_Switch2.default;exports.
 TabBar=_TabBar2.default;exports.
+TabbedView=_TabbedView2.default;exports.
 getInitialState=_State2.default;exports.
 Util=_Util2.default;
 }, 443, null, "react-native-router-flux/index.js");
-__d(/* react-native-router-flux/src/Actions.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.ActionMap=undefined;var _ActionMap;
+__d(/* react-native-router-flux/src/Actions.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.ActionsTest=exports.ActionMap=undefined;var _ActionMap;
 
 
 
@@ -70761,6 +70767,7 @@ push:ActionConst.PUSH,
 replace:ActionConst.REPLACE,
 back:ActionConst.BACK,
 BackAction:ActionConst.BACK_ACTION,
+popAndReplace:ActionConst.POP_AND_REPLACE,
 popTo:ActionConst.POP_TO,
 refresh:ActionConst.REFRESH,
 reset:ActionConst.RESET,
@@ -70771,6 +70778,7 @@ ActionConst.PUSH,ActionConst.PUSH),babelHelpers.defineProperty(_ActionMap,
 ActionConst.REPLACE,ActionConst.REPLACE),babelHelpers.defineProperty(_ActionMap,
 ActionConst.BACK,ActionConst.BACK),babelHelpers.defineProperty(_ActionMap,
 ActionConst.BACK_ACTION,ActionConst.BACK_ACTION),babelHelpers.defineProperty(_ActionMap,
+ActionConst.POP_AND_REPLACE,ActionConst.POP_AND_REPLACE),babelHelpers.defineProperty(_ActionMap,
 ActionConst.POP_TO,ActionConst.POP_TO),babelHelpers.defineProperty(_ActionMap,
 ActionConst.REFRESH,ActionConst.REFRESH),babelHelpers.defineProperty(_ActionMap,
 ActionConst.RESET,ActionConst.RESET),babelHelpers.defineProperty(_ActionMap,
@@ -70945,9 +70953,10 @@ scene){var wrapBy=arguments.length>1&&arguments[1]!==undefined?arguments[1]:func
 var refs={};
 this.iterate(scene,{},refs,wrapBy);
 return refs;
-}}]);return Actions;}();exports.default=
+}}]);return Actions;}();exports.
 
 
+ActionsTest=Actions;exports.default=
 new Actions();
 }, 444, null, "react-native-router-flux/src/Actions.js");
 __d(/* react-native-router-flux/src/Util.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.
@@ -71028,6 +71037,7 @@ var PUSH_OR_POP=exports.PUSH_OR_POP='REACT_NATIVE_ROUTER_FLUX_PUSH_OR_POP';
 var REPLACE=exports.REPLACE='REACT_NATIVE_ROUTER_FLUX_REPLACE';
 var BACK=exports.BACK='REACT_NATIVE_ROUTER_FLUX_BACK';
 var BACK_ACTION=exports.BACK_ACTION='REACT_NATIVE_ROUTER_FLUX_BACK_ACTION';
+var POP_AND_REPLACE=exports.POP_AND_REPLACE='REACT_NATIVE_ROUTER_FLUX_POP_AND_REPLACE';
 var POP_TO=exports.POP_TO='REACT_NATIVE_ROUTER_FLUX_POP_TO';
 var REFRESH=exports.REFRESH='REACT_NATIVE_ROUTER_FLUX_REFRESH';
 var RESET=exports.RESET='REACT_NATIVE_ROUTER_FLUX_RESET';
@@ -71233,7 +71243,9 @@ animationStyle=animationStyle(props);
 }
 
 if(typeof panHandlers==='undefined'){
-panHandlers=getPanHandlers?getPanHandlers(props):this.getPanHandlers(direction,props);
+panHandlers=getPanHandlers?
+getPanHandlers(props,direction):
+this.getPanHandlers(direction,props);
 }
 return(
 _react2.default.createElement(NavigationCard,babelHelpers.extends({},
@@ -71375,6 +71387,9 @@ optionals)));
 }, 448, null, "react-native-router-flux/src/DefaultRenderer.js");
 __d(/* react-native-router-flux/src/TabBar.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
 var _reactNative=require(42            ); // 42 = react-native
+
+
+
 var _reactNativeTabs=require(450                );var _reactNativeTabs2=babelHelpers.interopRequireDefault(_reactNativeTabs); // 450 = react-native-tabs
 var _DefaultRenderer=require(448                );var _DefaultRenderer2=babelHelpers.interopRequireDefault(_DefaultRenderer); // 448 = ./DefaultRenderer
 var _Actions=require(444        );var _Actions2=babelHelpers.interopRequireDefault(_Actions); // 444 = ./Actions
@@ -71382,6 +71397,7 @@ var _TabbedView=require(451           );var _TabbedView2=babelHelpers.interopReq
 var _Util=require(445     );var // 445 = ./Util
 
 TabBar=function(_Component){babelHelpers.inherits(TabBar,_Component);
+
 
 
 
@@ -71421,10 +71437,26 @@ navigationState:navigationState}));
 
 {var _this2=this;
 var state=this.props.navigationState;
+var selected=state.children[state.index];
 
-var hideTabBar=this.props.unmountScenes?
-true:
-(0,_Util.deepestExplicitValueForKey)(state,'hideTabBar');
+var hideTabBar=this.props.unmountScenes||
+(0,_Util.deepestExplicitValueForKey)(state,'hideTabBar')||
+this.props.hideOnChildTabs&&(0,_Util.deepestExplicitValueForKey)(selected,'tabs');
+
+var contents=
+_react2.default.createElement(_reactNativeTabs2.default,babelHelpers.extends({
+style:state.tabBarStyle,
+selectedIconStyle:state.tabBarSelectedItemStyle,
+iconStyle:state.tabBarIconContainerStyle,
+onSelect:this.onSelect},state,{
+selected:selected.sceneKey,
+pressOpacity:this.props.pressOpacity}),
+
+state.children.filter(function(el){return el.icon||_this2.props.tabIcon;}).map(function(el){
+var Icon=el.icon||_this2.props.tabIcon;
+return _react2.default.createElement(Icon,babelHelpers.extends({},_this2.props,el));
+}));
+
 
 return(
 _react2.default.createElement(_reactNative.View,{
@@ -71435,24 +71467,16 @@ navigationState:this.props.navigationState,
 style:{flex:1},
 renderScene:this.renderScene}),
 
-!hideTabBar&&state.children.filter(function(el){return el.icon;}).length>0&&
-_react2.default.createElement(_reactNativeTabs2.default,babelHelpers.extends({
-style:state.tabBarStyle,
-selectedIconStyle:state.tabBarSelectedItemStyle,
-iconStyle:state.tabBarIconContainerStyle,
-onSelect:this.onSelect},state,{
-selected:state.children[state.index].sceneKey,
-pressOpacity:this.props.pressOpacity}),
+!hideTabBar&&state.children.filter(function(el){return el.icon;}).length>0&&(
+state.tabBarBackgroundImage?
+_react2.default.createElement(_reactNative.Image,{source:state.tabBarBackgroundImage},
+contents):
 
-state.children.filter(function(el){return el.icon||_this2.props.tabIcon;}).map(function(el){
-var Icon=el.icon||_this2.props.tabIcon;
-return _react2.default.createElement(Icon,babelHelpers.extends({},_this2.props,el));
-}))));
+contents)));
 
 
 
-
-}}]);return TabBar;}(_react.Component);TabBar.propTypes={navigationState:_react.PropTypes.object,tabIcon:_react.PropTypes.any,onNavigate:_react.PropTypes.func,unmountScenes:_react.PropTypes.bool,pressOpacity:_react.PropTypes.number};exports.default=
+}}]);return TabBar;}(_react.Component);TabBar.propTypes={navigationState:_react.PropTypes.object,tabIcon:_react.PropTypes.any,onNavigate:_react.PropTypes.func,unmountScenes:_react.PropTypes.bool,pressOpacity:_react.PropTypes.number,hideOnChildTabs:_react.PropTypes.bool};exports.default=
 
 
 
@@ -71721,11 +71745,15 @@ var _menu_burger=require(455                );var _menu_burger2=babelHelpers.int
 var _back_chevron=require(456                 );var _back_chevron2=babelHelpers.interopRequireDefault(_back_chevron); // 456 = ./back_chevron.png
 
 var styles=_reactNative.StyleSheet.create({
-title:babelHelpers.extends({
+title:{
 textAlign:'center',
-marginTop:10,
-fontSize:18,
 color:'#0A0A0A',
+fontSize:18,
+width:180,
+alignSelf:'center'},
+
+titleWrapper:babelHelpers.extends({
+marginTop:10,
 position:'absolute'},
 _reactNative.Platform.select({
 ios:{
@@ -71757,7 +71785,7 @@ borderBottomColor:'#828287',
 position:'absolute'}),
 
 backButton:babelHelpers.extends({
-width:130,
+width:100,
 height:37,
 position:'absolute'},
 _reactNative.Platform.select({
@@ -71840,11 +71868,13 @@ backButtonTextStyle:_reactNative.Text.propTypes.style,
 leftButtonStyle:_reactNative.View.propTypes.style,
 leftButtonIconStyle:_reactNative.Image.propTypes.style,
 getTitle:_react.PropTypes.func,
+titleWrapperStyle:_reactNative.Text.propTypes.style,
 titleStyle:_reactNative.Text.propTypes.style,
 titleOpacity:_react.PropTypes.number,
 titleProps:_react.PropTypes.any,
 position:_react.PropTypes.object,
 navigationBarStyle:_reactNative.View.propTypes.style,
+navigationBarBackgroundImage:_reactNative.Image.propTypes.source,
 renderTitle:_react.PropTypes.any};
 
 
@@ -71887,7 +71917,7 @@ state.leftButtonStyle,
 childState.leftButtonStyle];
 
 
-if(state.index===0){
+if(state.index===0&&(!state.parentIndex||state.parentIndex===0)){
 return null;
 }
 
@@ -72094,9 +72124,17 @@ if(typeof title==='function'){
 title=title(childState);
 }
 return(
-_react2.default.createElement(_reactNative.Animated.Text,babelHelpers.extends({},
-this.props.titleProps,{
+_react2.default.createElement(_reactNative.Animated.View,{
 key:childState.key,
+style:[
+styles.titleWrapper,
+this.props.titleWrapperStyle]},
+
+
+_react2.default.createElement(_reactNative.Animated.Text,babelHelpers.extends({
+lineBreakMode:'tail',
+numberOfLines:1},
+this.props.titleProps,{
 style:[
 styles.title,
 this.props.titleStyle,
@@ -72118,7 +72156,8 @@ outputRange:[-200,200]})}]}),
 
 
 
-title));
+title)));
+
 
 
 }},{key:'render',value:function render()
@@ -72152,6 +72191,15 @@ this.renderBackButton;
 var renderTitle=selected.renderTitle||
 selected.component.renderTitle||
 this.props.renderTitle;
+var navigationBarBackgroundImage=this.props.navigationBarBackgroundImage||
+state.navigationBarBackgroundImage;
+var contents=
+_react2.default.createElement(_reactNative.View,null,
+renderTitle?renderTitle(navProps):state.children.map(this.renderTitle,this),
+renderBackButton(navProps)||renderLeftButton(navProps),
+renderRightButton(navProps));
+
+
 return(
 _react2.default.createElement(_reactNative.Animated.View,{
 style:[
@@ -72161,9 +72209,11 @@ state.navigationBarStyle,
 selected.navigationBarStyle]},
 
 
-renderTitle?renderTitle(navProps):state.children.map(this.renderTitle,this),
-renderBackButton(navProps)||renderLeftButton(navProps),
-renderRightButton(navProps)));
+navigationBarBackgroundImage?
+_react2.default.createElement(_reactNative.Image,{source:navigationBarBackgroundImage},
+contents):
+
+contents));
 
 
 }}]);return NavBar;}(_react2.default.Component);
@@ -75717,20 +75767,69 @@ __d(/* react-native-router-flux/src/Reducer.js */function(global, require, modul
 
 
 
-findElement=findElement;var _ActionConst=require(447            );var ActionConst=babelHelpers.interopRequireWildcard(_ActionConst);var _Actions=require(444        );var _Util=require(445     );var _State=require(487      );var _reactNative=require(42            );function checkPropertiesEqual(action,lastAction){var isEqual=true;for(var _iterator=Object.keys(action),_isArray=Array.isArray(_iterator),_i=0,_iterator=_isArray?_iterator:_iterator[typeof Symbol==='function'?Symbol.iterator:'@@iterator']();;){var _ref;if(_isArray){if(_i>=_iterator.length)break;_ref=_iterator[_i++];}else{_i=_iterator.next();if(_i.done)break;_ref=_i.value;}var key=_ref;if(['key','type','parent'].indexOf(key)===-1){if(action[key]!==lastAction[key]){isEqual=false;}}}return isEqual;}function resetHistoryStack(child){var newChild=child;newChild.index=0;child.children.map(function(el,i){if(el.initial){newChild.index=i;if(!newChild.tabs){newChild.children=[el];}}if(el.children){resetHistoryStack(el);}return newChild;});}function refreshTopChild(children,refresh){if(refresh){var topChild=children[children.length-1];return[].concat(babelHelpers.toConsumableArray(children.slice(0,-1)),[babelHelpers.extends({},topChild,refresh)]);}return children;}function inject(state,action,props,scenes){var condition=_Actions.ActionMap[action.type]===ActionConst.REFRESH?state.key===props.key||state.sceneKey===action.key:state.sceneKey===props.parent;if(!condition){if(state.children){var res=state.children.map(function(el){return inject(el,action,props,scenes);});var changed=false;var changedIndex=-1;for(var i=0;i<res.length;i++){if(res[i]!==state.children[i]){changed=true;changedIndex=i;break;}}return changed?babelHelpers.extends({},state,{children:res,index:changedIndex}):state;}return state;}var ind=void 0;switch(_Actions.ActionMap[action.type]){case ActionConst.POP_TO:{var targetIndex=action.targetIndex;return babelHelpers.extends({},state,{index:targetIndex,children:refreshTopChild(state.children.slice(0,targetIndex+1),action.refresh)});}case ActionConst.BACK:case ActionConst.BACK_ACTION:{(0,_Util.assert)(!state.tabs,'pop() operation cannot be run on tab bar (tabs=true)');if(_reactNative.Platform.OS==='android'){(0,_Util.assert)(state.index>0,'You are already in the root scene.');}if(state.index===0){return state;}var popNum=1;if(action.popNum){(0,_Util.assert)(typeof action.popNum==='number','The data is the number of scenes you want to pop, it must be Number');popNum=action.popNum;(0,_Util.assert)(popNum%1===0,'The data is the number of scenes you want to pop, it must be integer.');(0,_Util.assert)(popNum>1,'The data is the number of scenes you want to pop, it must be bigger than 1.');(0,_Util.assert)(popNum<=state.index,'The data is the number of scenes you want to pop, '+"it must be smaller than scenes stack's length.");}return babelHelpers.extends({},state,{index:state.index-popNum,from:state.children[state.children.length-popNum],children:refreshTopChild(state.children.slice(0,-1*popNum),action.refresh)});}case ActionConst.REFRESH:return props.base?babelHelpers.extends({navBar:state.navBar},scenes.rootProps,props,{key:state.key,from:null}):babelHelpers.extends({},state,props,{key:state.key,from:null});case ActionConst.PUSH_OR_POP:ind=state.children.findIndex(function(el){return el.sceneKey===action.key;});if(ind!==-1){return babelHelpers.extends({},state,{index:ind,from:state.children[state.index],children:refreshTopChild(state.children.slice(0,ind+1),action.refresh)});}return babelHelpers.extends({},state,{index:state.index+1,from:null,children:[].concat(babelHelpers.toConsumableArray(state.children),[(0,_State.getInitialState)(props,scenes,state.index+1,action)])});case ActionConst.PUSH:if(state.children[state.index].sceneKey===action.key&&!props.clone&&checkPropertiesEqual(action,state.children[state.index])){return state;}return babelHelpers.extends({},state,{index:state.index+1,from:null,children:[].concat(babelHelpers.toConsumableArray(state.children),[(0,_State.getInitialState)(props,scenes,state.index+1,action)])});case ActionConst.JUMP:(0,_Util.assert)(state.tabs,'Parent='+state.key+' is not tab bar, jump action is not valid');ind=-1;state.children.forEach(function(c,i){if(c.sceneKey===action.key){ind=i;}});(0,_Util.assert)(ind!==-1,'Cannot find route with key='+action.key+' for parent='+state.key);if(action.unmountScenes){resetHistoryStack(state.children[ind]);}return babelHelpers.extends({},state,{index:ind});case ActionConst.REPLACE:if(state.children[state.index].sceneKey===action.key){return state;}state.children[state.children.length-1]=(0,_State.getInitialState)(props,scenes,state.index,action);return babelHelpers.extends({},state,{children:state.children});case ActionConst.RESET:if(state.children[state.index].sceneKey===action.key){return state;}state.children=state.children.splice(0,1);state.children[0]=(0,_State.getInitialState)(props,scenes,state.index,action);return babelHelpers.extends({},state,{index:0,from:null,children:state.children});default:return state;}}function findElement(state,key,type){ // 42 = react-native // 487 = ./State // 445 = ./Util // 444 = ./Actions // 447 = ./ActionConst
-if(_Actions.ActionMap[type]===ActionConst.REFRESH&&state.key===key||state.sceneKey===key){
-return state;
-}
-if(state.children){
-for(var _iterator2=state.children,_isArray2=Array.isArray(_iterator2),_i2=0,_iterator2=_isArray2?_iterator2:_iterator2[typeof Symbol==='function'?Symbol.iterator:'@@iterator']();;){var _ref2;if(_isArray2){if(_i2>=_iterator2.length)break;_ref2=_iterator2[_i2++];}else{_i2=_iterator2.next();if(_i2.done)break;_ref2=_i2.value;}var child=_ref2;
-var current=findElement(child,key,type);
-if(current)return current;
-}
-}
-return null;
-}
 
-function getCurrent(state){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+findElement=findElement;exports.
+
+
+
+
+
+
+
+
+
+
+
+
+getCurrent=getCurrent;var _ActionConst=require(447            );var ActionConst=babelHelpers.interopRequireWildcard(_ActionConst);var _Actions=require(444        );var _Util=require(445     );var _State=require(487      );var _reactNative=require(42            );function checkPropertiesEqual(action,lastAction){var isEqual=true;for(var _iterator=Object.keys(action),_isArray=Array.isArray(_iterator),_i=0,_iterator=_isArray?_iterator:_iterator[typeof Symbol==='function'?Symbol.iterator:'@@iterator']();;){var _ref;if(_isArray){if(_i>=_iterator.length)break;_ref=_iterator[_i++];}else{_i=_iterator.next();if(_i.done)break;_ref=_i.value;}var key=_ref;if(['key','type','parent'].indexOf(key)===-1){if(action[key]!==lastAction[key]){isEqual=false;}}}return isEqual;}function resetHistoryStack(child){var newChild=child;newChild.index=0;child.children.map(function(el,i){if(el.initial){newChild.index=i;if(!newChild.tabs){newChild.children=[el];}}if(el.children){resetHistoryStack(el);}return newChild;});}function refreshTopChild(children,refresh){if(refresh){var topChild=children[children.length-1];return[].concat(babelHelpers.toConsumableArray(children.slice(0,-1)),[babelHelpers.extends({},topChild,refresh)]);}return children;}function inject(state,action,props,scenes){var condition=_Actions.ActionMap[action.type]===ActionConst.REFRESH?state.key===props.key||state.sceneKey===action.key:state.sceneKey===props.parent;if(!condition){if(state.children){var res=state.children.map(function(el){return inject(el,action,props,scenes);});var changed=false;var changedIndex=-1;for(var i=0;i<res.length;i++){if(res[i]!==state.children[i]){changed=true;changedIndex=i;break;}}return changed?babelHelpers.extends({},state,{children:res,index:changedIndex}):state;}return state;}var ind=void 0;switch(_Actions.ActionMap[action.type]){case ActionConst.POP_TO:{var targetIndex=action.targetIndex;return babelHelpers.extends({},state,{index:targetIndex,children:refreshTopChild(state.children.slice(0,targetIndex+1),action.refresh)});}case ActionConst.BACK:case ActionConst.BACK_ACTION:{(0,_Util.assert)(!state.tabs,'pop() operation cannot be run on tab bar (tabs=true)');if(_reactNative.Platform.OS==='android'){(0,_Util.assert)(state.index>0,'You are already in the root scene.');}if(state.index===0){return state;}var popNum=1;if(action.popNum){(0,_Util.assert)(typeof action.popNum==='number','The data is the number of scenes you want to pop, it must be Number');popNum=action.popNum;(0,_Util.assert)(popNum%1===0,'The data is the number of scenes you want to pop, it must be integer.');(0,_Util.assert)(popNum>1,'The data is the number of scenes you want to pop, it must be bigger than 1.');(0,_Util.assert)(popNum<=state.index,'The data is the number of scenes you want to pop, '+"it must be smaller than scenes stack's length.");}return babelHelpers.extends({},state,{index:state.index-popNum,from:state.children[state.children.length-popNum],children:refreshTopChild(state.children.slice(0,-1*popNum),action.refresh)});}case ActionConst.POP_AND_REPLACE:{(0,_Util.assert)(!state.tabs,'pop() operation cannot be run on tab bar (tabs=true)');(0,_Util.assert)(state.index>0,'You are already in the root scene.');var _popNum=1;if(action.popNum){(0,_Util.assert)(typeof action.popNum==='number','The data is the number of scenes you want to pop, it must be Number');_popNum=action.popNum;(0,_Util.assert)(_popNum%1===0,'The data is the number of scenes you want to pop, it must be integer.');(0,_Util.assert)(_popNum>1,'The data is the number of scenes you want to pop, it must be bigger than 1.');(0,_Util.assert)(_popNum<=state.index,'The data is the number of scenes you want to pop, '+"it must be smaller than scenes stack's length.");}state=babelHelpers.extends({},state,{index:state.index-_popNum,from:state.children[state.children.length-_popNum],children:state.children.slice(0,-1*_popNum)});if(state.children[state.index].sceneKey===action.key){return state;}var newAction=babelHelpers.extends({duration:0},action);delete newAction.popNum;var newProps=babelHelpers.extends({},props);delete newProps.popNum;state.children[state.children.length-1]=(0,_State.getInitialState)(newProps,scenes,state.index,newAction);return babelHelpers.extends({},state,{children:state.children});}case ActionConst.REFRESH:return props.base?babelHelpers.extends({navBar:state.navBar},scenes.rootProps,props,{key:state.key,from:null}):babelHelpers.extends({},state,props,{key:state.key,from:null});case ActionConst.PUSH_OR_POP:ind=state.children.findIndex(function(el){return el.sceneKey===action.key;});if(ind!==-1){return babelHelpers.extends({},state,{index:ind,from:state.children[state.index],children:refreshTopChild(state.children.slice(0,ind+1),action.refresh)});}return babelHelpers.extends({},state,{index:state.index+1,from:null,children:[].concat(babelHelpers.toConsumableArray(state.children),[(0,_State.getInitialState)(props,scenes,state.index+1,action)])});case ActionConst.PUSH:if(state.children[state.index].sceneKey===action.key&&!props.clone&&checkPropertiesEqual(action,state.children[state.index])){return state;}return babelHelpers.extends({},state,{index:state.index+1,from:null,children:[].concat(babelHelpers.toConsumableArray(state.children),[(0,_State.getInitialState)(props,scenes,state.index+1,action)])});case ActionConst.JUMP:{(0,_Util.assert)(state.tabs,'Parent='+state.key+' is not tab bar, jump action is not valid');ind=-1;state.children.forEach(function(c,i){if(c.sceneKey===action.key){ind=i;}});(0,_Util.assert)(ind!==-1,'Cannot find route with key='+action.key+' for parent='+state.key);if(action.unmountScenes){resetHistoryStack(state.children[ind]);}return babelHelpers.extends({},state,{index:ind});}case ActionConst.REPLACE:if(state.children[state.index].sceneKey===action.key){return state;}state.children[state.children.length-1]=(0,_State.getInitialState)(props,scenes,state.index,action);return babelHelpers.extends({},state,{children:state.children});case ActionConst.RESET:if(state.children[state.index].sceneKey===action.key){return state;}state.children=state.children.splice(0,1);state.children[0]=(0,_State.getInitialState)(props,scenes,state.index,action);return babelHelpers.extends({},state,{index:0,from:null,children:state.children});default:return state;}}function findElement(state,key,type){if(_Actions.ActionMap[type]===ActionConst.REFRESH&&state.key===key||state.sceneKey===key){return state;}if(state.children){for(var _iterator2=state.children,_isArray2=Array.isArray(_iterator2),_i2=0,_iterator2=_isArray2?_iterator2:_iterator2[typeof Symbol==='function'?Symbol.iterator:'@@iterator']();;){var _ref2;if(_isArray2){if(_i2>=_iterator2.length)break;_ref2=_iterator2[_i2++];}else{_i2=_iterator2.next();if(_i2.done)break;_ref2=_i2.value;}var child=_ref2;var current=findElement(child,key,type);if(current)return current;}}return null;}function getCurrent(state){ // 42 = react-native // 487 = ./State // 445 = ./Util // 444 = ./Actions // 447 = ./ActionConst
 if(!state.children){
 return state;
 }
@@ -75791,6 +75890,7 @@ action.parent=getCurrent(state).parent;
 
 if(_Actions.ActionMap[action.type]===ActionConst.BACK_ACTION||
 _Actions.ActionMap[action.type]===ActionConst.BACK||
+_Actions.ActionMap[action.type]===ActionConst.POP_AND_REPLACE||
 _Actions.ActionMap[action.type]===ActionConst.REFRESH||
 _Actions.ActionMap[action.type]===ActionConst.POP_TO){
 if(!action.key&&!action.parent){
@@ -75800,8 +75900,15 @@ action=babelHelpers.extends({},getCurrent(state),action);
 
 
 if(_Actions.ActionMap[action.type]===ActionConst.POP_TO){
-var target=action.data;
-(0,_Util.assert)(target,'PopTo() must be called with scene name');
+
+
+
+
+
+var target=action.data||action.scene;
+(0,_Util.assert)(target,'PopTo() must be called with a single argument: '+
+'either the scene name (string) or an object with within the scene property '+
+'carrying the target scene to pop to');
 
 var targetEl=findElement(state,target,action.type);
 (0,_Util.assert)(targetEl,'Cannot find element name named '+target+' within current state');
@@ -75826,7 +75933,8 @@ action.targetIndex=targetIndex;
 
 
 if(_Actions.ActionMap[action.type]===ActionConst.BACK_ACTION||
-_Actions.ActionMap[action.type]===ActionConst.BACK){
+_Actions.ActionMap[action.type]===ActionConst.BACK||
+_Actions.ActionMap[action.type]===ActionConst.POP_AND_REPLACE){
 var _parent=action.parent||state.scenes[action.key].parent;
 var el=findElement(state,_parent,action.type);
 while(el.parent&&(el.children.length<=1||el.tabs)){
@@ -75840,6 +75948,7 @@ action.parent=el.sceneKey;
 switch(_Actions.ActionMap[action.type]){
 case ActionConst.BACK:
 case ActionConst.BACK_ACTION:
+case ActionConst.POP_AND_REPLACE:
 case ActionConst.POP_TO:
 case ActionConst.REFRESH:
 case ActionConst.PUSH:
@@ -75859,6 +75968,7 @@ return state;}
 reducer;
 }, 486, null, "react-native-router-flux/src/Reducer.js");
 __d(/* react-native-router-flux/src/State.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.
+
 
 
 
@@ -75933,13 +76043,20 @@ getInitialState=getInitialState;exports.default=
 
 
 
+
+
+
+
+
+
+
 function(scenes){
 
 var rootRoute=Object.keys(scenes).find(function(route){return(
 scenes.hasOwnProperty(route)&&!scenes[route].parent);});
 
 return getInitialState(scenes[rootRoute],scenes);
-};var _Util=require(445     );function getStateFromScenes(route,scenes,props){var getters=[];var result={};var scene=route;while(scene){if(scene.getInitialState){getters.push(scene.getInitialState);}scene=scenes[scene.parent];}if(scenes.rootProps&&scenes.rootProps.getInitialState){getters.push(scenes.rootProps.getInitialState);}getters.reverse().forEach(function(fn){result=babelHelpers.extends({},result,fn(props));});return result;}function getSceneKey(parent,key,position,sceneKey){return[parent,key,position,sceneKey].filter(function(v){return typeof v!=='undefined'&&v!==null;}).join('_');}function getInitialState(route,scenes){var position=arguments.length>2&&arguments[2]!==undefined?arguments[2]:0;var props=arguments.length>3&&arguments[3]!==undefined?arguments[3]:{};var parent=props.parent,key=props.key,style=props.style,type=props.type,parentProps=babelHelpers.objectWithoutProperties(props,['parent','key','style','type']);if(!route.children){return babelHelpers.extends({},scenes.rootProps,route,{key:getSceneKey(parent,key,position,route.sceneKey)},parentProps,getStateFromScenes(route,scenes,props));}var res=babelHelpers.extends({},route,scenes.rootProps,parentProps);var index=0;route.children.forEach(function(r,i){(0,_Util.assert)(scenes[r],'Empty scene for key='+route.key);if(scenes[r].initial){index=i;}});if(route.tabs){res.children=route.children.map(function(r,i){return getInitialState(scenes[r],scenes,i,props);});res.index=index;}else{res.children=[getInitialState(scenes[route.children[index]],scenes,0,props)];res.index=0;}res.key=position+'_'+res.key;return res;} // 445 = ./Util
+};var _Util=require(445     );var _ActionConst=require(447            );var ActionConst=babelHelpers.interopRequireWildcard(_ActionConst);function getStateFromScenes(route,scenes,props){var getters=[];var result={};var scene=route;while(scene){if(scene.getInitialState){getters.push(scene.getInitialState);}scene=scenes[scene.parent];}if(scenes.rootProps&&scenes.rootProps.getInitialState){getters.push(scenes.rootProps.getInitialState);}getters.reverse().forEach(function(fn){result=babelHelpers.extends({},result,fn(props));});return result;}function getSceneKey(parent,key,position,sceneKey){return[parent,key,position,sceneKey].filter(function(v){return typeof v!=='undefined'&&v!==null;}).join('_');}function getInitialState(route,scenes){var position=arguments.length>2&&arguments[2]!==undefined?arguments[2]:0;var props=arguments.length>3&&arguments[3]!==undefined?arguments[3]:{};var parent=props.parent,key=props.key,style=props.style,type=props.type,parentProps=babelHelpers.objectWithoutProperties(props,['parent','key','style','type']);if(!route.children){return babelHelpers.extends({},scenes.rootProps,route,{key:getSceneKey(parent,key,position,route.sceneKey)},parentProps,getStateFromScenes(route,scenes,props));}var res=babelHelpers.extends({},route,scenes.rootProps,parentProps);var index=0;route.children.forEach(function(r,i){(0,_Util.assert)(scenes[r],'Empty scene for key='+route.key);if(scenes[r].initial){index=i;}});if(route.tabs){res.children=route.children.map(function(r,i){return getInitialState(scenes[r],scenes,i,babelHelpers.extends({},props,{parentIndex:position}));});res.index=index;}else{res.children=[getInitialState(scenes[route.children[index]],scenes,0,props)];res.index=0;}if(route.type===ActionConst.JUMP){res.children=res.children.map(function(child){return babelHelpers.extends({},props,child);});}res.key=position+'_'+res.key;return res;} // 447 = ./ActionConst // 445 = ./Util
 }, 487, null, "react-native-router-flux/src/State.js");
 __d(/* react-native-router-flux/src/Router.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
 
@@ -75976,22 +76093,31 @@ onExitApp:_react.PropTypes.func};var
 
 Router=function(_Component){babelHelpers.inherits(Router,_Component);
 
+
+
+
 function Router(props){babelHelpers.classCallCheck(this,Router);var _this=babelHelpers.possibleConstructorReturn(this,(Router.__proto__||Object.getPrototypeOf(Router)).call(this,
 props));
-_this.state={};
 _this.renderNavigation=_this.renderNavigation.bind(_this);
 _this.handleProps=_this.handleProps.bind(_this);
-_this.handleBackAndroid=_this.handleBackAndroid.bind(_this);return _this;
-}babelHelpers.createClass(Router,[{key:'componentDidMount',value:function componentDidMount()
+_this.handleBackAndroid=_this.handleBackAndroid.bind(_this);
+var reducer=_this.handleProps(props);
+_this.state={reducer:reducer};return _this;
+}babelHelpers.createClass(Router,[{key:'getChildContext',value:function getChildContext()
 
 {
-this.handleProps(this.props);
+return{
+routes:_Actions2.default};
 
+}},{key:'componentDidMount',value:function componentDidMount()
+
+{
 _reactNative.BackAndroid.addEventListener('hardwareBackPress',this.handleBackAndroid);
 }},{key:'componentWillReceiveProps',value:function componentWillReceiveProps(
 
 props){
-this.handleProps(props);
+var reducer=this.handleProps(props);
+this.setState({reducer:reducer});
 }},{key:'componentWillUnmount',value:function componentWillUnmount()
 
 {
@@ -76060,7 +76186,7 @@ initialState:initialState,
 scenes:scenesMap});
 
 
-this.setState({reducer:routerReducer});
+return routerReducer;
 }},{key:'renderNavigation',value:function renderNavigation(
 
 navigationState,onNavigate){var _this2=this;
@@ -76092,7 +76218,7 @@ reducer:this.state.reducer,
 renderNavigation:this.renderNavigation}));
 
 
-}}]);return Router;}(_react.Component);
+}}]);return Router;}(_react.Component);Router.childContextTypes={routes:_react.PropTypes.object};
 
 
 Router.propTypes=propTypes;exports.default=
@@ -76211,10 +76337,7 @@ _react2.default.createElement(_Common.Button,{onPress:this.onSignInButtonPress.b
 
 
 
-}}]);return LandingScreen;}(_react.Component);exports.default=
-
-
-LandingScreen;
+}}]);return LandingScreen;}(_react.Component);exports.default=LandingScreen;
 }, 490, null, "WardrobeUI/Components/LandingScreen.js");
 __d(/* WardrobeUI/Components/Common/index.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _Button=require(492       );Object.keys(_Button).forEach(function(key){if(key==="default"||key==="__esModule")return;Object.defineProperty(exports,key,{enumerable:true,get:function get(){return _Button[key];}});});var _Card=require(493     ); // 493 = ./Card // 492 = ./Button
 Object.keys(_Card).forEach(function(key){if(key==="default"||key==="__esModule")return;Object.defineProperty(exports,key,{enumerable:true,get:function get(){return _Card[key];}});});var _CardSection=require(494            ); // 494 = ./CardSection
@@ -76462,7 +76585,8 @@ var _reactRedux=require(404          ); // 404 = react-redux
 var _reactNativeRouterFlux=require(443                       ); // 443 = react-native-router-flux
 var _reactNative=require(42            ); // 42 = react-native
 var _Common=require(491       ); // 491 = ./Common
-var _Actions=require(500         );var // 500 = ../Actions
+var _Actions=require(500         ); // 500 = ../Actions
+var _Spinner=require(497               );var // 497 = ./Common/Spinner
 
 SignInScreen=function(_Component){babelHelpers.inherits(SignInScreen,_Component);function SignInScreen(){babelHelpers.classCallCheck(this,SignInScreen);return babelHelpers.possibleConstructorReturn(this,(SignInScreen.__proto__||Object.getPrototypeOf(SignInScreen)).apply(this,arguments));}babelHelpers.createClass(SignInScreen,[{key:'onEmaiChange',value:function onEmaiChange(
 
@@ -76482,6 +76606,17 @@ _reactNativeRouterFlux.Actions.signIn({type:'reset'});
 }},{key:'onSignUpButtonPress',value:function onSignUpButtonPress()
 {
 _reactNativeRouterFlux.Actions.signUp({type:'reset'});
+}},{key:'renderButton',value:function renderButton()
+{
+if(this.props.loading){
+return _react2.default.createElement(_Spinner.Spinner,{size:'large'});
+}
+
+return(
+_react2.default.createElement(_Common.Button,{onPress:this.onButtonPress.bind(this)},'Login'));
+
+
+
 }},{key:'render',value:function render()
 
 {
@@ -76517,9 +76652,7 @@ _react2.default.createElement(_reactNative.Text,{style:styles.errorTextStyle},
 this.props.error),
 
 _react2.default.createElement(_Common.CardSection,null,
-_react2.default.createElement(_Common.Button,{onPress:this.onButtonPress.bind(this)},'Login'))));
-
-
+this.renderButton())));
 
 
 
@@ -76539,7 +76672,8 @@ console.log(state.auth.password);
 return{
 email:state.auth.email,
 password:state.auth.password,
-error:state.auth.error};
+error:state.auth.error,
+loading:state.auth.loading};
 
 };exports.default=
 
@@ -76547,7 +76681,10 @@ error:state.auth.error};
 (0,_reactRedux.connect)(mapStateToProps,{emailChanged:_Actions.emailChanged,passwordChanged:_Actions.passwordChanged,loginUser:_Actions.loginUser})(SignInScreen);
 }, 499, null, "WardrobeUI/Components/SignInScreen.js");
 __d(/* WardrobeUI/Actions/index.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _CreateUser=require(501           );Object.keys(_CreateUser).forEach(function(key){if(key==="default"||key==="__esModule")return;Object.defineProperty(exports,key,{enumerable:true,get:function get(){return _CreateUser[key];}});});var _AuthAction=require(503           ); // 503 = ./AuthAction // 501 = ./CreateUser
-Object.keys(_AuthAction).forEach(function(key){if(key==="default"||key==="__esModule")return;Object.defineProperty(exports,key,{enumerable:true,get:function get(){return _AuthAction[key];}});});
+Object.keys(_AuthAction).forEach(function(key){if(key==="default"||key==="__esModule")return;Object.defineProperty(exports,key,{enumerable:true,get:function get(){return _AuthAction[key];}});});var _ShowPiecesAction=require(505                 ); // 505 = ./ShowPiecesAction
+Object.keys(_ShowPiecesAction).forEach(function(key){if(key==="default"||key==="__esModule")return;Object.defineProperty(exports,key,{enumerable:true,get:function get(){return _ShowPiecesAction[key];}});});var _ShowSinglePieceAction=require(506                      ); // 506 = ./ShowSinglePieceAction
+Object.keys(_ShowSinglePieceAction).forEach(function(key){if(key==="default"||key==="__esModule")return;Object.defineProperty(exports,key,{enumerable:true,get:function get(){return _ShowSinglePieceAction[key];}});});var _DeleteSinglePieceAction=require(507                        ); // 507 = ./DeleteSinglePieceAction
+Object.keys(_DeleteSinglePieceAction).forEach(function(key){if(key==="default"||key==="__esModule")return;Object.defineProperty(exports,key,{enumerable:true,get:function get(){return _DeleteSinglePieceAction[key];}});});
 }, 500, null, "WardrobeUI/Actions/index.js");
 __d(/* WardrobeUI/Actions/CreateUser.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.saveUserDetails=exports.createUser=undefined;var _reactNativeRouterFlux=require(443                       ); // 443 = react-native-router-flux
 
@@ -76617,7 +76754,13 @@ var EMAIL_CHANGED=exports.EMAIL_CHANGED='email_changed';
 var PASSWORD_CHANGED=exports.PASSWORD_CHANGED='password_changed';
 var LOGIN_USER_SUCCESS=exports.LOGIN_USER_SUCCESS='login_user_success';
 var LOGIN_USER_FAIL=exports.LOGIN_USER_FAIL='login_user_fail';
-var USER_SIGNUP_FAILED=exports.USER_SIGNUP_FAILED='USER_SIGNUP_FAILED';
+var LOGIN_USER_LOADING=exports.LOGIN_USER_LOADING='login_user_loading';
+var USER_SIGNUP_FAILED=exports.USER_SIGNUP_FAILED='user_signup_failed';
+var SHOW_USER_PIECES=exports.SHOW_USER_PIECES='show_user_pieces';
+var SHOW_SINGLE_PIECE=exports.SHOW_SINGLE_PIECE='show_single_piece';
+var GET_USER_IDS=exports.GET_USER_IDS='get_user_ids';
+var GET_PIECES_LOADING=exports.GET_PIECES_LOADING='get_pieces_loading';
+var REMOVE_SINGLE_PIECE=exports.REMOVE_SINGLE_PIECE='remove_single_Piece';
 }, 502, null, "WardrobeUI/Actions/Types.js");
 __d(/* WardrobeUI/Actions/AuthAction.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.loginUser=exports.passwordChanged=exports.emailChanged=undefined;var _reactNative=require(42            ); // 42 = react-native
 var _reactNativeRouterFlux=require(443                       ); // 443 = react-native-router-flux
@@ -76626,6 +76769,8 @@ var _Types=require(502      ); // 502 = ./Types
 
 
 
+
+var _UserInfo=require(504                            );var _UserInfo2=babelHelpers.interopRequireDefault(_UserInfo); // 504 = ../Components/Models/UserInfo
 
 var API_ENDPOINT='https://server-dev1.mywardrobe.space/api/v1/signin';
 var emailChanged=exports.emailChanged=function emailChanged(text){
@@ -76642,6 +76787,8 @@ payload:text};
 };
 var loginUser=exports.loginUser=function loginUser(_ref){var email=_ref.email,password=_ref.password;
 return function(dispatch){
+dispatch({type:_Types.LOGIN_USER_LOADING});
+
 fetch(API_ENDPOINT,{method:"POST",
 headers:{
 
@@ -76667,6 +76814,9 @@ loginUserFail(dispatch);
 {
 loginUserSuccess(dispatch,id);
 saveIdOnLocalStorage(id);
+
+
+console.log(id);
 _reactNativeRouterFlux.Actions.homeScreen({type:'reset'});
 }
 });
@@ -76674,7 +76824,7 @@ _reactNativeRouterFlux.Actions.homeScreen({type:'reset'});
 };
 
 var loginUserSuccess=function loginUserSuccess(dispatch,id){
-console.log(id);
+
 dispatch({
 type:_Types.LOGIN_USER_SUCCESS,
 payload:id});
@@ -76686,11 +76836,182 @@ var loginUserFail=function loginUserFail(dispatch){
 dispatch({type:_Types.LOGIN_USER_FAIL});
 };
 
+
+
+
+
 var saveIdOnLocalStorage=function saveIdOnLocalStorage(idToken){
 
 _reactNative.AsyncStorage.setItem('userId',idToken);
 };
 }, 503, null, "WardrobeUI/Actions/AuthAction.js");
+__d(/* WardrobeUI/Components/Models/UserInfo.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
+var _reactNative=require(42            );var // 42 = react-native
+
+
+UserInfo=function(_Object){babelHelpers.inherits(UserInfo,_Object);function UserInfo(){var _ref;var _temp,_this,_ret;babelHelpers.classCallCheck(this,UserInfo);for(var _len=arguments.length,args=Array(_len),_key=0;_key<_len;_key++){args[_key]=arguments[_key];}return _ret=(_temp=(_this=babelHelpers.possibleConstructorReturn(this,(_ref=UserInfo.__proto__||Object.getPrototypeOf(UserInfo)).call.apply(_ref,[this].concat(args))),_this),_this.
+
+
+getUserId=function(){
+_reactNative.AsyncStorage.getItem('userId').then(function(value){
+var API_ENDPOINT='https://server-dev1.mywardrobe.space/api/v1/userinfo';
+var idToken=value;
+fetch(API_ENDPOINT,{method:"GET",
+headers:{
+'Authorization':'Bearer '+idToken}}).
+
+
+then(function(response){return response.json();}).
+then(function(responseJson){
+console.log(responseJson);
+var userid=responseJson.id;
+
+
+
+console.log(idToken);
+_this.getPieces(idToken,userid);
+});
+});
+},_this.
+getPieces=function(idToken,UserID){
+
+var API_ENDPOINT='https://server-dev1.mywardrobe.space/api/v1/users/'+UserID+'/pieces';
+fetch(API_ENDPOINT,{
+method:'GET',
+
+headers:{
+'Authorization':'Bearer '+idToken}}).
+
+then(function(response){return response.json();}).
+then(function(responseJson){
+var data=responseJson;
+console.log(data);
+
+});
+
+},_temp),babelHelpers.possibleConstructorReturn(_this,_ret);}return UserInfo;}(Object);exports.default=UserInfo;
+}, 504, null, "WardrobeUI/Components/Models/UserInfo.js");
+__d(/* WardrobeUI/Actions/ShowPiecesAction.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.getUserInformation=exports.showPieces=exports.getPieces=exports.retrivePieces=undefined;var _reactNative=require(42            ); // 42 = react-native
+var _Types=require(502      ); // 502 = ./Types
+
+
+var retrivePieces=exports.retrivePieces=function retrivePieces(){
+return function(dispatch){
+dispatch({type:_Types.GET_PIECES_LOADING});
+_reactNative.AsyncStorage.getItem('userId').then(function(value){
+var API_ENDPOINT='https://server-dev1.mywardrobe.space/api/v1/auth/userinfo';
+var idToken=value;
+fetch(API_ENDPOINT,{method:"GET",
+headers:{
+'Authorization':'Bearer '+idToken}}).
+
+
+then(function(response){return response.json();}).
+then(function(responseJson){
+console.log(responseJson);
+var userid=responseJson.id;
+getPieces(idToken,userid,dispatch);
+});
+});
+};
+};
+var getPieces=exports.getPieces=function getPieces(idToken,UserID,dispatch){
+var API_ENDPOINT='https://server-dev1.mywardrobe.space/api/v1/users/'+UserID+'/pieces';
+fetch(API_ENDPOINT,{
+method:'GET',
+
+headers:{
+'Authorization':'Bearer '+idToken}}).
+
+then(function(response){return response.json();}).
+then(function(responseJson){
+var piecesData=responseJson;
+
+showPieces(dispatch,piecesData);
+getUserInformation(dispatch,idToken,UserID);
+});
+};
+var showPieces=exports.showPieces=function showPieces(dispatch,piecesData){
+dispatch({
+type:_Types.SHOW_USER_PIECES,
+payload:piecesData});
+
+
+
+};
+
+var getUserInformation=exports.getUserInformation=function getUserInformation(dispatch,idToken,userId){
+var userinfo=[idToken,userId];
+console.log(userinfo);
+dispatch({
+type:_Types.GET_USER_IDS,
+payload:userinfo});
+
+
+};
+}, 505, null, "WardrobeUI/Actions/ShowPiecesAction.js");
+__d(/* WardrobeUI/Actions/ShowSinglePieceAction.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.retrieveSinglePiece=exports.viewSinglePiece=undefined;var _Types=require(502      ); // 502 = ./Types
+
+var viewSinglePiece=exports.viewSinglePiece=function viewSinglePiece(idToken,UserId,pieceId){
+return function(dispatch){
+var API_ENDPOINT='https://server-dev1.mywardrobe.space/api/v1/users/'+UserId+'/pieces/'+pieceId;
+fetch(API_ENDPOINT,{
+method:'GET',
+
+headers:{
+'Authorization':'Bearer '+idToken}}).
+
+then(function(response){return response.json();}).
+then(function(responseJson){
+console.log(responseJson);
+var singlePiece=responseJson;
+retrieveSinglePiece(dispatch,singlePiece);
+});
+};
+};
+
+var retrieveSinglePiece=exports.retrieveSinglePiece=function retrieveSinglePiece(dispatch,pieceData){
+dispatch({
+type:_Types.SHOW_SINGLE_PIECE,
+payload:pieceData});
+
+
+};
+}, 506, null, "WardrobeUI/Actions/ShowSinglePieceAction.js");
+__d(/* WardrobeUI/Actions/DeleteSinglePieceAction.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.pieceRemoved=exports.removeSinglePiece=undefined;var _Types=require(502      ); // 502 = ./Types
+var _reactNativeRouterFlux=require(443                       ); // 443 = react-native-router-flux
+
+var removeSinglePiece=exports.removeSinglePiece=function removeSinglePiece(idToken,UserId,pieceId){
+
+return function(dispatch){
+
+var API_ENDPOINT='https://server-dev1.mywardrobe.space/api/v1/users/'+UserId+'/pieces/'+pieceId;
+fetch(API_ENDPOINT,{
+method:'DELETE',
+
+headers:{
+'Authorization':'Bearer '+idToken}}).
+
+then(function(response){return response.json();}).
+then(function(responseJson){
+console.log(responseJson);
+var deleteConfirmation=responseJson.status;
+console.log(deleteConfirmation);
+
+pieceRemoved(dispatch,deleteConfirmation);
+_reactNativeRouterFlux.Actions.homeScreen({idToken:idToken,UserId:UserId});
+});
+};
+};
+
+var pieceRemoved=exports.pieceRemoved=function pieceRemoved(dispatch,deleteConfirmation){
+dispatch({
+type:_Types.REMOVE_SINGLE_PIECE,
+payload:deleteConfirmation});
+
+
+};
+}, 507, null, "WardrobeUI/Actions/DeleteSinglePieceAction.js");
 __d(/* WardrobeUI/Components/SignUpScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
 var _reactRedux=require(404          ); // 404 = react-redux
 var _reactNative=require(42            ); // 42 = react-native
@@ -76807,135 +77128,476 @@ middlename:state.create.middlename};
 
 
 (0,_reactRedux.connect)(mapStateToProps,{createUser:_CreateUser.createUser,saveUserDetails:_CreateUser.saveUserDetails})(SignUpScreen);
-}, 504, null, "WardrobeUI/Components/SignUpScreen.js");
+}, 508, null, "WardrobeUI/Components/SignUpScreen.js");
 __d(/* WardrobeUI/Components/UserHomeScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
-<<<<<<< HEAD
-var _reactNative=require(42            );var // 42 = react-native
-=======
 var _reactNative=require(42            ); // 42 = react-native
->>>>>>> master
+var _reactRedux=require(404          ); // 404 = react-redux
+var _reactNativeRouterFlux=require(443                       ); // 443 = react-native-router-flux
+var _Actions=require(500         ); // 500 = ../Actions
+var _Pieces=require(510       );var _Pieces2=babelHelpers.interopRequireDefault(_Pieces); // 510 = ./Pieces
+var _Common=require(491       ); // 491 = ./Common
+var _Spinner=require(497               );var // 497 = ./Common/Spinner
 
-var _UserInfo=require(509                );var _UserInfo2=babelHelpers.interopRequireDefault(_UserInfo);var // 509 = ./Models/UserInfo
-
-<<<<<<< HEAD
-
-
-UserHomeScreen=function(_Component){babelHelpers.inherits(UserHomeScreen,_Component);function UserHomeScreen(){var _ref;var _temp,_this,_ret;babelHelpers.classCallCheck(this,UserHomeScreen);for(var _len=arguments.length,args=Array(_len),_key=0;_key<_len;_key++){args[_key]=arguments[_key];}return _ret=(_temp=(_this=babelHelpers.possibleConstructorReturn(this,(_ref=UserHomeScreen.__proto__||Object.getPrototypeOf(UserHomeScreen)).call.apply(_ref,[this].concat(args))),_this),_this.
-state={userID:''},_temp),babelHelpers.possibleConstructorReturn(_this,_ret);}babelHelpers.createClass(UserHomeScreen,[{key:'componentWillMount',value:function componentWillMount()
-
-=======
-UserHomeScreen=function(_Component){babelHelpers.inherits(UserHomeScreen,_Component);function UserHomeScreen(){var _ref;var _temp,_this,_ret;babelHelpers.classCallCheck(this,UserHomeScreen);for(var _len=arguments.length,args=Array(_len),_key=0;_key<_len;_key++){args[_key]=arguments[_key];}return _ret=(_temp=(_this=babelHelpers.possibleConstructorReturn(this,(_ref=UserHomeScreen.__proto__||Object.getPrototypeOf(UserHomeScreen)).call.apply(_ref,[this].concat(args))),_this),_this.
-state={userID:''},_temp),babelHelpers.possibleConstructorReturn(_this,_ret);}babelHelpers.createClass(UserHomeScreen,[{key:'componentWillMount',value:function componentWillMount()
-{var _this2=this;
-_reactNative.AsyncStorage.getItem('userId').then(function(value){
-_this2.setState({userID:value});
-var API_ENDPOINT='https://server-dev1.mywardrobe.space/api/v1/userinfo';
-var userID=value;
-fetch(API_ENDPOINT,{method:"GET",
-headers:{
-'Authorization':'Bearer '+userID}}).
+UserHomeScreen=function(_Component){babelHelpers.inherits(UserHomeScreen,_Component);
 
 
-then(function(response){return response.json();}).
-then(function(responseJson){
-console.log(responseJson);
-userInfo=new _UserInfo2.default();
-userInfo.updateValues(responseJson);
-_reactNative.AsyncStorage.setItem("userInfo",JSON.stringify(userInfo),null);
->>>>>>> master
-
-backInfo=_reactNative.AsyncStorage.getItem("userInfo").then(value);
-console.log(JSON.parse(backInfo));
-});
-
-});
 
 
-<<<<<<< HEAD
-{var _this2=this;
-=======
->>>>>>> master
 
-_reactNative.AsyncStorage.getItem('userId').then(function(value){
-_this2.setState({userID:value});
-var API_ENDPOINT='https://server-dev1.mywardrobe.space/api/auth/userinfo';
-var userinfo=value;
-console.log(userinfo);
-fetch(API_ENDPOINT,{method:"GET",
-headers:{
-
-<<<<<<< HEAD
-'Authorization':'Bearer '+userinfo}}).
-
-
-then(function(response){return response.json();}).
-then(function(responseJson){
-console.log(userinfo);
-console.log(responseJson);
-
-});
-=======
+function UserHomeScreen(props){babelHelpers.classCallCheck(this,UserHomeScreen);var _this=babelHelpers.possibleConstructorReturn(this,(UserHomeScreen.__proto__||Object.getPrototypeOf(UserHomeScreen)).call(this,
+props));
+_this.state={imagePieces:[]};return _this;
+}babelHelpers.createClass(UserHomeScreen,[{key:'componentWillMount',value:function componentWillMount()
 {
+this.props.retrivePieces();
+}},{key:'onAddpiecesButtonPress',value:function onAddpiecesButtonPress()
+{
+console.log(this.props.userInfo);
+
+_reactNativeRouterFlux.Actions.addPiecesScreen({userinfo:this.props.userInfo});
+}},{key:'fillData',value:function fillData()
+
+{
+var userInfo=this.props.userInfo;
+return this.props.imagePieces.map(function(object){return(
+_react2.default.createElement(_Pieces2.default,{key:object.id,pieces:object,piecedetails:object,userInfo:userInfo}));});
+
+
+}},{key:'render',value:function render()
+
+{
+if(this.props.dataLoading){
+{
+return _react2.default.createElement(_Spinner.Spinner,{size:'large'});
+}
+
+}else
+{
+return(
+_react2.default.createElement(_reactNative.View,{style:{flex:1}},
+_react2.default.createElement(_reactNative.ScrollView,null,
+this.fillData()),
+
+
+_react2.default.createElement(_Common.CardSection,null,
+_react2.default.createElement(_Common.Button,{onPress:this.onAddpiecesButtonPress.bind(this)},'add pieces'))));
+
+
+
+
+
+
+
+}
+}}]);return UserHomeScreen;}(_react.Component);UserHomeScreen.propTypes={};UserHomeScreen.defaultProps={};
+
+
+var mapStateToProps=function mapStateToProps(state){
+
+return{
+imagePieces:state.pieces.piecesImages,
+userInfo:state.pieces.basicUserInfo,
+dataLoading:state.pieces.dataLoading};
+
+};exports.default=
+
+(0,_reactRedux.connect)(mapStateToProps,{retrivePieces:_Actions.retrivePieces})(UserHomeScreen);
+}, 509, null, "WardrobeUI/Components/UserHomeScreen.js");
+__d(/* WardrobeUI/Components/Pieces.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
+var _reactNative=require(42            ); // 42 = react-native
+var _reactNativeRouterFlux=require(443                       ); // 443 = react-native-router-flux
+var _NewButton=require(511                 ); // 511 = ./Common/NewButton
+var _CardSection=require(494                   );var // 494 = ./Common/CardSection
+
+
+Pieces=function(_Component){babelHelpers.inherits(Pieces,_Component);function Pieces(){babelHelpers.classCallCheck(this,Pieces);return babelHelpers.possibleConstructorReturn(this,(Pieces.__proto__||Object.getPrototypeOf(Pieces)).apply(this,arguments));}babelHelpers.createClass(Pieces,[{key:'onShowPieceButtonPress',value:function onShowPieceButtonPress(
+
+id){
+console.log(id);
+
+var idToken=this.props.userInfo[0];
+var userId=this.props.userInfo[1];
+console.log(idToken);
+console.log(userId);
+
+_reactNativeRouterFlux.Actions.ShowPiecesScreen({idToken:idToken,userId:userId,id:id});
+}},{key:'render',value:function render()
+{var _this2=this;
+if(this.props.piecedetails.image!=null){
+return(
+_react2.default.createElement(_reactNative.View,null,
+_react2.default.createElement(_CardSection.CardSection,null,
+_react2.default.createElement(_reactNative.Image,{
+style:styles.imageStyle,
+source:{uri:this.props.piecedetails.image}})),
+
+_react2.default.createElement(_CardSection.CardSection,null,
+_react2.default.createElement(_reactNative.View,{style:styles.headerContentStyle},
+_react2.default.createElement(_reactNative.Text,{style:styles.headerTextStyle},this.props.piecedetails.description))),
+
+
+
+_react2.default.createElement(_NewButton.NewButton,{onPress:function onPress(){return _this2.onShowPieceButtonPress(_this2.props.piecedetails.id);}},'Show piece')));
+
+
+
+
+
+}else
+{
+return null;
+}
+}}]);return Pieces;}(_react.Component);
+;
+
+var styles={
+headerContentStyle:{
+flexDirection:'column',
+justifyContent:'space-around'},
+
+headerTextStyle:{
+fontSize:18},
+
+thumbnailStyle:{
+height:50,
+width:50},
+
+thumbnailContainerStyle:{
+justifyContent:'center',
+alignItems:'center',
+marginLeft:10,
+marginRight:10},
+
+imageStyle:{
+height:300,
+flex:1,
+width:null}};exports.default=
+
+
+
+Pieces;
+}, 510, null, "WardrobeUI/Components/Pieces.js");
+__d(/* WardrobeUI/Components/Common/NewButton.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});exports.NewButton=undefined;var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
+var _reactNative=require(42            ); // 42 = react-native
+
+var NewButton=function NewButton(_ref){var onPress=_ref.onPress,children=_ref.children;var
+buttonStyle=styles.buttonStyle,textStyle=styles.textStyle;
 
 return(
-_react2.default.createElement(_reactNative.Text,null,'hello ',this.state.userID));
+_react2.default.createElement(_reactNative.TouchableOpacity,{onPress:onPress,style:buttonStyle},
+_react2.default.createElement(_reactNative.Text,{style:textStyle},
+children)));
 
 
-}}]);return UserHomeScreen;}(_react.Component);exports.default=
+
+};
+
+var styles={
+textStyle:{
+alignSelf:'center',
+color:'#007aff',
+fontSize:16,
+fontWeight:'600',
+paddingTop:10,
+paddingBottom:10},
+
+buttonStyle:{
+flex:1,
+alignSelf:'stretch',
+backgroundColor:'#fff',
+borderRadius:5,
+borderWidth:1,
+borderColor:'#007aff',
+marginLeft:5,
+marginRight:5}};exports.
 
 
 
-UserHomeScreen;
-}, 505, null, "WardrobeUI/Components/UserHomeScreen.js");
-__d(/* WardrobeUI/Components/Models/UserInfo.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
+NewButton=NewButton;
+}, 511, null, "WardrobeUI/Components/Common/NewButton.js");
+__d(/* WardrobeUI/Components/AddPiecesScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
+var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
+var _reactNative=require(42            ); // 42 = react-native
+var _Common=require(491       );var // 491 = ./Common
 
->>>>>>> master
+
+AddPiecesScreen=function(_Component){babelHelpers.inherits(AddPiecesScreen,_Component);
+
+
+
+
+
+function AddPiecesScreen(props){babelHelpers.classCallCheck(this,AddPiecesScreen);var _this=babelHelpers.possibleConstructorReturn(this,(AddPiecesScreen.__proto__||Object.getPrototypeOf(AddPiecesScreen)).call(this,
+props));
+_this.state={image:null};return _this;
+}babelHelpers.createClass(AddPiecesScreen,[{key:'pickImage',value:function pickImage(
+
+props){
+console.log(this.props.userinfo);
+_reactNative.AsyncStorage.getItem('userId').then(function(value){
+console.log(value);
+authToken=value;
+_reactNative.AsyncStorage.getItem('userInfo').then(function(value){var _this2=this;
+jsonString=JSON.parse(value);
+userID=jsonString.id;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var ImagePicker=require(513                        ); // 513 = react-native-image-picker
+console.log('imageZZPicker');
+console.log(ImagePicker);
+
+var options={
+title:'Select Avatar',
+customButtons:[
+{name:'fb',title:'Choose Photo from Facebook'}],
+
+storageOptions:{
+skipBackup:true,
+path:'images'}};
+
+
+
+
+
+
+
+ImagePicker.showImagePicker(options,function(response){
+console.log('Response = ',response);
+
+if(response.didCancel){
+console.log('User cancelled image picker');
+}else
+if(response.error){
+console.log('ImagePicker Error: ',response.error);
+}else
+if(response.customButton){
+console.log('User tapped custom button: ',response.customButton);
+}else
+{
+var source={uri:response.uri};
+
+
+
+
+_this2.setState({
+avatarSource:source});
+
+}
+});
 
 });
 
-var _Local=require(510         );var _Local2=babelHelpers.interopRequireDefault(_Local);var // 510 = ./Local.js
+});
+}},{key:'render',value:function render()
 
-UserInfo=function(_Object){babelHelpers.inherits(UserInfo,_Object);function UserInfo(){var _ref;var _temp,_this,_ret;babelHelpers.classCallCheck(this,UserInfo);for(var _len=arguments.length,args=Array(_len),_key=0;_key<_len;_key++){args[_key]=arguments[_key];}return _ret=(_temp=(_this=babelHelpers.possibleConstructorReturn(this,(_ref=UserInfo.__proto__||Object.getPrototypeOf(UserInfo)).call.apply(_ref,[this].concat(args))),_this),_this.
+{
+console.log(this.props.userinfo);
+return(
+_react2.default.createElement(_reactNative.View,{style:{flex:1}},
+_react2.default.createElement(_reactNative.Text,{
+style:{
+color:'black',
+fontSize:16,
+fontWeight:"bold",
+fontFamily:'Helvetica Neue'}},'Welcome User. Pick an image by clicking the button'),
 
-<<<<<<< HEAD
+
+
+
+_react2.default.createElement(_Common.Button,{onPress:this.pickImage.bind(this)},'Pick Image'),
+
+
+
+
+this.state.image?
+_react2.default.createElement(_reactNative.Image,{style:{flex:1},source:{uri:this.state.image}}):
+_react2.default.createElement(_reactNative.Text,null,'The image you pick will be shown here')));
+
+
+
+
+}}]);return AddPiecesScreen;}(_react.Component);AddPiecesScreen.propTypes={};AddPiecesScreen.defaultProps={};exports.default=AddPiecesScreen;
+}, 512, null, "WardrobeUI/Components/AddPiecesScreen.js");
+__d(/* react-native-image-picker/index.js */function(global, require, module, exports) {'use strict';var _require=
+
+require(42            ),NativeModules=_require.NativeModules;var // 42 = react-native
+ImagePickerManager=NativeModules.ImagePickerManager;
+var DEFAULT_OPTIONS={
+title:'Select a Photo',
+cancelButtonTitle:'Cancel',
+takePhotoButtonTitle:'Take Photo…',
+chooseFromLibraryButtonTitle:'Choose from Library…',
+quality:1.0,
+allowsEditing:false};
+
+
+module.exports=babelHelpers.extends({},
+ImagePickerManager,{
+showImagePicker:function showImagePicker(options,callback){
+if(typeof options==='function'){
+callback=options;
+options={};
+}
+return ImagePickerManager.showImagePicker(babelHelpers.extends({},DEFAULT_OPTIONS,options),callback);
+}});
+}, 513, null, "react-native-image-picker/index.js");
+__d(/* WardrobeUI/Components/ShowSinglePieceScreen.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
+var _reactNative=require(42            ); // 42 = react-native
+var _reactRedux=require(404          ); // 404 = react-redux
+var _reactNativeRouterFlux=require(443                       ); // 443 = react-native-router-flux
+var _NewButton=require(511                 ); // 511 = ./Common/NewButton
+var _CardSection=require(494                   ); // 494 = ./Common/CardSection
+var _Actions=require(500         ); // 500 = ../Actions
+var _Button=require(492              ); // 492 = ./Common/Button
+var _Spinner=require(497               );var // 497 = ./Common/Spinner
+
+ShowSinglePieceScreen=function(_Component){babelHelpers.inherits(ShowSinglePieceScreen,_Component);
+
+
+
+
+
+
+function ShowSinglePieceScreen(props){babelHelpers.classCallCheck(this,ShowSinglePieceScreen);var _this=babelHelpers.possibleConstructorReturn(this,(ShowSinglePieceScreen.__proto__||Object.getPrototypeOf(ShowSinglePieceScreen)).call(this,
+props));
+_this.state={pieces:{}};return _this;
+}babelHelpers.createClass(ShowSinglePieceScreen,[{key:'componentWillMount',value:function componentWillMount()
+{
+var id=this.props.id;
+var userId=this.props.userId;
+var idToken=this.props.idToken;
+this.props.viewSinglePiece(idToken,userId,id);
+
+}},{key:'onConfirmDeleteButtonPress',value:function onConfirmDeleteButtonPress()
+{
+var id=this.props.id;
+var userId=this.props.userId;
+var idToken=this.props.idToken;
+this.props.removeSinglePiece(idToken,userId,id);
+}},{key:'onDeleteButtonPress',value:function onDeleteButtonPress()
+
+{var _this2=this;
+_reactNative.Alert.alert(
+'Confirm Deletion',
+'Are you sure you want to delete this Piece',
+[
+
+{text:'yes',onPress:function onPress(){return _this2.onConfirmDeleteButtonPress();}},
+{text:'no'}]);
+
+
+
+
+
+
 }},{key:'render',value:function render()
 
 {
 
+if(this.props.piece!=null){
+
+console.log(this.props.piece);
+this.props.piece.piece.image;
 return(
-_react2.default.createElement(_reactNative.Text,null,'hello ',this.state.userID));
-=======
+_react2.default.createElement(_reactNative.View,{style:{flex:1}},
 
-local=new _Local2.default(),_this.
->>>>>>> master
+_react2.default.createElement(_CardSection.CardSection,null,
+_react2.default.createElement(_reactNative.Image,{
+style:styles.imageStyle,
+source:{uri:this.props.piece.piece.image}})),
 
-updateValues=function(object){
-_this.username=object.username;
-_this.id=object.id;
-_this.local=object.local;
-},_temp),babelHelpers.possibleConstructorReturn(_this,_ret);}return UserInfo;}(Object);exports.default=UserInfo;
-}, 509, null, "WardrobeUI/Components/Models/UserInfo.js");
-__d(/* WardrobeUI/Components/Models/Local.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var
-
-}}]);return UserHomeScreen;}(_react.Component);exports.default=
+_react2.default.createElement(_CardSection.CardSection,null,
+_react2.default.createElement(_reactNative.View,{style:styles.headerContentStyle},
+_react2.default.createElement(_reactNative.Text,{style:styles.headerTextStyle},this.props.piece.piece.description))),
 
 
 
-<<<<<<< HEAD
-UserHomeScreen;
-}, 505, null, "WardrobeUI/Components/UserHomeScreen.js");
-=======
-Local=function(_Object){babelHelpers.inherits(Local,_Object);function Local(){babelHelpers.classCallCheck(this,Local);return babelHelpers.possibleConstructorReturn(this,(Local.__proto__||Object.getPrototypeOf(Local)).apply(this,arguments));}return Local;}(Object);exports.default=Local;
-}, 510, null, "WardrobeUI/Components/Models/Local.js");
->>>>>>> master
+
+_react2.default.createElement(_CardSection.CardSection,null,
+_react2.default.createElement(_Button.Button,{onPress:this.onDeleteButtonPress.bind(this)},'Delete piece'))));
+
+
+
+
+
+}else
+{
+return(
+_react2.default.createElement(_reactNative.View,null,
+_react2.default.createElement(_Spinner.Spinner,{size:'large'})));
+
+
+
+}
+}}]);return ShowSinglePieceScreen;}(_react.Component);ShowSinglePieceScreen.propTypes={};ShowSinglePieceScreen.defaultProps={};
+
+
+var styles={
+headerContentStyle:{
+flexDirection:'column',
+justifyContent:'space-around'},
+
+headerTextStyle:{
+fontSize:18},
+
+thumbnailStyle:{
+height:50,
+width:50},
+
+thumbnailContainerStyle:{
+justifyContent:'center',
+alignItems:'center',
+marginLeft:10,
+marginRight:10},
+
+imageStyle:{
+height:300,
+flex:1,
+width:null}};
+
+
+
+var mapStateToProps=function mapStateToProps(state){
+
+return{
+piece:state.singlePiece.piece};
+
+
+};exports.default=
+(0,_reactRedux.connect)(mapStateToProps,{viewSinglePiece:_Actions.viewSinglePiece,removeSinglePiece:_Actions.removeSinglePiece})(ShowSinglePieceScreen);
+}, 514, null, "WardrobeUI/Components/ShowSinglePieceScreen.js");
 __d(/* WardrobeUI/Reducers/index.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _redux=require(415    ); // 415 = redux
-var _CreateUserReducer=require(507                  );var _CreateUserReducer2=babelHelpers.interopRequireDefault(_CreateUserReducer); // 507 = ./CreateUserReducer
-var _AuthenticationReducer=require(508                      );var _AuthenticationReducer2=babelHelpers.interopRequireDefault(_AuthenticationReducer);exports.default= // 508 = ./AuthenticationReducer
+var _CreateUserReducer=require(516                  );var _CreateUserReducer2=babelHelpers.interopRequireDefault(_CreateUserReducer); // 516 = ./CreateUserReducer
+var _AuthenticationReducer=require(517                      );var _AuthenticationReducer2=babelHelpers.interopRequireDefault(_AuthenticationReducer); // 517 = ./AuthenticationReducer
+var _PiecesReducer=require(518              );var _PiecesReducer2=babelHelpers.interopRequireDefault(_PiecesReducer); // 518 = ./PiecesReducer
+var _ShowPieceReducer=require(519                 );var _ShowPieceReducer2=babelHelpers.interopRequireDefault(_ShowPieceReducer); // 519 = ./ShowPieceReducer
+var _RemoveSinglePieceReducer=require(520                         );var _RemoveSinglePieceReducer2=babelHelpers.interopRequireDefault(_RemoveSinglePieceReducer);exports.default= // 520 = ./RemoveSinglePieceReducer
 
 (0,_redux.combineReducers)({
 create:_CreateUserReducer2.default,
-auth:_AuthenticationReducer2.default});
-}, 506, null, "WardrobeUI/Reducers/index.js");
+auth:_AuthenticationReducer2.default,
+pieces:_PiecesReducer2.default,
+singlePiece:_ShowPieceReducer2.default,
+deletePiece:_RemoveSinglePieceReducer2.default});
+}, 515, null, "WardrobeUI/Reducers/index.js");
 __d(/* WardrobeUI/Reducers/CreateUserReducer.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _Types=require(502               ); // 502 = ../Actions/Types
 
 var INITIAL_STATE={
@@ -76971,7 +77633,7 @@ default:
 return state;}
 
 };
-}, 507, null, "WardrobeUI/Reducers/CreateUserReducer.js");
+}, 516, null, "WardrobeUI/Reducers/CreateUserReducer.js");
 __d(/* WardrobeUI/Reducers/AuthenticationReducer.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _Types=require(502               ); // 502 = ../Actions/Types
 
 
@@ -76979,7 +77641,8 @@ var INITIAL_STATE={
 email:'',
 password:'',
 user:null,
-error:''};exports.default=
+error:'',
+loading:false};exports.default=
 
 
 function(){var state=arguments.length>0&&arguments[0]!==undefined?arguments[0]:INITIAL_STATE;var action=arguments[1];
@@ -76990,19 +77653,81 @@ case _Types.EMAIL_CHANGED:
 return babelHelpers.extends({},state,{email:action.payload});
 case _Types.PASSWORD_CHANGED:
 return babelHelpers.extends({},state,{password:action.payload});
+case _Types.LOGIN_USER_LOADING:
+return babelHelpers.extends({},state,{loading:true,error:''});
 case _Types.LOGIN_USER_SUCCESS:
-return babelHelpers.extends({},state,{user:action.payload});
+return babelHelpers.extends({},state,{user:action.payload,error:'',loading:false});
 case _Types.LOGIN_USER_FAIL:
 return babelHelpers.extends({},
 
-state,{error:'Authentication failed',password:''});
+state,{error:'Authentication failed',password:'',loading:false});
 
 
 default:
 return state;}
 
 };
-}, 508, null, "WardrobeUI/Reducers/AuthenticationReducer.js");
+}, 517, null, "WardrobeUI/Reducers/AuthenticationReducer.js");
+__d(/* WardrobeUI/Reducers/PiecesReducer.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _Types=require(502               ); // 502 = ../Actions/Types
+
+var INITIAL_STATE={
+piecesImages:[],
+basicUserInfo:[],
+dataLoading:false};exports.default=
+
+
+function(){var state=arguments.length>0&&arguments[0]!==undefined?arguments[0]:INITIAL_STATE;var action=arguments[1];
+console.log(action);
+switch(action.type){
+case _Types.SHOW_USER_PIECES:
+
+return babelHelpers.extends({},state,{piecesImages:action.payload,dataLoading:false});
+case _Types.GET_USER_IDS:
+
+return babelHelpers.extends({},state,{basicUserInfo:action.payload});
+case _Types.GET_PIECES_LOADING:
+
+return babelHelpers.extends({},state,{dataLoading:true});
+
+default:
+return state;}
+
+};
+}, 518, null, "WardrobeUI/Reducers/PiecesReducer.js");
+__d(/* WardrobeUI/Reducers/ShowPieceReducer.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _Types=require(502               ); // 502 = ../Actions/Types
+
+var INITIAL_STATE={
+piece:null};exports.default=
+
+
+
+function(){var state=arguments.length>0&&arguments[0]!==undefined?arguments[0]:INITIAL_STATE;var action=arguments[1];
+console.log(action);
+switch(action.type){
+case _Types.SHOW_SINGLE_PIECE:
+return babelHelpers.extends({},state,{piece:action.payload});
+default:
+return state;}
+
+};
+}, 519, null, "WardrobeUI/Reducers/ShowPieceReducer.js");
+__d(/* WardrobeUI/Reducers/RemoveSinglePieceReducer.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _Types=require(502               ); // 502 = ../Actions/Types
+
+var INITIAL_STATE={
+confirmDeletion:''};exports.default=
+
+
+
+function(){var state=arguments.length>0&&arguments[0]!==undefined?arguments[0]:INITIAL_STATE;var action=arguments[1];
+
+switch(action.type){
+case _Types.REMOVE_SINGLE_PIECE:
+return babelHelpers.extends({},state,{confirmDeletion:action.payload});
+default:
+return state;}
+
+};
+}, 520, null, "WardrobeUI/Reducers/RemoveSinglePieceReducer.js");
 ;require(216);
 ;require(0);
 //# sourceMappingURL=index.ios.map
