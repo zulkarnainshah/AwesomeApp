@@ -15,6 +15,7 @@ const RouterComponent = () => {
             <Scene key='signUp' component={SignUpScreen} title='Signup' sceneStyle={{ paddingTop: 150 }}/>
             <Scene key='signIn' component={SignInScreen} title='signin' sceneStyle={{ paddingTop: 150 }}/>
             <Scene key='homeScreen' component={UserHomeScreen} title='My Wardrobe'sceneStyle={{ paddingTop: 100 }} />
+            <Scene key='addPiecesScreen' component={AddPiecesScreen} title='Add Pieces' sceneStyle={{ paddingTop: 100 }}/>
             <Scene key='ShowPiecesScreen' component={ShowSinglePieceScreen} title='View Pieces' sceneStyle={{ paddingTop: 100 }}/>
         </Router>
     );
