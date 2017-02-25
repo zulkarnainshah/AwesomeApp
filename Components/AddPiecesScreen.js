@@ -1,8 +1,7 @@
 
 import React, { Component} from 'react';
-import {View, Text, ImagePickerIOS, Image, ImagePickerManager } from 'react-native';
+import {View, Text, ImagePickerIOS, Image, ImagePickerManager, Alert,AsyncStorage } from 'react-native';
 import {Button} from './Common';
-import { AsyncStorage } from 'react-native';
 
 export default class AddPiecesScreen extends Component {
     static propTypes = {};
@@ -89,7 +88,34 @@ export default class AddPiecesScreen extends Component {
             },
             body:formBody
         }).then(response => {
-            console.log(response)
+            //TODO:Check response here to see whether upload was successful or not and accordingly show alert
+            console.log(response);
+            if (response.status == 200) {
+                if (response._bodyText.toString().indexOf("success") > -1) {
+                    Alert.alert(
+                        'Uploaded Successfully','Piece Added',
+                            [
+                            {text:'Ok'}
+                            ]
+                    )
+                }
+                else if (response._bodyText.toString().indexOf("error") > -1){
+                    Alert.alert(
+                        'Error while uploading','Please try again',
+                            [
+                            {text:'Ok'}
+                            ]
+                    )
+                }
+            }
+            else{
+                Alert.alert(
+                    'Error while uploading','Please try again',
+                        [
+                        {text:'Ok'}
+                        ]
+                )
+            }
         }).catch(console.log);
     }
 

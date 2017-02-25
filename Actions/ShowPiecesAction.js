@@ -15,8 +15,8 @@ export const retrivePieces = () => {
             })
                 .then((response) => response.json())
                 .then((responseJson) => {
-                    console.log(responseJson);
                     const userid = responseJson.id;
+                    AsyncStorage.setItem('userInfo', JSON.stringify(responseJson));
                     getPieces(idToken, userid, dispatch);
                 });
         });
