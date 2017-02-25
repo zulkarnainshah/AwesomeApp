@@ -20,9 +20,7 @@ class UserHomeScreen extends Component {
     componentWillMount() {
         this.props.retrivePieces();
     }
-    onAddpiecesButtonPress() {
-        console.log(this.props.userInfo);
-
+    onAddPieceButtonPress() {
         Actions.addPiecesScreen({ userinfo: this.props.userInfo });
     }
 
@@ -49,8 +47,8 @@ class UserHomeScreen extends Component {
 
                     </ScrollView>
                     <CardSection>
-                        <Button onPress={this.onAddpiecesButtonPress.bind(this)}>
-                            add pieces
+                        <Button onPress={this.onAddPieceButtonPress.bind(this)}>
+                            Add Piece
                         </Button>
                     </CardSection>
                 </View>

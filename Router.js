@@ -10,14 +10,14 @@ import ShowSinglePieceScreen from './Components/ShowSinglePieceScreen';
 const RouterComponent = () => {
 
     return (
-     <Router sceneStyle={{ paddingTop: 150 }}>
-        <Scene key='startpage' component={LandingScreen} title='welcome' />
-         <Scene key='signUp' component={SignUpScreen} title='Signup' />
-         <Scene key='signIn' component={SignInScreen} title='signin' />
-         <Scene key='homeScreen' component={UserHomeScreen} title='My Wardrobe' />
-            <Scene key='addPiecesScreen' component={AddPiecesScreen} title='Add Pieces' />
-            <Scene key='ShowPiecesScreen' component={ShowSinglePieceScreen} title='View Pieces' />
-</Router>
+        <Router>
+            <Scene key='startpage' component={LandingScreen} title='welcome' sceneStyle={{ paddingTop: 150 }} />
+            <Scene key='signUp' component={SignUpScreen} title='Signup' sceneStyle={{ paddingTop: 150 }}/>
+            <Scene key='signIn' component={SignInScreen} title='signin' sceneStyle={{ paddingTop: 150 }}/>
+            <Scene key='homeScreen' component={UserHomeScreen} title='My Wardrobe'sceneStyle={{ paddingTop: 100 }} />
+            <Scene key='addPiecesScreen' component={AddPiecesScreen} title='Add Pieces' sceneStyle={{ paddingTop: 100 }}/>
+            <Scene key='ShowPiecesScreen' component={ShowSinglePieceScreen} title='View Pieces' sceneStyle={{ paddingTop: 100 }}/>
+        </Router>
     );
 };
-  export default RouterComponent;
+export default RouterComponent;

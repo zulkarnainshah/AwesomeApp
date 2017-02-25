@@ -56,3 +56,7 @@ fastlane/screenshots
 .tmp/reactNativeBuild/index.ios.bundle
 
 .tmp/reactNativeBuild/index.ios.map
+
+*.bundle
+
+*.map
