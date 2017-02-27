@@ -1,6 +1,6 @@
 
 import React, { Component} from 'react';
-import {View, Text, ImagePickerIOS, Image, ImagePickerManager, Alert,AsyncStorage } from 'react-native';
+import {View, Text, ImagePickerIOS, Image, ImagePickerManager, Alert,AsyncStorage,TextInput } from 'react-native';
 import {Button} from './Common';
 
 export default class AddPiecesScreen extends Component {
@@ -13,6 +13,7 @@ export default class AddPiecesScreen extends Component {
         super(props);
         this.state = { image: null };
         myReference = this;
+        // this.state.text = "Enter Description Here"
     }
 
     pickImage() {
@@ -69,7 +70,7 @@ export default class AddPiecesScreen extends Component {
             'processing': 'false!',
             'filename': 'response.fileName',
             'filetype':  'image/png',
-            'description':'test'
+            'description':this.state.text
         };
 
         let formBody = [];
@@ -94,26 +95,26 @@ export default class AddPiecesScreen extends Component {
                 if (response._bodyText.toString().indexOf("success") > -1) {
                     Alert.alert(
                         'Uploaded Successfully','Piece Added',
-                            [
+                        [
                             {text:'Ok'}
-                            ]
+                        ]
                     )
                 }
                 else if (response._bodyText.toString().indexOf("error") > -1){
                     Alert.alert(
                         'Error while uploading','Please try again',
-                            [
+                        [
                             {text:'Ok'}
-                            ]
+                        ]
                     )
                 }
             }
             else{
                 Alert.alert(
                     'Error while uploading','Please try again',
-                        [
+                    [
                         {text:'Ok'}
-                        ]
+                    ]
                 )
             }
         }).catch(console.log);
@@ -141,7 +142,18 @@ export default class AddPiecesScreen extends Component {
                     this.state.image ? <Image style={{ flex: 1 }} source={{ uri: this.state.image.uri}} /> : <View style={{ flex: 1 }}/>
                 }
                 {
-                    this.state.image ? <Button onPress={this.uploadImage.bind(this)}> Upload </Button> : <View style={{ flex: 1 }}/>
+                    this.state.image ?
+                        <View style={{ flex: 1 }}>
+                            <TextInput
+                                style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                                onChangeText={(text) => this.setState({text})}
+                                value={this.state.text}
+                                defaultValue="Enter Description here"
+                            />
+                            <Button onPress={this.uploadImage.bind(this)}> Upload </Button>
+                        </View>
+                        :
+                        <View style={{ flex: 1 }}/>
                 }
 
             </View>
