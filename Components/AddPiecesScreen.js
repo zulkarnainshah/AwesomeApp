@@ -102,24 +102,22 @@ export default class AddPiecesScreen extends Component {
         }).then(response => {
             //TODO:Check response here to see whether upload was successful or not and accordingly show alert
             console.log(response);
+
             if (response.status == 200) {
-                if (response._bodyText.toString().indexOf("success") > -1) {
-                    Alert.alert(
-                        'Uploaded Successfully', 'Piece Added',
-                        [
-                            {text: 'Show Pieces', onPress: () => Actions.homeScreen({ null, null })},
-                            {text: 'Add More'}
-                        ]
-                    )
-                }
-                else if (response._bodyText.toString().indexOf("error") > -1) {
-                    Alert.alert(
-                        'Error while uploading', 'Please try again',
-                        [
-                            {text: 'Ok'}
-                        ]
-                    )
-                }
+              Alert.alert(
+                  'Uploaded Successfully', 'Piece Added',
+                  [
+                      {text: 'Show Pieces', onPress: () => Actions.homeScreen({ null, null })},
+                      {text: 'Add More'}
+                  ]
+              )
+
+                // if (response._bodyText!= null && response._bodyText.toString().indexOf("success") > -1) {
+                //
+                // }
+                // else if ( response._bodyText!= null && response._bodyText.toString().indexOf("error") > -1) {
+                //
+                // }
             }
             else {
                 Alert.alert(
