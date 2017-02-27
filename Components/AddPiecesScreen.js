@@ -1,7 +1,17 @@
-
-import React, { Component} from 'react';
-import {View, Text, ImagePickerIOS, Image, ImagePickerManager, Alert,AsyncStorage,TextInput } from 'react-native';
+import React, {Component} from 'react';
+import {
+    View,
+    Text,
+    ImagePickerIOS,
+    Image,
+    ImagePickerManager,
+    Alert,
+    AsyncStorage,
+    TextInput,
+    ScrollView
+} from 'react-native';
 import {Button} from './Common';
+import {CardSection} from './Common/CardSection';
 
 export default class AddPiecesScreen extends Component {
     static propTypes = {};
@@ -11,13 +21,13 @@ export default class AddPiecesScreen extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { image: null };
+        this.state = {image: null};
         myReference = this;
         // this.state.text = "Enter Description Here"
     }
 
     pickImage() {
-        AsyncStorage.getItem('userId').then((value)=> {
+        AsyncStorage.getItem('userId').then((value) => {
             authToken = value;
             AsyncStorage.getItem('userInfo').then(function (value) {
                 jsonString = JSON.parse(value);
@@ -49,7 +59,7 @@ export default class AddPiecesScreen extends Component {
                         console.log('User tapped custom button: ', response.customButton);
                     }
                     else {
-                        myReference.setState({ image: response}, function() {
+                        myReference.setState({image: response}, function () {
                             // do something with new state
                         });
                     }
@@ -60,7 +70,7 @@ export default class AddPiecesScreen extends Component {
         });
     }
 
-    uploadImage(){
+    uploadImage() {
 
         // You can also display the image using data:
         // let source = { uri: 'data:image/jpeg;base64,' + response.data };
@@ -69,8 +79,8 @@ export default class AddPiecesScreen extends Component {
             'data_uri': 'data:image/png;base64,' + this.state.image.data,
             'processing': 'false!',
             'filename': 'response.fileName',
-            'filetype':  'image/png',
-            'description':this.state.text
+            'filetype': 'image/png',
+            'description': this.state.text
         };
 
         let formBody = [];
@@ -81,82 +91,119 @@ export default class AddPiecesScreen extends Component {
         }
         formBody = formBody.join("&");
 
-        fetch('https://server-dev1.mywardrobe.space/api/v1/users/'+ userID +'/pieces',{
+        fetch('https://server-dev1.mywardrobe.space/api/v1/users/' + userID + '/pieces', {
             method: 'post',
-            headers:{
-                'Authorization': 'Bearer '+ authToken,
+            headers: {
+                'Authorization': 'Bearer ' + authToken,
                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
             },
-            body:formBody
+            body: formBody
         }).then(response => {
             //TODO:Check response here to see whether upload was successful or not and accordingly show alert
             console.log(response);
             if (response.status == 200) {
                 if (response._bodyText.toString().indexOf("success") > -1) {
                     Alert.alert(
-                        'Uploaded Successfully','Piece Added',
+                        'Uploaded Successfully', 'Piece Added',
                         [
-                            {text:'Ok'}
+                            {text: 'Ok'}
                         ]
                     )
                 }
-                else if (response._bodyText.toString().indexOf("error") > -1){
+                else if (response._bodyText.toString().indexOf("error") > -1) {
                     Alert.alert(
-                        'Error while uploading','Please try again',
+                        'Error while uploading', 'Please try again',
                         [
-                            {text:'Ok'}
+                            {text: 'Ok'}
                         ]
                     )
                 }
             }
-            else{
+            else {
                 Alert.alert(
-                    'Error while uploading','Please try again',
+                    'Error while uploading', 'Please try again',
                     [
-                        {text:'Ok'}
+                        {text: 'Ok'}
                     ]
                 )
             }
         }).catch(console.log);
     }
 
-    render()   {
-        console.log(this.props.userinfo);
-        return   (
-            <View style={{ flex: 1 }}>
-                <Text
-                    style={{
-             color: 'black',
-             fontSize: 16,
-             fontWeight: "bold",
-             fontFamily: 'Helvetica Neue',
-           }}>
-                    Add a new piece of Cloth
+    render() {
+        if (this.state.image == null) {
+            return (
+                <View style={{ flex: 1 }}>
+                    <CardSection>
+                        <Text>
+                            Add a new piece of Cloth
+                        </Text>
+                    </CardSection>
+                    <CardSection>
+                        <Button onPress={this.pickImage.bind(this)}>
+                            Pick Image
+                        </Button>
+                    </CardSection>
+                </View>
 
-                </Text>
-                <Button onPress={this.pickImage.bind(this)}>
-                    Pick Image
-                </Button>
-
-                {
-                    this.state.image ? <Image style={{ flex: 1 }} source={{ uri: this.state.image.uri}} /> : <View style={{ flex: 1 }}/>
-                }
-                {
-                    this.state.image ?
-                        <View style={{ flex: 1 }}>
-                            <TextInput
-                                style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-                                onChangeText={(text) => this.setState({text})}
-                                value={this.state.text}
-                                defaultValue="Enter Description here"
-                            />
-                            <Button onPress={this.uploadImage.bind(this)}> Upload </Button>
-                        </View>
-                        :
-                        <View style={{ flex: 1 }}/>
-                }
-
-            </View>
-        )
+            );
+        }
+        else {
+            return (
+                <View style={{ flex: 1 }}>
+                    <CardSection>
+                        <Text>
+                            Add a new piece of Cloth
+                        </Text>
+                    </CardSection>
+                    <CardSection>
+                        <Button onPress={this.pickImage.bind(this)}>
+                            Pick Image
+                        </Button>
+                    </CardSection>
+                    <CardSection>
+                        <Image
+                            style={styles.imageStyle}
+                            source={{ uri: this.state.image.uri }} />
+                    </CardSection>
+                    <CardSection>
+                        <TextInput
+                            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                            onChangeText={(text) => this.setState({text})}
+                            value={this.state.text}
+                            defaultValue="Enter Description here"
+                        />
+                    </CardSection>
+                    <CardSection>
+                        <Button onPress={this.uploadImage.bind(this)}> Upload </Button>
+                    </CardSection>
+                </View>
+            )
+        }
     }
 }
+
+const styles = {
+    // headerContentStyle: {
+    //     flexDirection: 'column',
+    //     justifyContent: 'space-around'
+    // },
+    // headerTextStyle: {
+    //     fontSize: 18
+    // },
+    // thumbnailStyle: {
+    //     height: 50,
+    //     width: 50
+    // },
+    // thumbnailContainerStyle: {
+    //     justifyContent: 'center',
+    //     alignItems: 'center',
+    //     marginLeft: 10,
+    //     marginRight: 10
+    // },
+    imageStyle: {
+        height: 300,
+        flex: 1,
+        width: null
+    }
+};
