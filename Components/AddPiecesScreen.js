@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import {Button,Input} from './Common';
 import {CardSection} from './Common/CardSection';
+import { Actions } from 'react-native-router-flux';
 
 export default class AddPiecesScreen extends Component {
     static propTypes = {};
@@ -106,7 +107,8 @@ export default class AddPiecesScreen extends Component {
                     Alert.alert(
                         'Uploaded Successfully', 'Piece Added',
                         [
-                            {text: 'Ok'}
+                            {text: 'Show Pieces', onPress: () => Actions.homeScreen({ null, null })},
+                            {text: 'Add More'}
                         ]
                     )
                 }
