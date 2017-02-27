@@ -10,7 +10,7 @@ import {
     TextInput,
     ScrollView
 } from 'react-native';
-import {Button} from './Common';
+import {Button,Input} from './Common';
 import {CardSection} from './Common/CardSection';
 
 export default class AddPiecesScreen extends Component {
@@ -166,12 +166,13 @@ export default class AddPiecesScreen extends Component {
                             style={styles.imageStyle}
                             source={{ uri: this.state.image.uri }} />
                     </CardSection>
+
                     <CardSection>
-                        <TextInput
-                            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                        <Input
+                            label="description"
+                            placeholder="enter description"
                             onChangeText={(text) => this.setState({text})}
                             value={this.state.text}
-                            defaultValue="Enter Description here"
                         />
                     </CardSection>
                     <CardSection>
@@ -184,23 +185,6 @@ export default class AddPiecesScreen extends Component {
 }
 
 const styles = {
-    // headerContentStyle: {
-    //     flexDirection: 'column',
-    //     justifyContent: 'space-around'
-    // },
-    // headerTextStyle: {
-    //     fontSize: 18
-    // },
-    // thumbnailStyle: {
-    //     height: 50,
-    //     width: 50
-    // },
-    // thumbnailContainerStyle: {
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    //     marginLeft: 10,
-    //     marginRight: 10
-    // },
     imageStyle: {
         height: 300,
         flex: 1,
