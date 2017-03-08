@@ -8,13 +8,8 @@ import {CardSection} from './Common/CardSection';
 class Pieces extends Component {
 
     onShowPieceButtonPress(id) {
-        console.log(id);
-
         const idToken = this.props.userInfo[0];
         const userId = this.props.userInfo[1];
-        console.log(idToken);
-        console.log(userId);
-
         Actions.ShowPiecesScreen({idToken, userId, id});
     }
 
