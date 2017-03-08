@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Text, View, Image } from 'react-native';
-import { Actions } from 'react-native-router-flux';
-import { NewButton } from './Common/NewButton';
-import { CardSection } from './Common/CardSection';
+import React, {Component} from 'react';
+import {Text, View, Image, TouchableHighlight} from 'react-native';
+import {Actions} from 'react-native-router-flux';
+import {NewButton} from './Common/NewButton';
+import {CardSection} from './Common/CardSection';
 
 
 class Pieces extends Component {
@@ -15,35 +15,31 @@ class Pieces extends Component {
         console.log(idToken);
         console.log(userId);
 
-        Actions.ShowPiecesScreen({ idToken, userId, id });
+        Actions.ShowPiecesScreen({idToken, userId, id});
     }
+
     render() {
-        if(this.props.piecedetails.image != null) {
+        if (this.props.piecedetails.image != null) {
             return (
-                <View>
-                    <CardSection>
-                        <Image
-                            style={styles.imageStyle}
-                            source={{ uri: this.props.piecedetails.image }}/>
-                    </CardSection>
-                    <CardSection>
-                        <View style={styles.headerContentStyle}>
-                            <Text style={styles.headerTextStyle}>{this.props.piecedetails.description}</Text>
+                <TouchableHighlight
+                    onPress={() => this.onShowPieceButtonPress(this.props.piecedetails.id)}>
+                    <View>
+                        <CardSection>
+                            <Image
+                                style={styles.imageStyle}
+                                source={{ uri: this.props.piecedetails.image }}/>
 
-                        </View>
-                    </CardSection>
-                    <NewButton onPress={() => this.onShowPieceButtonPress(this.props.piecedetails.id)}>
-                        Show piece
-                    </NewButton>
-
-                </View>
+                        </CardSection>
+                    </View>
+                </TouchableHighlight>
             );
         }
-        else{
+        else {
             return null
         }
     }
-};
+}
+;
 
 const styles = {
     headerContentStyle: {

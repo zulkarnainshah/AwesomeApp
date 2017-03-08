@@ -44,7 +44,6 @@ class UserHomeScreen extends Component {
                 <View style={{ flex: 1 }}>
                     <ScrollView>
                         {this.fillData()}
-
                     </ScrollView>
                     <CardSection>
                         <Button onPress={this.onAddPieceButtonPress.bind(this)}>
