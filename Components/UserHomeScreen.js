@@ -34,7 +34,7 @@ class UserHomeScreen extends Component {
         Actions.addPiecesScreen({userinfo: this.props.userInfo});
     }
 
-     fillData() {
+    fillData() {
         const userInfo = this.props.userInfo;
         // return this.props.imagePieces.map(object =>
         //     <Pieces key={object.id} pieces={object} piecedetails={object} userInfo={userInfo} />
@@ -69,7 +69,7 @@ class UserHomeScreen extends Component {
                 // </View>
 
                 <View style={{ flex: 1 }}>
-                    <GridView>{this.props.imagePieces}</GridView>
+                    <GridView userInfo = {this.props.userInfo}>{this.props.imagePieces}</GridView>
                     <CardSection>
                         <Button onPress={this.onAddPieceButtonPress.bind(this)}>
                             Add Piece

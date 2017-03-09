@@ -11,6 +11,7 @@ import {
     TouchableHighlight,
     View
 } from 'react-native'
+import {Actions} from 'react-native-router-flux';
 
 export default class GridView extends Component {
     constructor(props) {
@@ -63,7 +64,11 @@ export default class GridView extends Component {
 
     _selectItem (item) {
         // do something with item
-        console.log('item selected', item.id, item.image)
+        console.log('item selected', item.id, item.image);
+        const idToken = this.props.userInfo[0];
+        const userId = this.props.userInfo[1];
+        const id = item.id;
+        Actions.ShowPiecesScreen({idToken, userId,id});
     }
 }
 
