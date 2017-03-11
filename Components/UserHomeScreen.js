@@ -70,6 +70,7 @@ class UserHomeScreen extends Component {
                             <Text style={styles.buttonLabel}>Profile</Text>
                         </View>
                     </View>
+                 
                 </View>
 
             );

@@ -1,7 +1,5 @@
-/**
- * Created by zulkarnainshah on 08/03/17.
- */
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+
 import {
     AppRegistry,
     ListView,
