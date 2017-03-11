@@ -70,11 +70,7 @@ class UserHomeScreen extends Component {
 
                 <View style={{ flex: 1 }}>
                     <GridView userInfo = {this.props.userInfo}>{this.props.imagePieces}</GridView>
-                    <CardSection>
-                        <Button onPress={this.onAddPieceButtonPress.bind(this)}>
-                            Add Piece
-                        </Button>
-                    </CardSection>
+                  
                 </View>
 
 
