@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {ScrollView, View} from 'react-native';
+import {ScrollView, View, Text,TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
 import {Actions} from 'react-native-router-flux';
 import {retrivePieces} from '../Actions';
@@ -57,22 +57,29 @@ class UserHomeScreen extends Component {
         }
         else {
             return (
-                // <View style={{ flex: 1 }}>
-                //     <ScrollView>
-                //         {this.fillData()}
-                //     </ScrollView>
-                //     <CardSection>
-                //         <Button onPress={this.onAddPieceButtonPress.bind(this)}>
-                //             Add Piece
-                //         </Button>
-                //     </CardSection>
-                // </View>
-
                 <View style={{ flex: 1 }}>
-                    <GridView userInfo = {this.props.userInfo}>{this.props.imagePieces}</GridView>
-                  
-                </View>
+                    <GridView userInfo={this.props.userInfo}>{this.props.imagePieces}</GridView>
 
+                    <View style={styles.footerView}>
+                        <TouchableOpacity>
+                            <View style={styles.button} backgroundColor='cyan'>
+                                <Text style={styles.buttonLabel} backgroundColor='cyan'>Pieces</Text>
+                            </View>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity>
+                            <View style={styles.button} backgroundColor='white'>
+                                <Text style={styles.buttonLabel}>Combinations</Text>
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <View style={styles.button} backgroundColor='white'>
+                                <Text style={styles.buttonLabel}>Profile</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+
+                </View>
 
             );
 
@@ -89,3 +96,25 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, {retrivePieces})(UserHomeScreen);
+
+const styles = {
+    footerView: {
+        height: 60,
+        padding: 10,
+        flexDirection: 'row',
+        backgroundColor: 'skyblue',
+        justifyContent: 'space-between'
+    },
+    button: {
+        borderWidth: 2,
+        height: 40,
+        borderColor: 'gray',
+        justifyContent: 'center',
+        borderRadius: 5
+    },
+    buttonLabel: {
+        fontSize: 18,
+        padding: 5,
+    }
+
+};
