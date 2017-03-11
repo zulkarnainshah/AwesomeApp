@@ -1,7 +1,7 @@
 /**
  * Created by zulkarnainshah on 08/03/17.
  */
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import {
     AppRegistry,
     ListView,
@@ -17,7 +17,7 @@ export default class GridView extends Component {
     constructor(props) {
         super(props)
         const data = props.children || []
-        const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
+        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
         this.state = {
             dataSource: ds.cloneWithRows(data)
         }
@@ -42,46 +42,46 @@ export default class GridView extends Component {
         )
     }
 
-    _renderRow (rowData, sectionId, rowId) {
-        if(rowData.image != null){
-            const imgSource = { uri: rowData.image };
-            console.log('imgSource', imgSource);
+
+    _renderRow(rowData, sectionId, rowId) {
+        if (rowData.image != null) {
+            const imgSource = {uri: rowData.image};
             return (
                 <TouchableHighlight
                     style={styles.row}
                     onPress={() => this._selectItem(rowData)}
                     underlayColor='rgba(0,0,0,0)'>
                     <View>
-                        <Image style={styles.thumb} source={imgSource} />
+                        <Image style={styles.thumb} source={imgSource}/>
                     </View>
                 </TouchableHighlight>
             )
         }
-        else{
+        else {
             return null;
         }
     }
 
-    _selectItem (item) {
+    _selectItem(item) {
         // do something with item
         console.log('item selected', item.id, item.image);
         const idToken = this.props.userInfo[0];
         const userId = this.props.userInfo[1];
         const id = item.id;
-        Actions.ShowPiecesScreen({idToken, userId,id});
+        Actions.ShowPiecesScreen({idToken, userId, id});
     }
 }
 
 const styles = StyleSheet.create({
     mainView: {
-        paddingTop:0,
+        paddingTop: 0,
         flex: 1
     },
     list: {
         justifyContent: 'center',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        backgroundColor: '#eeeeee',
+        backgroundColor: '#FFFFFF',
         paddingTop: 8,
     },
     row: {
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
         margin: 6,
         width: 100,
         height: 100,
-        alignItems: 'center'
+        alignItems: 'flex-start'
     },
     thumb: {
         width: 100,

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {ScrollView, View} from 'react-native';
+import {ScrollView, View,Text} from 'react-native';
 import {connect} from 'react-redux';
 import {Actions} from 'react-native-router-flux';
 import {retrivePieces} from '../Actions';
@@ -57,26 +57,20 @@ class UserHomeScreen extends Component {
         }
         else {
             return (
-                // <View style={{ flex: 1 }}>
-                //     <ScrollView>
-                //         {this.fillData()}
-                //     </ScrollView>
-                //     <CardSection>
-                //         <Button onPress={this.onAddPieceButtonPress.bind(this)}>
-                //             Add Piece
-                //         </Button>
-                //     </CardSection>
-                // </View>
-
                 <View style={{ flex: 1 }}>
                     <GridView userInfo = {this.props.userInfo}>{this.props.imagePieces}</GridView>
-                    <CardSection>
-                        <Button onPress={this.onAddPieceButtonPress.bind(this)}>
-                            Add Piece
-                        </Button>
-                    </CardSection>
+                    <View style={styles.footerView}>
+                        <View style={styles.button}>
+                            <Text style={styles.buttonLabel}>Pieces</Text>
+                        </View>
+                        <View style={styles.button}>
+                            <Text style={styles.buttonLabel}>Combinations</Text>
+                        </View>
+                        <View style={styles.button}>
+                            <Text style={styles.buttonLabel}>Profile</Text>
+                        </View>
+                    </View>
                 </View>
-
 
             );
 
@@ -93,3 +87,25 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, {retrivePieces})(UserHomeScreen);
+
+const styles = {
+    footerView: {
+        height: 60,
+        padding:20,
+        flexDirection: 'row',
+        backgroundColor:'skyblue',
+        justifyContent: 'space-between'
+    },
+    button:{
+        backgroundColor: 'white',
+        borderWidth: 1,
+        borderColor: '#A6A8AB',
+        justifyContent:'center'
+    },
+    buttonLabel: {
+        fontSize: 18,
+        padding:5,
+        backgroundColor:'white'
+    }
+
+};
