@@ -59,7 +59,7 @@ class UserHomeScreen extends Component {
             return (
                 <View style={{ flex: 1 }}>
                     <GridView userInfo={this.props.userInfo}>{this.props.imagePieces}</GridView>
-                    
+
                     <View style={styles.footerView}>
                         <TouchableOpacity>
                             <View style={styles.button} backgroundColor='cyan'>
@@ -68,12 +68,12 @@ class UserHomeScreen extends Component {
                         </TouchableOpacity>
 
                         <TouchableOpacity>
-                            <View style={styles.button}>
+                            <View style={styles.button} backgroundColor='white'>
                                 <Text style={styles.buttonLabel}>Combinations</Text>
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity>
-                            <View style={styles.button}>
+                            <View style={styles.button} backgroundColor='white'>
                                 <Text style={styles.buttonLabel}>Profile</Text>
                             </View>
                         </TouchableOpacity>
