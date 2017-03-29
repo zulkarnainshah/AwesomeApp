@@ -25,20 +25,16 @@ class UserHomeScreen extends Component {
         this.fillData()
     }
 
-    onAddPieceButtonPress() {
-        Actions.addPiecesScreen({userinfo: this.props.userInfo});
-    }
-
     fillData() {
         this.props.retrivePieces();
-        const userInfo = this.props.userInfo;
+        UserHomeScreen.selectedTab = 1;
         for (let i = 0; i < this.props.imagePieces.length; i++) {
             this.state.data.push({
                 id: this.props.imagePieces[i].id,
                 uri: this.props.imagePieces[i].image
             })
         }
-        UserHomeScreen.selectedTab = 1;
+
     }
 
     /** Calls the Combinations API and saves the data in AsyncStorage **/
@@ -78,7 +74,7 @@ class UserHomeScreen extends Component {
                 />
 
                 <View style={styles.footerView}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={this.showPiecesTab.bind(this)}>
                         <View style={styles.button} backgroundColor='white'>
                             <Text style={styles.buttonLabel} backgroundColor='cyan'>Pieces</Text>
                         </View>
@@ -107,7 +103,7 @@ class UserHomeScreen extends Component {
                 <GridView userInfo={this.props.userInfo}>{this.props.imagePieces}</GridView>
 
                 <View style={styles.footerView}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={this.showPiecesTab.bind(this)}>
                         <View style={styles.button} backgroundColor='cyan'>
                             <Text style={styles.buttonLabel} backgroundColor='cyan'>Pieces</Text>
                         </View>
@@ -132,6 +128,10 @@ class UserHomeScreen extends Component {
 
     }
 
+    showPiecesTab(){
+        UserHomeScreen.selectedTab = 1;
+        this.forceUpdate()
+    }
     renderCombinationRow(rowData){
         return(
             <View>
