@@ -77,7 +77,7 @@ export default class GridView extends Component {
         const authToken = this.props.userInfo[0];
         const userID = this.props.userInfo[1];
         const id = item.id;
-        Actions.ShowPiecesScreen({authToken, userID, id});
+        Actions.showPiece({authToken, userID, id});
     }
 
     async selectCombinationDetailItem(item){
@@ -86,7 +86,7 @@ export default class GridView extends Component {
         if(authToken != null && userInfo != null){
             userID = userInfo.id;
             const id = item.id;
-            Actions.ShowPiecesScreen({authToken, userID, id});
+            Actions.showPiece({authToken, userID, id});
         }
     }
 }

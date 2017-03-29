@@ -147,7 +147,7 @@ class UserHomeScreen extends Component {
     /** Loads another view controller/screen which calls show combination API **/
     showCombination(){
         combinationID = this.valueOf();
-        Actions.combinationDetailScene({combinationID:combinationID});
+        Actions.combinationDetail({combinationID:combinationID});
     }
 
     render() {

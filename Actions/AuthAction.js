@@ -62,7 +62,7 @@ const loginUserSuccess = (dispatch, id) => {
         payload: id
 
     });
-    Actions.startpage({ type: 'reset' });
+    Actions.startPage({ type: 'reset' });
 };
 const loginUserFail = (dispatch) => {
     dispatch({ type: LOGIN_USER_FAIL });

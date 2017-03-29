@@ -9,7 +9,7 @@ class Pieces extends Component {
     onShowPieceButtonPress(pieceID) {
         const authToken = this.props.userInfo[0];
         const userID = this.props.userInfo[1];
-        Actions.ShowPiecesScreen({authToken, userID, pieceID});
+        Actions.showPiece({authToken, userID, pieceID});
     }
 
     render() {
