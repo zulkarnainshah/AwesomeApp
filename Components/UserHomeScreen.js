@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, TouchableOpacity, AsyncStorage,ListView,TouchableHighlight} from 'react-native';
+import {View, Text, TouchableOpacity, AsyncStorage, ListView, TouchableHighlight} from 'react-native';
 import {connect} from 'react-redux';
 import {Actions} from 'react-native-router-flux';
 import {retrivePieces} from '../Actions';
@@ -62,14 +62,14 @@ class UserHomeScreen extends Component {
         }
     }
 
-    renderCombinationsTab(){
+    renderCombinationsTab() {
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-        dataSource =  ds.cloneWithRows(this.combinations);
+        dataSource = ds.cloneWithRows(this.combinations);
         return (
             <View style={{flex: 1}}>
                 <ListView
                     dataSource={dataSource}
-                    renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
+                    renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator}/>}
                     renderRow={(rowData) => this.renderCombinationRow(rowData)}
                 />
 
@@ -97,7 +97,7 @@ class UserHomeScreen extends Component {
         );
     }
 
-    renderPiecesTab(){
+    renderPiecesTab() {
         return (
             <View style={{flex: 1}}>
                 <GridView userInfo={this.props.userInfo}>{this.props.imagePieces}</GridView>
@@ -128,18 +128,28 @@ class UserHomeScreen extends Component {
 
     }
 
-    showPiecesTab(){
+    showPiecesTab() {
         UserHomeScreen.selectedTab = 1;
         this.forceUpdate()
     }
-    renderCombinationRow(rowData){
-        return(
+
+    renderCombinationRow(rowData) {
+        return (
             <View>
-                <Text style={styles.textStyle}>{rowData.id}</Text>
-                <Text style={styles.textStyle}>{rowData.description}</Text>
+                <TouchableOpacity onPress ={this.showCombination.bind(rowData.id)}>
+                    <Text style={styles.textStyle}>{rowData.id}</Text>
+                    <Text style={styles.textStyle}>{rowData.description}</Text>
+                </TouchableOpacity>
             </View>
         );
     }
+
+    /** Loads another view controller/screen which calls show combination API **/
+    showCombination(){
+        combinationID = this.valueOf();
+        Actions.combinationDetailScene();
+    }
+
     render() {
         if (this.props.dataLoading) {
             {
@@ -152,7 +162,7 @@ class UserHomeScreen extends Component {
                 return this.renderPiecesTab()
             }
             else if (UserHomeScreen.selectedTab === 2) {
-               return this.renderCombinationsTab()
+                return this.renderCombinationsTab()
             }
         }
     }

@@ -6,6 +6,7 @@ import SignUpScreen from './Components/SignUpScreen';
 import UserHomeScreen from './Components/UserHomeScreen';
 import AddPiecesScreen from './Components/AddPiecesScreen';
 import ShowSinglePieceScreen from './Components/ShowSinglePieceScreen';
+import CombinationDetailScreen from './Components/CombinationDetailScreen';
 
 const RouterComponent = () => {
 
@@ -18,8 +19,9 @@ const RouterComponent = () => {
             onRight={() => Actions.addPiecesScreen()}
             rightTitle="+ Add"
             sceneStyle={{ paddingTop: 100 }} />
-            <Scene key='addPiecesScreen' component={AddPiecesScreen} title='Add Pieces' sceneStyle={{ paddingTop: 100 }}/>
-            <Scene key='ShowPiecesScreen' component={ShowSinglePieceScreen} title='View Pieces' sceneStyle={{ paddingTop: 100 }}/>
+            <Scene key='addPiecesScreen' component={AddPiecesScreen} title='Add Piece' sceneStyle={{ paddingTop: 100 }}/>
+            <Scene key='ShowPiecesScreen' component={ShowSinglePieceScreen} title='Piece' sceneStyle={{ paddingTop: 100 }}/>
+            <Scene key='combinationDetailScene' component={CombinationDetailScreen} title='Combination' sceneStyle={{ paddingTop: 100 }}/>
         </Router>
     );
 };
