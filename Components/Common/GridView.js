@@ -14,15 +14,14 @@ import {Actions} from 'react-native-router-flux';
 export default class GridView extends Component {
     constructor(props) {
         super(props)
-        const data = props.children || []
-        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
+        const data = props.children || [];
+        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.state = {
             dataSource: ds.cloneWithRows(data)
-        }
+        };
 
-        this._renderRow = this._renderRow.bind(this)
-        this._selectItem = this._selectItem.bind(this)
-
+        this._renderRow = this._renderRow.bind(this);
+        this._selectItem = this._selectItem.bind(this);
 
     }
 
@@ -42,7 +41,7 @@ export default class GridView extends Component {
 
 
     _renderRow(rowData, sectionId, rowId) {
-        if (rowData.image != null) {
+        if (rowData.image !== null) {
             const imgSource = {uri: rowData.image};
             return (
                 <TouchableHighlight
