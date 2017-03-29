@@ -61,10 +61,10 @@ export default class GridView extends Component {
 
     _selectItem(item) {
         // do something with item
-        const idToken = this.props.userInfo[0];
-        const userId = this.props.userInfo[1];
+        const authToken = this.props.userInfo[0];
+        const userID = this.props.userInfo[1];
         const id = item.id;
-        Actions.ShowPiecesScreen({idToken, userId, id});
+        Actions.ShowPiecesScreen({authToken, userID, id});
     }
 }
 

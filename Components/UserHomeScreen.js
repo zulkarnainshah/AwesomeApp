@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, TouchableOpacity, AsyncStorage, ListView, TouchableHighlight} from 'react-native';
+import {View, Text, TouchableOpacity, AsyncStorage, ListView} from 'react-native';
 import {connect} from 'react-redux';
 import {Actions} from 'react-native-router-flux';
 import {retrivePieces} from '../Actions';
@@ -22,10 +22,10 @@ class UserHomeScreen extends Component {
     }
 
     componentWillMount() {
-        this.fillData()
+        this.getPieces()
     }
 
-    fillData() {
+    getPieces() {
         this.props.retrivePieces();
         UserHomeScreen.selectedTab = 1;
         for (let i = 0; i < this.props.imagePieces.length; i++) {
@@ -40,7 +40,7 @@ class UserHomeScreen extends Component {
     /** Calls the Combinations API and saves the data in AsyncStorage **/
     async getCombinations() {
 
-        let authToken = await AsyncStorage.getItem('userId');
+        let authToken = await AsyncStorage.getItem('authToken');
         let userInfo = await AsyncStorage.getItem('userInfo');
 
         if (authToken !== null && userInfo !== null) {
@@ -147,7 +147,7 @@ class UserHomeScreen extends Component {
     /** Loads another view controller/screen which calls show combination API **/
     showCombination(){
         combinationID = this.valueOf();
-        Actions.combinationDetailScene();
+        Actions.combinationDetailScene({combinationID:combinationID});
     }
 
     render() {

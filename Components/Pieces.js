@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
 import {Text, View, Image, TouchableHighlight} from 'react-native';
 import {Actions} from 'react-native-router-flux';
-import {NewButton} from './Common/NewButton';
 import {CardSection} from './Common/CardSection';
 
 
 class Pieces extends Component {
 
-    onShowPieceButtonPress(id) {
-        const idToken = this.props.userInfo[0];
-        const userId = this.props.userInfo[1];
-        Actions.ShowPiecesScreen({idToken, userId, id});
+    onShowPieceButtonPress(pieceID) {
+        const authToken = this.props.userInfo[0];
+        const userID = this.props.userInfo[1];
+        Actions.ShowPiecesScreen({authToken, userID, pieceID});
     }
 
     render() {
