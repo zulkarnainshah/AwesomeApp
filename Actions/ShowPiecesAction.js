@@ -1,16 +1,17 @@
-import { AsyncStorage } from 'react-native';
-import { SHOW_USER_PIECES, GET_USER_IDS, GET_PIECES_LOADING } from './Types';
+import {AsyncStorage} from 'react-native';
+import {SHOW_USER_PIECES, GET_USER_IDS, GET_PIECES_LOADING} from './Types';
 
 
 export const retrivePieces = () => {
     return (dispatch) => {
-        dispatch({ type: GET_PIECES_LOADING });
+        dispatch({type: GET_PIECES_LOADING});
         AsyncStorage.getItem('authToken').then((value) => {
             const API_ENDPOINT = 'https://server-dev1.mywardrobe.space/api/v1/auth/userinfo';
             const authToken = value;
-            fetch(API_ENDPOINT,{ method: "GET",
-                headers:{
-                    'Authorization': 'Bearer '+ authToken
+            fetch(API_ENDPOINT, {
+                method: "GET",
+                headers: {
+                    'Authorization': 'Bearer ' + authToken
                 }
             })
                 .then((response) => response.json())
@@ -23,12 +24,12 @@ export const retrivePieces = () => {
     }
 };
 export const getPieces = (authToken, userID, dispatch) => {
-    const API_ENDPOINT = 'https://server-dev1.mywardrobe.space/api/v1/users/'+userID+'/pieces';
-    fetch(API_ENDPOINT,{
+    const API_ENDPOINT = 'https://server-dev1.mywardrobe.space/api/v1/users/' + userID + '/pieces';
+    fetch(API_ENDPOINT, {
         method: 'GET',
 
-        headers:{
-            'Authorization': 'Bearer '+authToken
+        headers: {
+            'Authorization': 'Bearer ' + authToken
         }
     }).then((response) => response.json())
         .then((responseJson) => {

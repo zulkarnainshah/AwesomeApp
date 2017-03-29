@@ -41,7 +41,7 @@ export default class GridView extends Component {
 
 
     _renderRow(rowData, sectionId, rowId) {
-        if (rowData.image !== null) {
+        if (rowData.image != null) {
             const imgSource = {uri: rowData.image};
             return (
                 <TouchableHighlight
@@ -54,7 +54,20 @@ export default class GridView extends Component {
                 </TouchableHighlight>
             )
         }
-        else {
+        else if (rowData.imageres[0].image != null){
+            const imgSource = {uri:rowData.imageres[0].image};
+            return (
+                <TouchableHighlight
+                    style={styles.row}
+                    onPress={() => this._selectItem(rowData)}
+                    underlayColor='rgba(0,0,0,0)'>
+                    <View>
+                        <Image style={styles.thumb} source={imgSource}/>
+                    </View>
+                </TouchableHighlight>
+            )
+        }
+        else{
             return null;
         }
     }
