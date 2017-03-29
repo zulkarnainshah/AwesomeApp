@@ -59,7 +59,7 @@ export default class GridView extends Component {
             return (
                 <TouchableHighlight
                     style={styles.row}
-                    onPress={() => this._selectItem(rowData)}
+                    // onPress={() => this._selectItem(rowData)}
                     underlayColor='rgba(0,0,0,0)'>
                     <View>
                         <Image style={styles.thumb} source={imgSource}/>
