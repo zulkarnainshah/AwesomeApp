@@ -1,87 +1,81 @@
-import React, { Component } from 'react';
-import { View, Text, Image, ScrollView, Alert } from 'react-native';
-import { connect } from 'react-redux';
-import { Actions } from 'react-native-router-flux';
-import { NewButton } from './Common/NewButton';
-import { CardSection } from './Common/CardSection';
-import { viewSinglePiece, removeSinglePiece } from '../Actions'
-import { Button } from './Common/Button';
-import { Spinner } from './Common/Spinner';
+import React, {Component} from 'react';
+import {View, Text, Image, ScrollView, Alert} from 'react-native';
+import {connect} from 'react-redux';
+import {Actions} from 'react-native-router-flux';
+import {NewButton} from './Common/NewButton';
+import {CardSection} from './Common/CardSection';
+import {viewSinglePiece, removeSinglePiece} from '../Actions'
+import {Button} from './Common/Button';
+import {Spinner} from './Common/Spinner';
 
 class ShowSinglePieceScreen extends Component {
 
 
-    static propTypes = {}
+    static propTypes = {};
 
-    static defaultProps = {}
+    static defaultProps = {};
 
     constructor(props) {
         super(props);
-        this.state = { pieces: {} };
+        this.state = {pieces: {}};
     }
+
     componentWillMount() {
         const id = this.props.id;
-        const userId = this.props.userId;
-        const idToken = this.props.idToken;
-        this.props.viewSinglePiece(idToken, userId, id);
+        const userID = this.props.userID;
+        const authToken = this.props.authToken;
+        this.props.viewSinglePiece(authToken, userID, id);
 
     }
-    onConfirmDeleteButtonPress(){
+
+    onConfirmDeleteButtonPress() {
         const id = this.props.id;
-        const userId = this.props.userId;
-        const idToken = this.props.idToken;
-        this.props.removeSinglePiece(idToken, userId, id);
+        const userID = this.props.userID;
+        const authToken = this.props.authToken;
+        this.props.removeSinglePiece(authToken, userID, id);
     }
 
-    onDeleteButtonPress(){
+    onDeleteButtonPress() {
         Alert.alert(
             'Confirm Deletion',
             'Are you sure you want to delete this Piece',
             [
 
-                {text:'yes', onPress: () => this.onConfirmDeleteButtonPress()},
-                {text:'no'}
+                {text: 'yes', onPress: () => this.onConfirmDeleteButtonPress()},
+                {text: 'no'}
 
             ]
-
-
         )
 
     }
 
     render() {
         // console.log(this.props.piece.piece);
-        if (this.props.piece != null) {
-
-            console.log(this.props.piece);
-            this.props.piece.piece.image
+        if (this.props.piece !== null) {
             return (
-                <View style={{ flex: 1 }}>
-
-                  <CardSection>
-                    <Image
-                        style={styles.imageStyle}
-                        source={{ uri: this.props.piece.piece.image }} />
-                  </CardSection>
-                  <CardSection>
-                    <View style={styles.headerContentStyle}>
-                      <Text style={styles.headerTextStyle}>{this.props.piece.piece.description}</Text>
-
-                    </View>
-
-                  </CardSection>
-                  <CardSection>
-                    <Button onPress={this.onDeleteButtonPress.bind(this)}>
-                      Delete piece
-                    </Button>
-                  </CardSection>
+                <View style={{flex: 1}}>
+                    <CardSection>
+                        <Image
+                            style={styles.imageStyle}
+                            source={{uri: this.props.piece.piece.image}}/>
+                    </CardSection>
+                    <CardSection>
+                        <View style={styles.headerContentStyle}>
+                            <Text style={styles.headerTextStyle}>{this.props.piece.piece.description}</Text>
+                        </View>
+                    </CardSection>
+                    <CardSection>
+                        <Button onPress={this.onDeleteButtonPress.bind(this)}>
+                            Delete piece
+                        </Button>
+                    </CardSection>
                 </View>
             );
         }
         else {
             return (
                 <View>
-                  <Spinner size={'large'} />
+                    <Spinner size={'large'}/>
 
                 </View>
             );
@@ -121,4 +115,4 @@ const mapStateToProps = state => {
 
     };
 };
-export default connect(mapStateToProps, { viewSinglePiece, removeSinglePiece })(ShowSinglePieceScreen);
+export default connect(mapStateToProps, {viewSinglePiece, removeSinglePiece})(ShowSinglePieceScreen);
