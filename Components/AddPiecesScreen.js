@@ -28,7 +28,7 @@ export default class AddPiecesScreen extends Component {
     }
 
     pickImage() {
-        AsyncStorage.getItem('userId').then((value) => {
+        AsyncStorage.getItem('authToken').then((value) => {
             authToken = value;
             AsyncStorage.getItem('userInfo').then(function (value) {
                 jsonString = JSON.parse(value);

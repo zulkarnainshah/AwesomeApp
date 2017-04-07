@@ -42,17 +42,13 @@ export const loginUser = ({ email, password }) => {
         })
             .then((response) => response.json())
             .then((responseJson) => {
-                console.log(responseJson);
-                const id = responseJson.id_token;
-                if (id == null) {
+                const authToken = responseJson.id_token;
+                if (authToken === null) {
                     loginUserFail(dispatch);
                 }
                 else {
-                    loginUserSuccess(dispatch, id);
-                    saveIdOnLocalStorage(id);
-
-
-                    console.log(id);
+                    loginUserSuccess(dispatch, authToken);
+                    saveIdOnLocalStorage(authToken);
                     Actions.homeScreen({ type: 'reset' });
                 }
             });
@@ -66,17 +62,12 @@ const loginUserSuccess = (dispatch, id) => {
         payload: id
 
     });
-    Actions.startpage({ type: 'reset' });
+    Actions.startPage({ type: 'reset' });
 };
 const loginUserFail = (dispatch) => {
     dispatch({ type: LOGIN_USER_FAIL });
 };
 
-
-
-
-
-const saveIdOnLocalStorage = (idToken) => {
-
-    AsyncStorage.setItem('userId', idToken);
+const saveIdOnLocalStorage = (authToken) => {
+    AsyncStorage.setItem('authToken', authToken);
 };

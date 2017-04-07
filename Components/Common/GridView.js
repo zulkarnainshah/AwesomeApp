@@ -7,22 +7,22 @@ import {
     StyleSheet,
     Text,
     TouchableHighlight,
-    View
+    View,
+    AsyncStorage
 } from 'react-native'
 import {Actions} from 'react-native-router-flux';
 
 export default class GridView extends Component {
     constructor(props) {
         super(props)
-        const data = props.children || []
-        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
+        const data = props.children || [];
+        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.state = {
             dataSource: ds.cloneWithRows(data)
-        }
+        };
 
-        this._renderRow = this._renderRow.bind(this)
-        this._selectItem = this._selectItem.bind(this)
-
+        this._renderRow = this._renderRow.bind(this);
+        this.selectItem = this.selectItem.bind(this);
 
     }
 
@@ -47,7 +47,7 @@ export default class GridView extends Component {
             return (
                 <TouchableHighlight
                     style={styles.row}
-                    onPress={() => this._selectItem(rowData)}
+                    onPress={() => this.selectItem(rowData)}
                     underlayColor='rgba(0,0,0,0)'>
                     <View>
                         <Image style={styles.thumb} source={imgSource}/>
@@ -55,18 +55,39 @@ export default class GridView extends Component {
                 </TouchableHighlight>
             )
         }
-        else {
+        else if (rowData.imageres[0].image != null){
+            const imgSource = {uri:rowData.imageres[0].image};
+            return (
+                <TouchableHighlight
+                    style={styles.row}
+                    onPress={() => this.selectCombinationDetailItem(rowData)}
+                    underlayColor='rgba(0,0,0,0)'>
+                    <View>
+                        <Image style={styles.thumb} source={imgSource}/>
+                    </View>
+                </TouchableHighlight>
+            )
+        }
+        else{
             return null;
         }
     }
 
-    _selectItem(item) {
-        // do something with item
-        console.log('item selected', item.id, item.image);
-        const idToken = this.props.userInfo[0];
-        const userId = this.props.userInfo[1];
+    selectItem(item) {
+        const authToken = this.props.userInfo[0];
+        const userID = this.props.userInfo[1];
         const id = item.id;
-        Actions.ShowPiecesScreen({idToken, userId, id});
+        Actions.showPiece({authToken, userID, id});
+    }
+
+    async selectCombinationDetailItem(item){
+        const authToken = await AsyncStorage.getItem('authToken');
+        const userInfo = await AsyncStorage.getItem('userInfo');
+        if(authToken != null && userInfo != null){
+            userID = userInfo.id;
+            const id = item.id;
+            Actions.showPiece({authToken, userID, id});
+        }
     }
 }
 

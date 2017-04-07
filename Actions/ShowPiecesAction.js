@@ -1,41 +1,41 @@
-import { AsyncStorage } from 'react-native';
-import { SHOW_USER_PIECES, GET_USER_IDS, GET_PIECES_LOADING } from './Types';
+import {AsyncStorage} from 'react-native';
+import {SHOW_USER_PIECES, GET_USER_IDS, GET_PIECES_LOADING} from './Types';
 
 
 export const retrivePieces = () => {
     return (dispatch) => {
-        dispatch({ type: GET_PIECES_LOADING });
-        AsyncStorage.getItem('userId').then((value) => {
+        dispatch({type: GET_PIECES_LOADING});
+        AsyncStorage.getItem('authToken').then((value) => {
             const API_ENDPOINT = 'https://server-dev1.mywardrobe.space/api/v1/auth/userinfo';
-            const idToken = value;
-            fetch(API_ENDPOINT,{ method: "GET",
-                headers:{
-                    'Authorization': 'Bearer '+ idToken
+            const authToken = value;
+            fetch(API_ENDPOINT, {
+                method: "GET",
+                headers: {
+                    'Authorization': 'Bearer ' + authToken
                 }
             })
                 .then((response) => response.json())
                 .then((responseJson) => {
-                    const userid = responseJson.id;
+                    const userID = responseJson.id;
                     AsyncStorage.setItem('userInfo', JSON.stringify(responseJson));
-                    getPieces(idToken, userid, dispatch);
+                    getPieces(authToken, userID, dispatch);
                 });
         });
     }
 };
-export const getPieces = (idToken, UserID, dispatch) => {
-    const API_ENDPOINT = 'https://server-dev1.mywardrobe.space/api/v1/users/'+UserID+'/pieces';
-    fetch(API_ENDPOINT,{
+export const getPieces = (authToken, userID, dispatch) => {
+    const API_ENDPOINT = 'https://server-dev1.mywardrobe.space/api/v1/users/' + userID + '/pieces';
+    fetch(API_ENDPOINT, {
         method: 'GET',
 
-        headers:{
-            'Authorization': 'Bearer '+idToken
+        headers: {
+            'Authorization': 'Bearer ' + authToken
         }
     }).then((response) => response.json())
         .then((responseJson) => {
             const piecesData = responseJson;
-
-            showPieces(dispatch, piecesData)
-            getUserInformation(dispatch, idToken, UserID);
+            showPieces(dispatch, piecesData);
+            getUserInformation(dispatch, authToken, userID);
         });
 };
 export const showPieces = (dispatch, piecesData) => {
@@ -45,14 +45,13 @@ export const showPieces = (dispatch, piecesData) => {
 
     });
 
-}
+};
 
-export const getUserInformation = (dispatch, idToken, userId) => {
-    const userinfo = [idToken, userId];
-    console.log(userinfo);
+export const getUserInformation = (dispatch, authToken, userID) => {
+    const userinfo = [authToken, userID];
     dispatch({
         type: GET_USER_IDS,
         payload: userinfo
     });
 
-}
+};
